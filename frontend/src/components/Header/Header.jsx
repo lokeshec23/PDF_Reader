@@ -1,32 +1,48 @@
-import ICLOGO from "../../assets/images/IC_Logo.jpg";
+import { Header as CarbonHeader, HeaderName, HeaderGlobalBar } from 'carbon-components-react';
+import ICLOGO from '../../assets/images/document-review.png';
 
 const Header = () => {
   return (
-    <header className="flex justify-between items-center bg-white px-6 py-3 shadow-md z-10">
-      {/* Logo and App Title */}
-      <div className="flex items-center gap-4">
-        <img src={ICLOGO} alt="IC-LOGO" className="h-15 w-50" />
-      </div>
+    <CarbonHeader aria-label="IC App Header">
+      {/* Logo + App Title */}
+      <HeaderName prefix="">
+        <img
+          src={ICLOGO}
+          alt="IC Logo"
+          style={{ height: '32px', marginRight: '0.5rem' }}
+        />
+        Document Reviwer
+      </HeaderName>
 
-      {/* Header Menu */}
-      <div className="flex items-center gap-6 text-sm text-gray-700">
-        <div className="flex items-center gap-1 cursor-pointer hover:text-blue-700">
-          <span className="text-base">❓</span>
-          <span>FAQ</span>
+      {/* Filler to push items to the right */}
+      <div style={{ flex: 1 }} />
+
+      {/* Custom text menu on the right */}
+      <HeaderGlobalBar>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', paddingRight: '1rem' }}>
+          <span style={{ cursor: 'pointer' }}>FAQ</span>
+          <span style={{ cursor: 'pointer' }}>Contact</span>
+          <span style={{ cursor: 'pointer' }}>Light / Dark</span>
+          <div
+            style={{
+              height: '32px',
+              width: '32px',
+              borderRadius: '50%',
+              backgroundColor: '#6f6f6f',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: 'white',
+              fontWeight: 'bold',
+              fontSize: '0.75rem',
+              cursor: 'pointer',
+            }}
+          >
+            LS
+          </div>
         </div>
-        <div className="flex items-center gap-1 cursor-pointer hover:text-blue-700">
-          <span className="text-base">✉️</span>
-          <span>Contact</span>
-        </div>
-        <div className="flex items-center gap-1 cursor-pointer hover:text-blue-700">
-          <span className="text-base">🌙</span>
-          <span>Light / Dark</span>
-        </div>
-        <div className="h-10 w-10 rounded-full bg-gray-500 text-white flex items-center justify-center font-semibold">
-          LS
-        </div>
-      </div>
-    </header>
+      </HeaderGlobalBar>
+    </CarbonHeader>
   );
 };
 

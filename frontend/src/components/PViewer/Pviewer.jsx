@@ -1,11 +1,24 @@
 import React, { useState } from "react";
 import PDFViewer from "../PDFViewer/PDFViewer";
-import { NextOutline, PreviousOutline } from "@carbon/icons-react";
+import {
+  NextOutline,
+  PreviousOutline,
+  Rotate,
+  WatsonHealthZoomPan,
+  ZoomIn,
+  ZoomOut,
+} from "@carbon/icons-react";
 const PViewer = () => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   return (
     <React.Fragment>
+      <div style={{ display: "flex", gap: "1rem", margin: "10px 20px" }}>
+        <ZoomIn />
+        <ZoomOut />
+        <WatsonHealthZoomPan />
+        <Rotate />
+      </div>
       <div
         style={{
           height: "80dvh",
@@ -22,7 +35,14 @@ const PViewer = () => {
           setPageNumber={setPageNumber}
         />
       </div>
-      <div style={{  display: "flex", gap: "1rem", display: "flex", justifyContent: "center" }}>
+      <div
+        style={{
+          display: "flex",
+          gap: "1rem",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         <PreviousOutline
           onClick={() => setPageNumber((p) => Math.max(p - 1, 1))}
         />
