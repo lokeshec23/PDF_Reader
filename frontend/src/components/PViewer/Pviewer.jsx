@@ -1,7 +1,12 @@
+import React from "react";
+import PDFViewer from "../PDFViewer/PDFViewer";
+
 const PViewer = () => {
-    return(
-        <div>Left Side</div>
-    )
-}
+  return (
+    <div>
+      <PDFViewer /> Local file from public folder
+    </div>
+  );
+};
 
 export default PViewer;
