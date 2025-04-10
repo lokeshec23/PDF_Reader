@@ -11,7 +11,7 @@ const Header = () => {
           alt="IC Logo"
           style={{ height: '32px', marginRight: '0.5rem' }}
         />
-        Document Reviwer
+        Document Review
       </HeaderName>
 
       {/* Filler to push items to the right */}
