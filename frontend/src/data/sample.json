@@ -1,0 +1,5 @@
+{
+  "name": "ChatGPT",
+  "type": "AI Assistant",
+  "features": ["Text Generation", "Code Help", "Language Translation"]
+}

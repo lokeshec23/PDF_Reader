@@ -2,53 +2,79 @@ import { Dropdown } from "@carbon/react";
 import Header from "./components/Header/Header";
 import JViewer from "./components/Jviewer/JViewer";
 import PViewer from "./components/PViewer/Pviewer";
-
+import InputFields from "./components/InputFields/InputFields";
+import { RightPanelCloseFilled, RightPanelOpen } from "@carbon/icons-react";
+import React, { useContext, useState } from "react";
+import { UserContext } from "./context/UserContext.jsx";
 const App = () => {
-  const items = [
-    "Bank Statement",
-    "Paystub",
-    "W2",
-    "Schedule E",
-    "Credit report",
-  ];
+  const { themeStyle } = useContext(UserContext);
+  const [isRightPanelOpen, setIsRightPanelOpen] = useState(false);
+
+  const toggleRightPanel = () => {
+    setIsRightPanelOpen((prev) => !prev);
+  };
+
   return (
     <div className="flex flex-col h-screen">
-      {/* Header - 10% height */}
-      <div className="">
-        <Header />
-      </div>
+      {/* Header */}
+      <Header />
 
-      {/* Main Viewers Section - 90% height */}
-      <div className=" flex flex-col md:flex-row gap-4 p-4 bg-gray-50 overflow-hidden" style={{padding: "10px 20px", marginTop: '3%'}}>
+      {/* Main Content */}
+      <div
+        className="flex flex-col md:flex-row gap-4 p-4 bg-gray-50 overflow-hidden"
+        style={{ padding: "10px 20px", marginTop: "3%" }}
+      >
+        {/* Left Side - PViewer */}
         <div className="w-full md:w-1/2">
-          <div className="flex flex-row justify-between items-center mb-2 px-2" style={{padding: "8px"}}>
+          <div className="flex flex-row justify-between items-center mb-2 px-2">
             <p>
-              Loan ID: <b>0060826051</b>
+              Loan ID: <b style={{ color: themeStyle.primary }}>0060826051</b>
             </p>
             <p>
-              Borrower Name: <b>BOWEN F DIAMOND</b>
+              Borrower Name:{" "}
+              <b style={{ color: themeStyle.primary }}>BOWEN F DIAMOND</b>
             </p>
           </div>
 
-          <div className="border rounded-2xl shadow-md p-4 bg-white ">
+          <div className="border rounded-2xl shadow-md p-4 bg-white">
             <PViewer />
           </div>
         </div>
 
-        <div className="w-full md:w-1/2">
-          
-            <Dropdown
-              id="inline"
-              titleText="Document Type"
-              initialSelectedItem={items[0]}
-              label={items[0]}
-              type="inline"
-              items={items}
-            />
-          <div className="border rounded-2xl shadow-md p-4 bg-white">
-            <JViewer />
-            {/* <PViewer /> */}
+        {/* Right Side - InputFields and Optional JViewer */}
+        <div className="w-full md:w-1/2 flex flex-row gap-4">
+          {/* Left side of the split - InputFields */}
+          <div
+            className={`transition-all duration-300 ${
+              isRightPanelOpen ? "w-1/2" : "w-full"
+            }`}
+          >
+            <div className="flex justify-end mb-2 pr-2">
+              {!isRightPanelOpen ? (
+                <RightPanelOpen
+                  size={24}
+                  onClick={toggleRightPanel}
+                  className="cursor-pointer"
+                />
+              ) : (
+                <RightPanelCloseFilled
+                  size={24}
+                  onClick={toggleRightPanel}
+                  className="cursor-pointer"
+                />
+              )}
+            </div>
+            <div className="border rounded-2xl shadow-md p-4 bg-white">
+              <InputFields />
+            </div>
           </div>
+
+          {/* Right panel - JViewer */}
+          {isRightPanelOpen && (
+            <div className="w-1/2 border rounded-2xl shadow-md p-4 bg-white transition-all duration-300">
+              <JViewer />
+            </div>
+          )}
         </div>
       </div>
     </div>
