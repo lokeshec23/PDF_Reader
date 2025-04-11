@@ -7,11 +7,12 @@ import { RightPanelCloseFilled, RightPanelOpen } from "@carbon/icons-react";
 import React, { useContext, useState } from "react";
 import { UserContext } from "./context/UserContext.jsx";
 import sampleJSON from "./data/sample.json";
+import Xarrow from "react-xarrows";
 
 const App = () => {
   const { themeStyle } = useContext(UserContext);
   const [isRightPanelOpen, setIsRightPanelOpen] = useState(false);
-
+  const [hoveredKey, setHoveredKey] = useState(null);
   const toggleRightPanel = () => {
     setIsRightPanelOpen((prev) => !prev);
   };
@@ -39,7 +40,7 @@ const App = () => {
           </div>
 
           <div className="border rounded-2xl shadow-md p-4 bg-white">
-            <PViewer />
+            <PViewer hoveredKey={hoveredKey} data={sampleJSON} />
           </div>
         </div>
 
@@ -77,10 +78,18 @@ const App = () => {
               className="w-1/2 border rounded-2xl shadow-md p-4 bg-white transition-all duration-300"
               // style={{ marginTop: "3%" }}
             >
-              <JViewer />
+              <JViewer data={sampleJSON} setHoveredKey={setHoveredKey} />
             </div>
           )}
         </div>
+        {hoveredKey && (
+          <Xarrow
+            start={`json-${hoveredKey}`}
+            end={`pdf-${hoveredKey}`}
+            color="red"
+            strokeWidth={2}
+          />
+        )}
       </div>
     </div>
   );

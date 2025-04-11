@@ -11,7 +11,7 @@ import {
 } from "@carbon/icons-react";
 import { Tooltip } from "carbon-components-react";
 
-const PViewer = () => {
+const PViewer = ({ hoveredKey, data }) => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [zoom, setZoom] = useState(1);
@@ -118,28 +118,11 @@ const PViewer = () => {
             setNumPages={setNumPages}
             pageNumber={pageNumber}
             setPageNumber={setPageNumber}
+            data={data}
+            hoveredKey={hoveredKey}
           />
         </div>
       </div>
-
-      {/* <div
-        style={{
-          display: "flex",
-          gap: "1rem",
-          justifyContent: "center",
-          marginTop: "10px",
-        }}
-      >
-        <PreviousOutline
-          onClick={() => setPageNumber((p) => Math.max(p - 1, 1))}
-        />
-        <span>
-          Page {pageNumber} of {numPages}
-        </span>
-        <NextOutline
-          onClick={() => setPageNumber((p) => Math.min(p + 1, numPages))}
-        />
-      </div> */}
     </React.Fragment>
   );
 };
