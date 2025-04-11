@@ -52,18 +52,48 @@ const PViewer = () => {
     window.addEventListener("mouseup", onMouseUp);
   };
 
-  const showResetButton = zoom !== 1 || rotation !== 0 || offset.x !== 0 || offset.y !== 0;
+  const showResetButton =
+    zoom !== 1 || rotation !== 0 || offset.x !== 0 || offset.y !== 0;
 
   return (
     <React.Fragment>
-      <div style={{ display: "flex", gap: "1rem", margin: "10px 20px" }}>
-      {/* <Tooltip autoAlign label={'Zoom In'} closeOnActivation={false}> */}
-      {/* </Tooltip> */}
-        <ZoomIn onClick={handleZoomIn} />
-        <ZoomOut onClick={handleZoomOut} />
-        <WatsonHealthZoomPan onClick={togglePan} />
-        <Rotate onClick={handleRotate} />
-        {showResetButton && <ZoomReset onClick={handleReset} />}
+      <div
+        style={{
+          display: "flex",
+          gap: "1rem",
+          margin: "10px 20px",
+          alignItems: "flex-end",
+          justifyContent: "space-between",
+        }}
+      >
+        <div style={{ display: "flex", gap: "1rem" }}>
+          {/* <Tooltip autoAlign label={'Zoom In'} closeOnActivation={false}> */}
+          {/* </Tooltip> */}
+          <ZoomIn onClick={handleZoomIn} />
+          <ZoomOut onClick={handleZoomOut} />
+          <WatsonHealthZoomPan onClick={togglePan} />
+          <Rotate onClick={handleRotate} />
+          {showResetButton && <ZoomReset onClick={handleReset} />}
+        </div>
+        <div
+          style={{
+            // display: "flex",
+            // justifyContent: "center",
+            gap: "1rem",
+            display: "flex",
+            marginTop: "10px",
+          }}
+        >
+          <PreviousOutline
+            onClick={() => setPageNumber((p) => Math.max(p - 1, 1))}
+          />
+          <span>
+            Page {pageNumber} of {numPages}
+          </span>
+          <NextOutline
+            onClick={() => setPageNumber((p) => Math.min(p + 1, numPages))}
+          />
+        </div>
       </div>
 
       <div
@@ -92,7 +122,7 @@ const PViewer = () => {
         </div>
       </div>
 
-      <div
+      {/* <div
         style={{
           display: "flex",
           gap: "1rem",
@@ -109,7 +139,7 @@ const PViewer = () => {
         <NextOutline
           onClick={() => setPageNumber((p) => Math.min(p + 1, numPages))}
         />
-      </div>
+      </div> */}
     </React.Fragment>
   );
 };

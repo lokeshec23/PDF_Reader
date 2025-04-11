@@ -1,5 +1,5 @@
 import { Dropdown } from "@carbon/react";
-import { TextInput } from "carbon-components-react";
+import { Accordion, AccordionItem, TextInput } from "carbon-components-react";
 
 const items = [
   "Bank Statement",
@@ -42,24 +42,29 @@ const InputFields = ({ data }) => {
         labelText="Account Holder"
         value={extractionData["Account Holder"] || ""}
       />
-      <TextInput
-        id="account-number"
-        type="text"
-        labelText="Account Number"
-        value={extractionData["Account Number"] || ""}
-      />
-      <TextInput
-        id="credit-debit"
-        type="text"
-        labelText="Credit/Debit"
-        value={extractionData["Credit_Debit"] || ""}
-      />
-      <TextInput
-        id="amount"
-        type="text"
-        labelText="Amount"
-        value={extractionData["Amount"] || ""}
-      />
+
+      <Accordion>
+        <AccordionItem title={extractionData["Description"] || ""}>
+          <TextInput
+            id="account-number"
+            type="text"
+            labelText="Account Number"
+            value={extractionData["Account Number"] || ""}
+          />
+          <TextInput
+            id="credit-debit"
+            type="text"
+            labelText="Credit/Debit"
+            value={extractionData["Credit_Debit"] || ""}
+          />
+          <TextInput
+            id="amount"
+            type="text"
+            labelText="Amount"
+            value={extractionData["Amount"] || ""}
+          />
+        </AccordionItem>
+      </Accordion>
     </div>
   );
 };
