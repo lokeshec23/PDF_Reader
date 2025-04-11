@@ -1,3 +1,4 @@
+// InputFields.jsx
 import { Dropdown } from "@carbon/react";
 import { Accordion, AccordionItem, TextInput } from "carbon-components-react";
 
@@ -10,8 +11,8 @@ const items = [
 ];
 
 const InputFields = ({ data }) => {
-  // Extract values from the JSON data
   const extractionData = data?.extraction_json || {};
+  const transactions = extractionData?.transactions || [];
 
   return (
     <div
@@ -21,6 +22,8 @@ const InputFields = ({ data }) => {
         display: "flex",
         flexDirection: "column",
         gap: "15px",
+        maxHeight: "80vh",
+        overflowY: "auto",
       }}
     >
       <Dropdown
@@ -30,12 +33,14 @@ const InputFields = ({ data }) => {
         label={extractionData.doc_type || items[0]}
         items={items}
       />
+
       <TextInput
         id="name-of-institution"
         type="text"
         labelText="Name of Institution"
         value={extractionData["Name of Institution"] || ""}
       />
+
       <TextInput
         id="account-holder"
         type="text"
@@ -43,27 +48,59 @@ const InputFields = ({ data }) => {
         value={extractionData["Account Holder"] || ""}
       />
 
+      <TextInput
+        id="account-number"
+        type="text"
+        labelText="Account Number"
+        value={extractionData["Account Number"] || ""}
+      />
+
+      <TextInput
+        id="beginning-date"
+        type="text"
+        labelText="Beginning Date"
+        value={extractionData["beginning date"] || ""}
+      />
+
+      <TextInput
+        id="ending-date"
+        type="text"
+        labelText="Ending Date"
+        value={extractionData["ending date"] || ""}
+      />
+
       <Accordion>
-        <AccordionItem title={extractionData["Description"] || ""}>
-          <TextInput
-            id="account-number"
-            type="text"
-            labelText="Account Number"
-            value={extractionData["Account Number"] || ""}
-          />
-          <TextInput
-            id="credit-debit"
-            type="text"
-            labelText="Credit/Debit"
-            value={extractionData["Credit_Debit"] || ""}
-          />
-          <TextInput
-            id="amount"
-            type="text"
-            labelText="Amount"
-            value={extractionData["Amount"] || ""}
-          />
-        </AccordionItem>
+        {transactions.map((txn, index) => (
+          <AccordionItem
+            key={`txn-${index}`}
+            title={txn.Description || `Transaction ${index + 1}`}
+          >
+            <TextInput
+              id={`credit-debit-${index}`}
+              type="text"
+              labelText="Credit/Debit"
+              value={txn.Credit_Debit || ""}
+            />
+            <TextInput
+              id={`amount-${index}`}
+              type="text"
+              labelText="Amount"
+              value={txn.Amount || ""}
+            />
+            <TextInput
+              id={`account-${index}`}
+              type="text"
+              labelText="Account"
+              value={txn.Account || ""}
+            />
+            <TextInput
+              id={`description-${index}`}
+              type="text"
+              labelText="Description"
+              value={txn.Description || ""}
+            />
+          </AccordionItem>
+        ))}
       </Accordion>
     </div>
   );
