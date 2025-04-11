@@ -21,16 +21,63 @@ function PdfViewer({
     setNumPages(numPages);
   }
 
+  // const renderHighlights = () => {
+  //   const extracted = data?.extraction_json_with_coordinates;
+  //   if (!extracted) return null;
+
+  //   return Object.entries(extracted)
+  //     .filter(([key, val]) => val?.coordinates && val?.page_num === pageNumber)
+  //     .map(([key, val]) => {
+  //       const { x0, y0 } = val.coordinates;
+  //       return (
+  //         <div
+  //           key={key}
+  //           id={`pdf-${key}`}
+  //           style={{
+  //             position: "absolute",
+  //             left: `${x0 * 100}%`,
+  //             top: `${y0 * 100}%`,
+  //             width: "10px",
+  //             height: "10px",
+  //             backgroundColor: "transparent",
+  //           }}
+  //         ></div>
+  //       );
+  //     });
+  // };
+
   const renderHighlights = () => {
-    debugger;
     const extracted = data?.extraction_json_with_coordinates;
     if (!extracted) return null;
 
-    return Object.entries(extracted)
-      .filter(([key, val]) => val?.coordinates && val?.page_num === pageNumber)
-      .map(([key, val]) => {
+    const highlightElements = [];
+
+    for (const [key, val] of Object.entries(extracted)) {
+      if (key === "transactions" && Array.isArray(val)) {
+        val.forEach((transaction, index) => {
+          Object.entries(transaction).forEach(([subKey, subVal]) => {
+            if (subVal?.coordinates && subVal?.page_num === pageNumber) {
+              const { x0, y0 } = subVal.coordinates;
+              highlightElements.push(
+                <div
+                  key={`${subKey}-${index}`}
+                  id={`pdf-${subKey}-${index}`}
+                  style={{
+                    position: "absolute",
+                    left: `${x0 * 100}%`,
+                    top: `${y0 * 100}%`,
+                    width: "10px",
+                    height: "10px",
+                    backgroundColor: "transparent",
+                  }}
+                />
+              );
+            }
+          });
+        });
+      } else if (val?.coordinates && val?.page_num === pageNumber) {
         const { x0, y0 } = val.coordinates;
-        return (
+        highlightElements.push(
           <div
             key={key}
             id={`pdf-${key}`}
@@ -42,9 +89,12 @@ function PdfViewer({
               height: "10px",
               backgroundColor: "transparent",
             }}
-          ></div>
+          />
         );
-      });
+      }
+    }
+
+    return highlightElements;
   };
 
   return (

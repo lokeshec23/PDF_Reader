@@ -86,7 +86,7 @@ const App = () => {
           <Xarrow
             start={`json-${hoveredKey}`}
             end={`pdf-${hoveredKey}`}
-            color="red"
+            color={themeStyle.primary}
             strokeWidth={2}
           />
         )}
