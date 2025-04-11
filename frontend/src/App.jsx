@@ -6,6 +6,8 @@ import InputFields from "./components/InputFields/InputFields";
 import { RightPanelCloseFilled, RightPanelOpen } from "@carbon/icons-react";
 import React, { useContext, useState } from "react";
 import { UserContext } from "./context/UserContext.jsx";
+import sampleJSON from "./data/sample.json";
+
 const App = () => {
   const { themeStyle } = useContext(UserContext);
   const [isRightPanelOpen, setIsRightPanelOpen] = useState(false);
@@ -65,13 +67,16 @@ const App = () => {
               )}
             </div>
             <div className="border rounded-2xl shadow-md p-4 bg-white">
-              <InputFields />
+              <InputFields data={sampleJSON} />
             </div>
           </div>
 
           {/* Right panel - JViewer */}
           {isRightPanelOpen && (
-            <div className="w-1/2 border rounded-2xl shadow-md p-4 bg-white transition-all duration-300">
+            <div
+              className="w-1/2 border rounded-2xl shadow-md p-4 bg-white transition-all duration-300"
+              // style={{ marginTop: "3%" }}
+            >
               <JViewer />
             </div>
           )}

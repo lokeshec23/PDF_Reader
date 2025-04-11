@@ -1,5 +1,6 @@
 import { Dropdown } from "@carbon/react";
 import { TextInput } from "carbon-components-react";
+
 const items = [
   "Bank Statement",
   "Paystub",
@@ -7,7 +8,11 @@ const items = [
   "Schedule E",
   "Credit report",
 ];
-const InputFields = () => {
+
+const InputFields = ({ data }) => {
+  // Extract values from the JSON data
+  const extractionData = data?.extraction_json || {};
+
   return (
     <div
       style={{
@@ -21,20 +26,40 @@ const InputFields = () => {
       <Dropdown
         id="inline"
         titleText="Document Type"
-        initialSelectedItem={items[0]}
-        label={items[0]}
+        initialSelectedItem={extractionData.doc_type || items[0]}
+        label={extractionData.doc_type || items[0]}
         items={items}
-        //   type="inline"
       />
       <TextInput
-        id="text-input-1"
+        id="name-of-institution"
         type="text"
         labelText="Name of Institution"
+        value={extractionData["Name of Institution"] || ""}
       />
-      <TextInput id="text-input-1" type="text" labelText="Account Holder" />
-      <TextInput id="text-input-1" type="text" labelText="Account Number" />
-      <TextInput id="text-input-1" type="text" labelText="Credit/Debit" />
-      <TextInput id="text-input-1" type="text" labelText="Amount" />
+      <TextInput
+        id="account-holder"
+        type="text"
+        labelText="Account Holder"
+        value={extractionData["Account Holder"] || ""}
+      />
+      <TextInput
+        id="account-number"
+        type="text"
+        labelText="Account Number"
+        value={extractionData["Account Number"] || ""}
+      />
+      <TextInput
+        id="credit-debit"
+        type="text"
+        labelText="Credit/Debit"
+        value={extractionData["Credit_Debit"] || ""}
+      />
+      <TextInput
+        id="amount"
+        type="text"
+        labelText="Amount"
+        value={extractionData["Amount"] || ""}
+      />
     </div>
   );
 };
