@@ -1,7 +1,7 @@
 // InputFields.jsx
 import { Dropdown } from "@carbon/react";
 import { Accordion, AccordionItem, TextInput } from "carbon-components-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const items = [
   "Bank Statement",
@@ -13,7 +13,11 @@ const items = [
 
 const InputFields = ({ data, setHoveredKey }) => {
   const extractionData = data?.extraction_json || {};
-  const transactions = extractionData?.transactions || [];
+  const [formData, setFormData] = useState(extractionData);
+
+  useEffect(() => {
+    setFormData(extractionData);
+  }, [extractionData]);
 
   const handleMouseEnter = (key, pageNum) => {
     if (key && pageNum != null) {
@@ -24,6 +28,26 @@ const InputFields = ({ data, setHoveredKey }) => {
   const handleMouseLeave = () => {
     setHoveredKey({ key: null, pageNum: null });
   };
+
+  const handleInputChange = (field, value) => {
+    setFormData((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+  };
+
+  const handleTxnChange = (index, field, value) => {
+    const updatedTransactions = [...(formData.transactions || [])];
+    if (!updatedTransactions[index]) updatedTransactions[index] = {};
+    updatedTransactions[index][field] = value;
+
+    setFormData((prev) => ({
+      ...prev,
+      transactions: updatedTransactions,
+    }));
+  };
+
+  const transactions = formData?.transactions || [];
 
   return (
     <div
@@ -40,8 +64,8 @@ const InputFields = ({ data, setHoveredKey }) => {
       <Dropdown
         id="inline"
         titleText="Document Type"
-        initialSelectedItem={extractionData.doc_type || items[0]}
-        label={extractionData.doc_type || items[0]}
+        initialSelectedItem={formData.doc_type || items[0]}
+        label={formData.doc_type || items[0]}
         items={items}
       />
 
@@ -73,7 +97,8 @@ const InputFields = ({ data, setHoveredKey }) => {
             id={field.toLowerCase().replace(/\s+/g, "-")}
             type="text"
             labelText={field}
-            value={extractionData[field] || ""}
+            value={formData[field] || ""}
+            onChange={(e) => handleInputChange(field, e.target.value)}
           />
         </div>
       ))}
@@ -93,7 +118,7 @@ const InputFields = ({ data, setHoveredKey }) => {
                     if (
                       data.extraction_json_with_coordinates?.transactions?.[
                         index
-                      ]?.[field]["coordinates"] == null
+                      ]?.[field]?.coordinates == null
                     ) {
                       return;
                     }
@@ -110,7 +135,10 @@ const InputFields = ({ data, setHoveredKey }) => {
                     id={`${field.toLowerCase()}-${index}`}
                     type="text"
                     labelText={field.replace("_", " ")}
-                    value={txn[field] || ""}
+                    value={formData.transactions?.[index]?.[field] || ""}
+                    onChange={(e) =>
+                      handleTxnChange(index, field, e.target.value)
+                    }
                   />
                 </div>
               )
