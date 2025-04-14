@@ -2,15 +2,15 @@ import Header from "./components/Header/Header";
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "./context/UserContext.jsx";
 
-import BankStatement from "./components/BankStatement/BankStatement.jsx";
+import MainLayout from "./components/MainLayout.jsx";
 
 const App = () => {
-  const { themeStyle, jsonData, docType, setDocType } = useContext(UserContext);
+  // const {  } = useContext(UserContext);
 
   return (
     <div className="flex flex-col h-screen">
       <Header />
-      <BankStatement />
+      <MainLayout />
     </div>
   );
 };

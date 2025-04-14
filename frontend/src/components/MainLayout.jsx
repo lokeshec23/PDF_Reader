@@ -1,13 +1,23 @@
-import JViewer from "../JViewer/JViewer";
-import PViewer from "../PViewer/Pviewer";
-import InputFields from "../InputFields/InputFields";
+import JViewer from "./JViewer/JViewer.jsx";
+import PViewer from "./PViewer/Pviewer.jsx";
 import { RightPanelCloseFilled, RightPanelOpen } from "@carbon/icons-react";
 import React, { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../context/UserContext.jsx";
+import { UserContext } from "../context/UserContext.jsx";
 import Xarrow from "react-xarrows";
 
-const BankStatement = () => {
-  const { themeStyle, jsonData } = useContext(UserContext);
+import BankStatementInputFields from "./InputFields/BankStatementInputFields.jsx";
+import PayStubInputFields from "./InputFields/PayStubInputFields.jsx";
+import { Dropdown } from "carbon-components-react";
+
+const MainLayout = () => {
+  const {
+    themeStyle,
+    jsonData,
+    selectedDocType,
+    setSelectedDocType,
+    DOC_TYPES,
+  } = useContext(UserContext);
+
   const [isRightPanelOpen, setIsRightPanelOpen] = useState(false);
   const [hoveredKey, setHoveredKey] = useState({ key: null, pageNum: null });
   const [pageRenderReady, setPageRenderReady] = useState(false);
@@ -17,6 +27,33 @@ const BankStatement = () => {
   const toggleRightPanel = () => {
     setIsRightPanelOpen((prev) => !prev);
   };
+
+  const displayContent = (type) => {
+    switch (type) {
+      case "Bank Statement":
+        return (
+          <BankStatementInputFields
+            data={jsonData}
+            setHoveredKey={setHoveredKey}
+          />
+        );
+      case "Paystub":
+        return (
+          <PayStubInputFields data={jsonData} setHoveredKey={setHoveredKey} />
+        );
+      default:
+        return (
+          <div
+            style={{
+              padding: "10px 20px",
+            }}
+          >
+            Work in progress
+          </div>
+        );
+    }
+  };
+
   return (
     <div
       className="flex flex-col md:flex-row gap-4 p-4 bg-gray-50 overflow-hidden"
@@ -72,7 +109,23 @@ const BankStatement = () => {
             )}
           </div>
           <div className="border rounded-2xl shadow-md p-4 bg-white">
-            <InputFields data={jsonData} setHoveredKey={setHoveredKey} />
+            <div
+              style={{
+                padding: "10px 20px",
+              }}
+            >
+              <Dropdown
+                id="inline"
+                titleText="Document Type"
+                initialSelectedItem={selectedDocType}
+                label={selectedDocType}
+                items={DOC_TYPES}
+                onChange={({ selectedItem }) =>
+                  setSelectedDocType(selectedItem)
+                }
+              />
+            </div>
+            {displayContent(selectedDocType)}
           </div>
         </div>
 
@@ -86,6 +139,8 @@ const BankStatement = () => {
           </div>
         )}
       </div>
+
+      {/* Arrow between JSON and PDF */}
       {hoveredKey.key && (
         <Xarrow
           start={`json-${hoveredKey.key}`}
@@ -98,4 +153,4 @@ const BankStatement = () => {
   );
 };
 
-export default BankStatement;
+export default MainLayout;

@@ -12,7 +12,7 @@ const Header = () => {
   const { themeStyle } = useContext(UserContext);
   return (
     <CarbonHeader aria-label="IC App Header">
-      {/* Logo + App Title */}
+     
       <HeaderName prefix="">
         <img
           src={ICLOGO}
