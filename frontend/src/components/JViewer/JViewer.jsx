@@ -1,42 +1,3 @@
-// // JViewer.jsx
-// import React from "react";
-// import { Tile } from "carbon-components-react";
-
-// const JViewer = ({ data, setHoveredKey }) => {
-//   const extracted = data.extraction_json_with_coordinates;
-
-//   return (
-//     <Tile style={{ margin: "1rem" }}>
-//       <h4 style={{ marginBottom: "1rem" }}>JSON Fields</h4>
-//       <div style={{ maxHeight: "700px", overflowY: "auto" }}>
-//         {Object.entries(extracted).map(([key, val]) => {
-//           const hasCoordinates = val?.coordinates !== null;
-//           return (
-//             <div
-//               key={key}
-//               id={hasCoordinates ? `json-${key}` : undefined}
-//               onMouseEnter={() => hasCoordinates && setHoveredKey(key)}
-//               onMouseLeave={() => hasCoordinates && setHoveredKey(null)}
-//               style={{
-//                 padding: "6px 10px",
-//                 borderBottom: "1px solid #eee",
-//                 color: "inherit",
-//                 cursor: "pointer",
-//                 // color: hasCoordinates ? "inherit" : "#bbb",
-//                 // cursor: hasCoordinates ? "pointer" : "default",
-//               }}
-//             >
-//               <strong>{key}</strong>: {val.value || "<no value>"}
-//             </div>
-//           );
-//         })}
-//       </div>
-//     </Tile>
-//   );
-// };
-
-// export default JViewer;
-// JViewer.jsx
 import React from "react";
 import { Tile } from "carbon-components-react";
 
@@ -50,12 +11,15 @@ const JViewer = ({ data, setHoveredKey }) => {
       <div
         key={key}
         id={hasCoordinates ? `json-${key}` : undefined}
-        onMouseEnter={() => hasCoordinates && setHoveredKey(key)}
-        onMouseLeave={() => hasCoordinates && setHoveredKey(null)}
+        onMouseEnter={() =>
+          hasCoordinates && setHoveredKey({ key, pageNum: val.page_num })
+        }
+        onMouseLeave={() =>
+          hasCoordinates && setHoveredKey({ key: null, pageNum: null })
+        }
         style={{
           padding: "6px 10px",
-          borderBottom: "1px solid #eee",
-          color:  "inherit",
+          lineHeight: "1.5",
           cursor: hasCoordinates ? "pointer" : "default",
         }}
       >
@@ -71,17 +35,26 @@ const JViewer = ({ data, setHoveredKey }) => {
         style={{ paddingLeft: "1rem", borderBottom: "1px dashed #ccc" }}
       >
         <strong>Transaction {index + 1}</strong>
-        {Object.entries(transaction).map(([subKey, subVal]) =>
-          renderField(`${subKey}-${index}`, subVal)
-        )}
+        {Object.entries(transaction).map(([subKey, subVal]) => {
+          const fullKey = `${subKey}-${index}`;
+          return renderField(fullKey, subVal);
+        })}
       </div>
     ));
   };
 
   return (
-    <Tile style={{ margin: "1rem" }}>
+    <div style={{ margin: "1rem" }}>
       <h4 style={{ marginBottom: "1rem" }}>JSON Fields</h4>
-      <div style={{ maxHeight: "700px", overflowY: "auto" }}>
+      <div
+        style={{
+          overflowY: "auto",
+          maxHeight: "80dvh",
+          fontSize: "var(--cds-body-compact-01-font-size, .875rem)",
+          fontWeight: "var(--cds-body-compact-01-font-weight, 400)",
+          lineHeight: " var(--cds-body-compact-01-line-height, 1.28572)",
+        }}
+      >
         {Object.entries(extracted).map(([key, val]) => {
           if (key === "transactions" && Array.isArray(val)) {
             return renderTransactions(val);
@@ -90,7 +63,7 @@ const JViewer = ({ data, setHoveredKey }) => {
           }
         })}
       </div>
-    </Tile>
+    </div>
   );
 };
 

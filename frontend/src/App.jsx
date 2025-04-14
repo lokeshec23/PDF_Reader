@@ -12,7 +12,8 @@ import Xarrow from "react-xarrows";
 const App = () => {
   const { themeStyle } = useContext(UserContext);
   const [isRightPanelOpen, setIsRightPanelOpen] = useState(false);
-  const [hoveredKey, setHoveredKey] = useState(null);
+  const [hoveredKey, setHoveredKey] = useState({ key: null, pageNum: null });
+  const [pageRenderReady, setPageRenderReady] = useState(false);
   const toggleRightPanel = () => {
     setIsRightPanelOpen((prev) => !prev);
   };
@@ -40,7 +41,11 @@ const App = () => {
           </div>
 
           <div className="border rounded-2xl shadow-md p-4 bg-white">
-            <PViewer hoveredKey={hoveredKey} data={sampleJSON} />
+            <PViewer
+              hoveredKey={hoveredKey}
+              data={sampleJSON}
+              setPageRenderReady={setPageRenderReady}
+            />
           </div>
         </div>
 
@@ -76,16 +81,16 @@ const App = () => {
           {isRightPanelOpen && (
             <div
               className="w-1/2 border rounded-2xl shadow-md p-4 bg-white transition-all duration-300"
-              // style={{ marginTop: "3%" }}
+              style={{ height: "100%" }}
             >
               <JViewer data={sampleJSON} setHoveredKey={setHoveredKey} />
             </div>
           )}
         </div>
-        {hoveredKey && (
+        {hoveredKey.key && (
           <Xarrow
-            start={`json-${hoveredKey}`}
-            end={`pdf-${hoveredKey}`}
+            start={`json-${hoveredKey.key}`}
+            end={`pdf-${hoveredKey.key}`}
             color={themeStyle.primary}
             strokeWidth={2}
           />

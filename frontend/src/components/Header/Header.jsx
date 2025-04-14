@@ -58,7 +58,7 @@ const Header = () => {
               cursor: "pointer",
             }}
           >
-            LS
+            SS
           </div>
         </div>
       </HeaderGlobalBar>

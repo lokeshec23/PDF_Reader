@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PDFViewer from "../PDFViewer/PDFViewer";
 import {
   NextOutline,
@@ -11,18 +11,38 @@ import {
 } from "@carbon/icons-react";
 import { Tooltip } from "carbon-components-react";
 
-const PViewer = ({ hoveredKey, data }) => {
+const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [zoom, setZoom] = useState(1);
   const [rotation, setRotation] = useState(0);
   const [isPanning, setIsPanning] = useState(false);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
+  // const [pageRenderReady, setPageRenderReady] = useState(false);
 
   const handleZoomIn = () => setZoom((z) => Math.min(z + 0.2, 3));
   const handleZoomOut = () => setZoom((z) => Math.max(z - 0.2, 0.5));
   const handleRotate = () => setRotation((r) => (r + 90) % 360);
   const togglePan = () => setIsPanning((p) => !p);
+
+  useEffect(() => {
+    if (
+      hoveredKey &&
+      hoveredKey.pageNum != null &&
+      hoveredKey.pageNum !== pageNumber
+    ) {
+      setPageNumber(hoveredKey.pageNum);
+    }
+
+    // Cleanup: reset to page 1 when hover ends
+    return () => {
+      setPageNumber(1);
+    };
+  }, [hoveredKey?.pageNum]);
+
+  useEffect(() => {
+    setPageRenderReady(false);
+  }, [pageNumber]);
 
   const handleReset = () => {
     setZoom(1);
@@ -119,7 +139,7 @@ const PViewer = ({ hoveredKey, data }) => {
             pageNumber={pageNumber}
             setPageNumber={setPageNumber}
             data={data}
-            hoveredKey={hoveredKey}
+            hoveredKey={hoveredKey.key}
           />
         </div>
       </div>

@@ -22,7 +22,8 @@ const InputFields = ({ data }) => {
         display: "flex",
         flexDirection: "column",
         gap: "15px",
-        maxHeight: "80vh",
+        // maxHeight: "80dvh",
+        height: "85dvh",
         overflowY: "auto",
       }}
     >
