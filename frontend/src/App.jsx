@@ -6,8 +6,6 @@ import InputFields from "./components/InputFields/InputFields";
 import { RightPanelCloseFilled, RightPanelOpen } from "@carbon/icons-react";
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "./context/UserContext.jsx";
-import sampleJSON from "./data/sample.json";
-import sampleJSON1 from "./data/14_04_20241_13_08.json";
 import Xarrow from "react-xarrows";
 
 const App = () => {

@@ -12,7 +12,7 @@ export const UserProvider = ({ children }) => {
 
   const loadJson = (data) => {
     const finalJson = {
-      jsonView: sampleJSON,
+      "default": sampleJSON,
       "2025-04-01": sampleJSON1,
       "2025-03-28": sampleJSON2,
     };

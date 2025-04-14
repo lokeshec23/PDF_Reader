@@ -20,7 +20,7 @@ const jsonViewFunction = (data) => {
         maxHeight: "80dvh",
         fontSize: "var(--cds-body-compact-01-font-size, .875rem)",
         fontWeight: "var(--cds-body-compact-01-font-weight, 400)",
-        lineHeight: " var(--cds-body-compact-01-line-height, 1.28572)",
+        lineHeight: "var(--cds-body-compact-01-line-height, 1.28572)",
       }}
     >
       <ReactJson
@@ -38,17 +38,19 @@ const jsonViewFunction = (data) => {
 const JViewer = ({ data }) => {
   const { jsonData, loadJson } = useContext(UserContext);
   const [selectedDate, setSelectedDate] = useState(null);
+  const [tabIndex, setTabIndex] = useState(0); // Control tab index
+
+  const handleTabChange = ({ selectedIndex }) => {
+    setTabIndex(selectedIndex);
+    if (selectedIndex === 0) {
+      loadJson("default"); // Load default JSON
+      setSelectedDate(null); // Clear dropdown state
+    }
+  };
 
   return (
     <div style={{ margin: "1rem" }}>
-      <Tabs
-        onSelectionChange={(index) => {
-          if (index === 0) {
-            loadJson("jsonView"); // Load sample JSON
-            setSelectedDate(null); // Clear selected date
-          }
-        }}
-      >
+      <Tabs selectedIndex={tabIndex} onChange={handleTabChange}>
         <TabList>
           <Tab>Json View</Tab>
           <Tab>Feedback History</Tab>
@@ -61,6 +63,7 @@ const JViewer = ({ data }) => {
                 id="feedback-dropdown"
                 label="Select a date"
                 items={feedbackDates}
+                selectedItem={selectedDate}
                 onChange={({ selectedItem }) => {
                   setSelectedDate(selectedItem);
                   loadJson(selectedItem);
