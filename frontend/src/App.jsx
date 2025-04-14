@@ -73,7 +73,7 @@ const App = () => {
               )}
             </div>
             <div className="border rounded-2xl shadow-md p-4 bg-white">
-              <InputFields data={sampleJSON} />
+              <InputFields data={sampleJSON} setHoveredKey={setHoveredKey} />
             </div>
           </div>
 
@@ -83,7 +83,7 @@ const App = () => {
               className="w-1/2 border rounded-2xl shadow-md p-4 bg-white transition-all duration-300"
               style={{ height: "100%" }}
             >
-              <JViewer data={sampleJSON} setHoveredKey={setHoveredKey} />
+              <JViewer data={sampleJSON} />
             </div>
           )}
         </div>
