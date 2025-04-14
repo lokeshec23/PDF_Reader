@@ -16,12 +16,12 @@ const feedbackDates = [
   "2025-02-19-10-11",
 ];
 
-const jsonViewFunction = (data) => {
+const jsonViewFunction = (data, action) => {
   return (
     <div
       style={{
         overflowY: "auto",
-        maxHeight: "80dvh",
+        maxHeight: action === "default" ? "80dvh" : "75dvh",
         fontSize: "var(--cds-body-compact-01-font-size, .875rem)",
         fontWeight: "var(--cds-body-compact-01-font-weight, 400)",
         lineHeight: "var(--cds-body-compact-01-line-height, 1.28572)",
@@ -60,7 +60,7 @@ const JViewer = ({ data }) => {
           <Tab>Feedback History</Tab>
         </TabList>
         <TabPanels>
-          <TabPanel>{jsonViewFunction(jsonData)}</TabPanel>
+          <TabPanel>{jsonViewFunction(jsonData, "default")}</TabPanel>
           <TabPanel>
             <div style={{ marginBottom: "1rem", maxWidth: "300px" }}>
               <Dropdown
