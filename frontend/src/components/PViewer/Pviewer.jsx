@@ -35,9 +35,9 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
     }
 
     // Cleanup: reset to page 1 when hover ends
-    return () => {
-      setPageNumber(1);
-    };
+    // return () => {
+    //   setPageNumber(1);
+    // };
   }, [hoveredKey?.pageNum]);
 
   useEffect(() => {
