@@ -5,9 +5,12 @@ import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/UserContext.jsx";
 import Xarrow from "react-xarrows";
 
-import BankStatementInputFields from "./InputFields/BankStatementInputFields.jsx";
-import PayStubInputFields from "./InputFields/PayStubInputFields.jsx";
+// import BankStatementInputFields from "./InputFields/BankStatementInputFields.jsx";
+// import PayStubInputFields from "./InputFields/PayStubInputFields.jsx";
 import { Dropdown } from "carbon-components-react";
+
+import GenericInputFields from "./GenericInputFields.jsx";
+import { schemaMap } from "../config/schemaMap.js";
 
 const MainLayout = () => {
   const {
@@ -29,29 +32,25 @@ const MainLayout = () => {
   };
 
   const displayContent = (type) => {
-    switch (type) {
-      case "Bank Statement":
-        return (
-          <BankStatementInputFields
-            data={jsonData}
-            setHoveredKey={setHoveredKey}
-          />
-        );
-      case "Paystub":
-        return (
-          <PayStubInputFields data={jsonData} setHoveredKey={setHoveredKey} />
-        );
-      default:
-        return (
-          <div
-            style={{
-              padding: "10px 20px",
-            }}
-          >
-            Work in progress
-          </div>
-        );
-    }
+    const schema = schemaMap[type];
+    if (!schema)
+      return (
+        <div
+          style={{
+            padding: "10px 20px",
+          }}
+        >
+          <p>We are working on this document type.</p>
+        </div>
+      );
+
+    return (
+      <GenericInputFields
+        data={jsonData}
+        schema={schema}
+        setHoveredKey={setHoveredKey}
+      />
+    );
   };
 
   return (
