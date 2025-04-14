@@ -1,14 +1,26 @@
 import { createContext, useState } from "react";
-
+import sampleJSON from "../data/sample.json";
+import sampleJSON1 from "../data/14_04_20241_13_08.json";
+import sampleJSON2 from "../data/14_04_20241_15_15.json";
 // 1. Create the context
 export const UserContext = createContext();
 
 // 2. Create the provider component
 export const UserProvider = ({ children }) => {
   const [themeStyle, setThemeStyle] = useState({ primary: "#4589ff" }); // Default theme is light
+  const [jsonData, setJsonData] = useState(sampleJSON);
+
+  const loadJson = (data) => {
+    const finalJson = {
+      jsonView: sampleJSON,
+      "2025-04-01": sampleJSON1,
+      "2025-03-28": sampleJSON2,
+    };
+    setJsonData(finalJson[data]);
+  };
 
   return (
-    <UserContext.Provider value={{ themeStyle }}>
+    <UserContext.Provider value={{ themeStyle, jsonData, loadJson }}>
       {children}
     </UserContext.Provider>
   );

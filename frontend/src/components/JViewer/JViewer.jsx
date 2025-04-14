@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import ReactJson from "react-json-view";
 import {
   Tabs,
@@ -8,10 +8,11 @@ import {
   TabPanels,
   TabPanel,
 } from "@carbon/react";
+import { UserContext } from "../../context/UserContext";
 
-const feedbackDates = ["2025-04-01", "2025-03-28", "2025-03-15", "2025-02-20"];
+const feedbackDates = ["2025-04-01", "2025-03-28"];
 
-const jsonViewFucntion = (data) => {
+const jsonViewFunction = (data) => {
   return (
     <div
       style={{
@@ -35,18 +36,39 @@ const jsonViewFucntion = (data) => {
 };
 
 const JViewer = ({ data }) => {
+  const { jsonData, loadJson } = useContext(UserContext);
   const [selectedDate, setSelectedDate] = useState(null);
 
   return (
     <div style={{ margin: "1rem" }}>
-      <Tabs>
+      <Tabs
+        onSelectionChange={(index) => {
+          if (index === 0) {
+            loadJson("jsonView"); // Load sample JSON
+            setSelectedDate(null); // Clear selected date
+          }
+        }}
+      >
         <TabList>
           <Tab>Json View</Tab>
           <Tab>Feedback History</Tab>
         </TabList>
         <TabPanels>
-          <TabPanel>{jsonViewFucntion(data)}</TabPanel>
-          <TabPanel>Tab Panel 2</TabPanel>
+          <TabPanel>{jsonViewFunction(jsonData)}</TabPanel>
+          <TabPanel>
+            <div style={{ marginBottom: "1rem", maxWidth: "300px" }}>
+              <Dropdown
+                id="feedback-dropdown"
+                label="Select a date"
+                items={feedbackDates}
+                onChange={({ selectedItem }) => {
+                  setSelectedDate(selectedItem);
+                  loadJson(selectedItem);
+                }}
+              />
+            </div>
+            {selectedDate && jsonViewFunction(jsonData)}
+          </TabPanel>
         </TabPanels>
       </Tabs>
     </div>

@@ -11,11 +11,11 @@ import sampleJSON1 from "./data/14_04_20241_13_08.json";
 import Xarrow from "react-xarrows";
 
 const App = () => {
-  const { themeStyle } = useContext(UserContext);
+  const { themeStyle, jsonData } = useContext(UserContext);
   const [isRightPanelOpen, setIsRightPanelOpen] = useState(false);
   const [hoveredKey, setHoveredKey] = useState({ key: null, pageNum: null });
   const [pageRenderReady, setPageRenderReady] = useState(false);
-  const [jsonData, setJsonData] = useState(sampleJSON1);
+  // const [jsonData, setJsonData] = useState(sampleJSON1);
 
   // useEffect(() => {
   //   setJsonData(sampleJSON);
