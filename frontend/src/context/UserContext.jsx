@@ -9,7 +9,7 @@ export const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [themeStyle, setThemeStyle] = useState({ primary: "#4589ff" }); // Default theme is light
   const [jsonData, setJsonData] = useState(sampleJSON);
-
+  const [docType, setDocType] = useState("Bank Statement");
   const loadJson = (data) => {
     const finalJson = {
       default: sampleJSON,
@@ -21,7 +21,9 @@ export const UserProvider = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={{ themeStyle, jsonData, loadJson }}>
+    <UserContext.Provider
+      value={{ themeStyle, jsonData, loadJson, docType, setDocType }}
+    >
       {children}
     </UserContext.Provider>
   );
