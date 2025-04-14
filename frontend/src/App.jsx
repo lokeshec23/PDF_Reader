@@ -4,9 +4,10 @@ import JViewer from "./components/Jviewer/JViewer";
 import PViewer from "./components/PViewer/Pviewer";
 import InputFields from "./components/InputFields/InputFields";
 import { RightPanelCloseFilled, RightPanelOpen } from "@carbon/icons-react";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "./context/UserContext.jsx";
 import sampleJSON from "./data/sample.json";
+import sampleJSON1 from "./data/14_04_20241_13_08.json";
 import Xarrow from "react-xarrows";
 
 const App = () => {
@@ -14,7 +15,13 @@ const App = () => {
   const [isRightPanelOpen, setIsRightPanelOpen] = useState(false);
   const [hoveredKey, setHoveredKey] = useState({ key: null, pageNum: null });
   const [pageRenderReady, setPageRenderReady] = useState(false);
-  const extractionData = sampleJSON?.extraction_json || {};
+  const [jsonData, setJsonData] = useState(sampleJSON1);
+
+  // useEffect(() => {
+  //   setJsonData(sampleJSON);
+  // }, []);
+
+  const extractionData = jsonData?.extraction_json || {};
 
   const toggleRightPanel = () => {
     setIsRightPanelOpen((prev) => !prev);
@@ -50,7 +57,7 @@ const App = () => {
           <div className="border rounded-2xl shadow-md p-4 bg-white">
             <PViewer
               hoveredKey={hoveredKey}
-              data={sampleJSON}
+              data={jsonData}
               setPageRenderReady={setPageRenderReady}
             />
           </div>
@@ -80,7 +87,7 @@ const App = () => {
               )}
             </div>
             <div className="border rounded-2xl shadow-md p-4 bg-white">
-              <InputFields data={sampleJSON} setHoveredKey={setHoveredKey} />
+              <InputFields data={jsonData} setHoveredKey={setHoveredKey} />
             </div>
           </div>
 
@@ -90,7 +97,7 @@ const App = () => {
               className="w-1/2 border rounded-2xl shadow-md p-4 bg-white transition-all duration-300"
               style={{ height: "100%" }}
             >
-              <JViewer data={sampleJSON} />
+              <JViewer data={jsonData} />
             </div>
           )}
         </div>
