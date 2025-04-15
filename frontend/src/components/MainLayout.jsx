@@ -40,7 +40,7 @@ const MainLayout = () => {
             padding: "10px 20px",
           }}
         >
-          <p>We are working on this document type.</p>
+          <p>We are working on this document type</p>
         </div>
       );
 

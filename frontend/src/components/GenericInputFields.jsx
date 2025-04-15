@@ -44,7 +44,7 @@ const GenericInputFields = ({ data, schema, setHoveredKey }) => {
     <div
       style={{
         padding: "10px 20px",
-        marginTop: "1%",
+        // marginTop: "1%",
         display: "flex",
         flexDirection: "column",
         gap: "15px",

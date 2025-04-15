@@ -53,7 +53,7 @@ export const UserProvider = ({ children }) => {
         // "2025-02-28-11-30": SamplePayStub2,
       },
     };
-    setJsonData(finalJson[selectedDocType][data]);
+    setJsonData(finalJson[selectedDocType]?.[data]);
   };
 
   useEffect(() => {

@@ -1,4 +1,3 @@
-// config/schemaMap.js
 export const schemaMap = {
   "Bank Statement": {
     flatFields: [
