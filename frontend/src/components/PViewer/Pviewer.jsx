@@ -53,28 +53,28 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
   const handlePDFChange = () => {
     switch (selectedDocType) {
       case "Bank Statement":
-        setPDFLoad("/sample.pdf");
+        setPDFLoad("/3188332/ic_3188332_bankstatement1.pdf");
         break;
       case "Paystub":
-        setPDFLoad("/9014960/pdf/ic_9014960_paystub.pdf");
+        setPDFLoad("/3188332/ic_3188332_paystub.pdf");
         break;
       case "W2":
-        setPDFLoad("/9014960/pdf/ic_9014960_w2.pdf");
+        setPDFLoad("/3188332/ic_3188332_w2.pdf");
         break;
       case "Schedule E":
         setPDFLoad("");
         break;
       case "Credit report":
-        setPDFLoad("/9014960/pdf/9014960_creditreport1.pdf");
+        setPDFLoad("/3188332/pdf/9014960_creditreport1.pdf");
         break;
       case "VVOE":
-        setPDFLoad("/9014960/pdf/ic_9014960_vvoe.pdf");
+        setPDFLoad("/3188332/pdf/ic_9014960_vvoe.pdf");
         break;
       case "WVOE":
-        setPDFLoad("/9014960/pdf/ic_9014960_wvoe.pdf");
+        setPDFLoad("/3188332/pdf/ic_9014960_wvoe.pdf");
         break;
       default:
-        setPDFLoad("/sample.pdf");
+        setPDFLoad("/3188332/ic_3188332_bankstatement1.pdf");
         break;
     }
     try {
