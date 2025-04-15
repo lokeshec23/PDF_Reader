@@ -48,8 +48,8 @@ const GenericInputFields = ({ data, schema, setHoveredKey }) => {
         display: "flex",
         flexDirection: "column",
         gap: "15px",
-        height: "85dvh",
-        overflowY: "auto",
+        // height: "85dvh",
+        // overflowY: "auto",
       }}
     >
       {flatFields.map((field) => (

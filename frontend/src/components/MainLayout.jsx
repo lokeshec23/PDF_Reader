@@ -1,16 +1,13 @@
-import JViewer from "./JViewer/JViewer.jsx";
-import PViewer from "./PViewer/Pviewer.jsx";
-import { RightPanelCloseFilled, RightPanelOpen } from "@carbon/icons-react";
+import { schemaMap } from "../config/schemaMap.js";
+import { Dropdown } from "carbon-components-react";
 import React, { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext.jsx";
+import { RightPanelCloseFilled, RightPanelOpen } from "@carbon/icons-react";
+
 import Xarrow from "react-xarrows";
-
-// import BankStatementInputFields from "./InputFields/BankStatementInputFields.jsx";
-// import PayStubInputFields from "./InputFields/PayStubInputFields.jsx";
-import { Dropdown } from "carbon-components-react";
-
+import JViewer from "./JViewer/JViewer.jsx";
+import PViewer from "./PViewer/Pviewer.jsx";
 import GenericInputFields from "./GenericInputFields.jsx";
-import { schemaMap } from "../config/schemaMap.js";
 
 const MainLayout = () => {
   const {
@@ -67,13 +64,13 @@ const MainLayout = () => {
           <p>
             Loan ID:{" "}
             <b style={{ color: themeStyle.primary }}>
-              {extractionData?.["Account Number"]}
+              {extractionData?.["Account Number"] || "N/A"}
             </b>
           </p>
           <p>
             Borrower Name:{" "}
             <b style={{ color: themeStyle.primary }}>
-              {extractionData?.["Account Holder"]}
+              {extractionData?.["Account Holder"] || "N/A"}
             </b>
           </p>
         </div>
@@ -112,7 +109,7 @@ const MainLayout = () => {
           </div>
           <div
             className="border rounded-2xl shadow-md p-4 bg-white"
-            style={{ height: "85dvh", marginTop: "1%", overflowY: "hidden" }}
+            style={{ height: "85dvh", marginTop: "1%", overflowY: "auto" }}
           >
             <div
               style={{
