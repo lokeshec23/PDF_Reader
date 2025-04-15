@@ -10,7 +10,6 @@ const GenericInputFields = ({ data, schema, setHoveredKey }) => {
   }, [extractionData]);
 
   const handleMouseEnter = (key, pageNum) => {
-    debugger;
     if (key && pageNum != null) {
       setHoveredKey({ key, pageNum });
     }
@@ -96,7 +95,6 @@ const GenericInputFields = ({ data, schema, setHoveredKey }) => {
                 key={`${field}-${index}`}
                 id={`json-${field}-${index}`}
                 onMouseEnter={() => {
-                  debugger;
                   let coordinatesData =
                     data.extraction_json_with_coordinates ||
                     data.extraction_json;
@@ -118,7 +116,12 @@ const GenericInputFields = ({ data, schema, setHoveredKey }) => {
                   id={`${field.toLowerCase()}-${index}`}
                   type="text"
                   labelText={field.replace(/([A-Z])/g, " $1").trim()}
-                  value={entry[field] || ""}
+                  // value={entry[field] || ""}
+                  value={
+                    typeof entry[field] === "object"
+                      ? entry[field]?.value || ""
+                      : entry[field] || ""
+                  }
                   onChange={(e) =>
                     handleSectionChange(index, field, e.target.value)
                   }
