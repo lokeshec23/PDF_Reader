@@ -64,13 +64,13 @@ const MainLayout = () => {
           <p>
             Loan ID:{" "}
             <b style={{ color: themeStyle.primary }}>
-              {extractionData?.["Account Number"] || "N/A"}
+              {extractionData?.["Account Number"] || "0060826051"}
             </b>
           </p>
           <p>
             Borrower Name:{" "}
             <b style={{ color: themeStyle.primary }}>
-              {extractionData?.["Account Holder"] || "N/A"}
+              {extractionData?.["Account Holder"] || "BOWWEN F DIAMOND"}
             </b>
           </p>
         </div>
