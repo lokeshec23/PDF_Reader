@@ -18,16 +18,16 @@ export const UserProvider = ({ children }) => {
   const [jsonData, setJsonData] = useState(SamplePayStub); // default to Paystub
   const [docType, setDocType] = useState("Bank Statement");
   const DOC_TYPES = [
-    "Bank Statement",
     "Paystub",
     "W2",
-    "Schedule E",
+    "Bank Statement",
     "Credit report",
-    "VVOE",
     "WVOE",
+    // "VVOE",
+    // "Schedule E",
   ];
   const [selectedDocType, setSelectedDocType] = useState(
-    DOC_TYPES[0] || "Bank Statement"
+    DOC_TYPES[0] || "Paystub"
   );
 
   // Store different feedback dates based on document type
@@ -96,7 +96,7 @@ export const UserProvider = ({ children }) => {
         setSelectedDocType,
         DOC_TYPES,
         feedbackDates:
-          feedbackDates[selectedDocType] || feedbackDates["Bank Statement"], // Dynamically select dates based on docType
+          feedbackDates[selectedDocType] || feedbackDates["Paystub"], // Dynamically select dates based on docType
       }}
     >
       {children}
