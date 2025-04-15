@@ -16,11 +16,11 @@ function PdfViewer({
   setPageNumber,
   data,
   hoveredKey,
+  scale,
 }) {
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
   }
-
 
   const renderHighlights = () => {
     const extracted = data?.extraction_json_with_coordinates;
@@ -90,7 +90,13 @@ function PdfViewer({
         loading={<Loading />}
       >
         <div style={{ position: "relative" }}>
-          <Page pageNumber={pageNumber} height={window.innerHeight - 100} />
+          <Page
+            pageNumber={pageNumber}
+            // height={window.innerHeight - 100}
+            scale={scale || 1.5} // Default to 1.5 if not passed
+            renderAnnotationLayer={false}
+            renderTextLayer={true}
+          />
           {renderHighlights()}
         </div>
       </Document>

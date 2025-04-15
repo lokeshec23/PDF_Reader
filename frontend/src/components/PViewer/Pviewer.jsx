@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import PDFViewer from "../PDFViewer/PDFViewer";
 import {
   NextOutline,
@@ -10,15 +10,17 @@ import {
   ZoomReset,
 } from "@carbon/icons-react";
 import { Tooltip } from "carbon-components-react";
+import { UserContext } from "../../context/UserContext.jsx";
 
 const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
+  const { selectedDocType } = useContext(UserContext);
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [zoom, setZoom] = useState(1);
   const [rotation, setRotation] = useState(0);
   const [isPanning, setIsPanning] = useState(false);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
-  // const [pageRenderReady, setPageRenderReady] = useState(false);
+  const [PDFLoad, setPDFLoad] = useState("/sample.pdf");
 
   const handleZoomIn = () => setZoom((z) => Math.min(z + 0.2, 3));
   const handleZoomOut = () => setZoom((z) => Math.max(z - 0.2, 0.5));
@@ -43,6 +45,43 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
   useEffect(() => {
     setPageRenderReady(false);
   }, [pageNumber]);
+
+  useEffect(() => {
+    handlePDFChange();
+  }, [selectedDocType]);
+
+  const handlePDFChange = () => {
+    switch (selectedDocType) {
+      case "Bank Statement":
+        setPDFLoad("/sample.pdf");
+        break;
+      case "Paystub":
+        setPDFLoad("/9014960/pdf/ic_9014960_paystub.pdf");
+        break;
+      case "W2":
+        setPDFLoad("/9014960/pdf/ic_9014960_w2.pdf");
+        break;
+      case "Schedule E":
+        setPDFLoad("");
+        break;
+      case "Credit report":
+        setPDFLoad("/9014960/pdf/9014960_creditreport1.pdf");
+        break;
+      case "VVOE":
+        setPDFLoad("/9014960/pdf/ic_9014960_vvoe.pdf");
+        break;
+      case "WVOE":
+        setPDFLoad("/9014960/pdf/ic_9014960_wvoe.pdf");
+        break;
+      default:
+        setPDFLoad("/sample.pdf");
+        break;
+    }
+    try {
+    } catch (ex) {
+      console.log("Error in PDFChange", ex);
+    }
+  };
 
   const handleReset = () => {
     setZoom(1);
@@ -133,13 +172,14 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
           }}
         >
           <PDFViewer
-            file="/sample.pdf"
+            file={PDFLoad}
             numPages={numPages}
             setNumPages={setNumPages}
             pageNumber={pageNumber}
             setPageNumber={setPageNumber}
             data={data}
             hoveredKey={hoveredKey.key}
+            scale={zoom}
           />
         </div>
       </div>

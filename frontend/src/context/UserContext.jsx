@@ -22,6 +22,8 @@ export const UserProvider = ({ children }) => {
     "W2",
     "Schedule E",
     "Credit report",
+    "VVOE",
+    "WVOE",
   ];
   const [selectedDocType, setSelectedDocType] = useState(
     DOC_TYPES[0] || "Bank Statement"
