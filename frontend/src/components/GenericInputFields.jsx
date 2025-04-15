@@ -10,6 +10,7 @@ const GenericInputFields = ({ data, schema, setHoveredKey }) => {
   }, [extractionData]);
 
   const handleMouseEnter = (key, pageNum) => {
+    debugger;
     if (key && pageNum != null) {
       setHoveredKey({ key, pageNum });
     }
