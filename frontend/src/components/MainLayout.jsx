@@ -107,7 +107,10 @@ const MainLayout = () => {
               />
             )}
           </div>
-          <div className="border rounded-2xl shadow-md p-4 bg-white">
+          <div
+            className="border rounded-2xl shadow-md p-4 bg-white"
+            style={{ height: "85dvh", marginTop: "1%", overflowY: "hidden" }}
+          >
             <div
               style={{
                 padding: "10px 20px",

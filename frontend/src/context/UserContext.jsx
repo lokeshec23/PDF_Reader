@@ -23,7 +23,9 @@ export const UserProvider = ({ children }) => {
     "Schedule E",
     "Credit report",
   ];
-  const [selectedDocType, setSelectedDocType] = useState(DOC_TYPES[0]);
+  const [selectedDocType, setSelectedDocType] = useState(
+    DOC_TYPES[0] || "Bank Statement"
+  );
 
   // Store different feedback dates based on document type
   const feedbackDates = {
@@ -71,7 +73,8 @@ export const UserProvider = ({ children }) => {
         selectedDocType,
         setSelectedDocType,
         DOC_TYPES,
-        feedbackDates: feedbackDates[selectedDocType], // Dynamically select dates based on docType
+        feedbackDates:
+          feedbackDates[selectedDocType] || feedbackDates["Bank Statement"], // Dynamically select dates based on docType
       }}
     >
       {children}
