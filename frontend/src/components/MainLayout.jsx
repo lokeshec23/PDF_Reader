@@ -1,7 +1,7 @@
 import JViewer from "./JViewer/JViewer.jsx";
 import PViewer from "./PViewer/Pviewer.jsx";
 import { RightPanelCloseFilled, RightPanelOpen } from "@carbon/icons-react";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext.jsx";
 import Xarrow from "react-xarrows";
 
