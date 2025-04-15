@@ -62,10 +62,7 @@ const MainLayout = () => {
       <div className="w-full md:w-1/2">
         <div className="flex flex-row justify-between items-center mb-2 px-2">
           <p>
-            Loan ID:{" "}
-            <b style={{ color: themeStyle.primary }}>
-              {extractionData?.["Account Number"] || "0060826051"}
-            </b>
+            Loan ID: <b style={{ color: themeStyle.primary }}>{"9014960"}</b>
           </p>
           <p>
             Borrower Name:{" "}
