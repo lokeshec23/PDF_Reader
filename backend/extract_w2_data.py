@@ -61,7 +61,7 @@ def extract_w2_data(json_data):
 
 
 
-with open("ic_9014960_w2.json", "r") as f:
+with open("ic_3188332_w2.json", "r") as f:
     input_json = json.load(f)
 
 final_output = extract_w2_data(input_json)

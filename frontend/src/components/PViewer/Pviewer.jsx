@@ -53,13 +53,13 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
   const handlePDFChange = () => {
     switch (selectedDocType) {
       case "Bank Statement":
-        setPDFLoad("/3188332/ic_3188332_bankstatement1.pdf");
+        setPDFLoad("/3188332/pdf/ic_3188332_bankstatement1.pdf");
         break;
       case "Paystub":
-        setPDFLoad("/3188332/ic_3188332_paystub.pdf");
+        setPDFLoad("/3188332/pdf/ic_3188332_paystub.pdf");
         break;
       case "W2":
-        setPDFLoad("/3188332/ic_3188332_w2.pdf");
+        setPDFLoad("/3188332/pdf/ic_3188332_w2.pdf");
         break;
       case "Schedule E":
         setPDFLoad("");

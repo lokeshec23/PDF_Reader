@@ -9,12 +9,10 @@ import SamplePayStub from "../data/paystub/SamplePaystub.json";
 // import SamplePayStub2 from "../data/paystub/14_04_20241_15_15.json";
 
 // w2
-import SampleW2 from "../data/final_structured_w2.json";
+import SampleW2 from "../data/3188332/W2/ic_3188332_w2.json";
 
-// 1. Create the context
 export const UserContext = createContext();
 
-// 2. Create the provider component
 export const UserProvider = ({ children }) => {
   const [themeStyle, setThemeStyle] = useState({ primary: "#4589ff" }); // Default theme is light
   const [jsonData, setJsonData] = useState(SamplePayStub); // default to Paystub
