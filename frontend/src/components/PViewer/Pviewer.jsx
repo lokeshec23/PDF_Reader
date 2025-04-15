@@ -11,8 +11,9 @@ import {
 } from "@carbon/icons-react";
 import { Tooltip } from "carbon-components-react";
 import { UserContext } from "../../context/UserContext.jsx";
-
+import { useParams } from "react-router-dom";
 const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
+  const { docId } = useParams(); // 👈 "3188332" will be stored here
   const { selectedDocType } = useContext(UserContext);
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
@@ -53,28 +54,28 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
   const handlePDFChange = () => {
     switch (selectedDocType) {
       case "Bank Statement":
-        setPDFLoad("/3188332/pdf/ic_3188332_bankstatement1.pdf");
+        setPDFLoad(`/${docId}/pdf/ic_${docId}_bankstatement1.pdf`);
         break;
       case "Paystub":
-        setPDFLoad("/3188332/pdf/ic_3188332_paystub.pdf");
+        setPDFLoad(`/${docId}/pdf/ic_${docId}_paystub.pdf`);
         break;
       case "W2":
-        setPDFLoad("/3188332/pdf/ic_3188332_w2.pdf");
+        setPDFLoad(`/${docId}/pdf/ic_${docId}_w2.pdf`);
         break;
       case "Schedule E":
         setPDFLoad("");
         break;
       case "Credit report":
-        setPDFLoad("/3188332/pdf/9014960_creditreport1.pdf");
+        setPDFLoad(`/${docId}/pdf/9014960_creditreport1.pdf`);
         break;
       case "VVOE":
         setPDFLoad("/3188332/pdf/ic_9014960_vvoe.pdf");
         break;
       case "WVOE":
-        setPDFLoad("/3188332/pdf/ic_9014960_wvoe.pdf");
+        setPDFLoad(`/${docId}/pdf/ic_9014960_wvoe.pdf`);
         break;
       default:
-        setPDFLoad("/3188332/ic_3188332_bankstatement1.pdf");
+        setPDFLoad(`/${docId}/ic_3188332_bankstatement1.pdf`);
         break;
     }
     try {
