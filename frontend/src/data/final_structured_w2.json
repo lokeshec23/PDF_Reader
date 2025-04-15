@@ -12,19 +12,27 @@
   },
   "extraction_json": {
     "doc_type": "W2",
-    "Employer Name": "STATE OF CALIFORNIA",
+    "Employer Name": {
+      "value": "PANDA RESTAURANT GROUP INC AGENT FOR:PANDA EXPRESS INC",
+      "coordinates": {
+        "x0": 0.3098039215686274,
+        "y0": 0.0673123611111113,
+        "x1": 0.9318951665688889,
+        "y1": 0.7948892242424244
+      },
+      "page_num": 1
+    },
     "W2": [
       {
         "year": "2023",
-        "wages": "88,761.59"
-      },
-      {
-        "year": "2024",
-        "wages": "28"
-      },
-      {
-        "year": "2024",
-        "wages": "19"
+        "wages": "6231.45",
+        "coordinates": {
+          "x0": 0.7898039215686274,
+          "y0": 0.2373123611111113,
+          "x1": 0.9318951665688889,
+          "y1": 0.7948892242424244
+        },
+        "page_num": 1
       }
     ]
   }

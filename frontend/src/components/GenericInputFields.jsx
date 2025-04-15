@@ -20,9 +20,15 @@ const GenericInputFields = ({ data, schema, setHoveredKey }) => {
   };
 
   const handleInputChange = (field, value) => {
+    const oldValue = formData[field];
+    const newValue =
+      typeof oldValue === "object" && oldValue !== null && "value" in oldValue
+        ? { ...oldValue, value }
+        : value;
+
     setFormData((prev) => ({
       ...prev,
-      [field]: value,
+      [field]: newValue,
     }));
   };
 
@@ -44,12 +50,9 @@ const GenericInputFields = ({ data, schema, setHoveredKey }) => {
     <div
       style={{
         padding: "10px 20px",
-        // marginTop: "1%",
         display: "flex",
         flexDirection: "column",
         gap: "15px",
-        // height: "85dvh",
-        // overflowY: "auto",
       }}
     >
       {flatFields.map((field) => (
@@ -57,13 +60,13 @@ const GenericInputFields = ({ data, schema, setHoveredKey }) => {
           key={field}
           id={`json-${field}`}
           onMouseEnter={() => {
+            let coordinatesData =
+              data.extraction_json_with_coordinates || data.extraction_json;
             const coords =
-              data.extraction_json_with_coordinates?.[field]?.coordinates;
+              data.extraction_json_with_coordinates?.[field]?.coordinates ||
+              data.extraction_json?.[field]?.coordinates;
             if (coords == null) return;
-            handleMouseEnter(
-              field,
-              data.extraction_json_with_coordinates?.[field]?.page_num
-            );
+            handleMouseEnter(field, coordinatesData?.[field]?.page_num);
           }}
           onMouseLeave={handleMouseLeave}
         >
@@ -71,7 +74,11 @@ const GenericInputFields = ({ data, schema, setHoveredKey }) => {
             id={field.toLowerCase().replace(/\s+/g, "-")}
             type="text"
             labelText={field}
-            value={formData[field] || ""}
+            value={
+              typeof formData[field] === "object"
+                ? formData[field]?.value || ""
+                : formData[field] || ""
+            }
             onChange={(e) => handleInputChange(field, e.target.value)}
           />
         </div>
@@ -81,23 +88,27 @@ const GenericInputFields = ({ data, schema, setHoveredKey }) => {
         {sectionData.map((entry, index) => (
           <AccordionItem
             key={`${schema.sectionKey}-${index}`}
-            title={entry.Description || `${schema.sectionTitle} ${index + 1}`}
+            title={`${schema.sectionTitle} ${index + 1}`}
           >
             {schema.sectionFields.map((field) => (
               <div
                 key={`${field}-${index}`}
                 id={`json-${field}-${index}`}
                 onMouseEnter={() => {
+                  debugger;
+                  let coordinatesData =
+                    data.extraction_json_with_coordinates ||
+                    data.extraction_json;
                   const coords =
-                    data.extraction_json_with_coordinates?.[
-                      schema.sectionKey
-                    ]?.[index]?.[field]?.coordinates;
+                    coordinatesData?.[schema.sectionKey]?.[index]?.[field]
+                      ?.coordinates ||
+                    coordinatesData?.[schema.sectionKey]?.[index]?.coordinates;
                   if (coords == null) return;
                   handleMouseEnter(
                     `${field}-${index}`,
-                    data.extraction_json_with_coordinates?.[
-                      schema.sectionKey
-                    ]?.[index]?.[field]?.page_num
+                    coordinatesData?.[schema.sectionKey]?.[index]?.[field]
+                      ?.page_num ||
+                      coordinatesData?.[schema.sectionKey]?.[index]?.page_num
                   );
                 }}
                 onMouseLeave={handleMouseLeave}
