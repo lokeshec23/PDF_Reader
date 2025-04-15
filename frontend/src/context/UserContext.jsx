@@ -8,6 +8,9 @@ import SamplePayStub from "../data/paystub/SamplePaystub.json";
 // import SamplePayStub1 from "../data/paystub/14_04_20241_13_08.json";
 // import SamplePayStub2 from "../data/paystub/14_04_20241_15_15.json";
 
+// w2
+import SampleW2 from "../data/final_structured_w2.json";
+
 // 1. Create the context
 export const UserContext = createContext();
 
@@ -56,14 +59,33 @@ export const UserProvider = ({ children }) => {
         // "2025-03-25-10-01": SamplePayStub1,
         // "2025-02-28-11-30": SamplePayStub2,
       },
+      W2: {
+        default: SampleW2,
+      },
     };
     setJsonData(finalJson[selectedDocType]?.[data]);
   };
 
   useEffect(() => {
-    loadJson("default");
+    // loadJson("default");
+    handleJSONChange();
   }, [selectedDocType]);
 
+  const handleJSONChange = () => {
+    switch (selectedDocType) {
+      case "Bank Statement":
+        setJsonData(sampleJSON);
+        break;
+      case "Paystub":
+        setJsonData(SamplePayStub);
+        break;
+      case "W2":
+        setJsonData(SampleW2);
+        break;
+      default:
+        setJsonData(sampleJSON);
+    }
+  };
   return (
     <UserContext.Provider
       value={{

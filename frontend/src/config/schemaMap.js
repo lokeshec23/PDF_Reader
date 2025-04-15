@@ -30,4 +30,10 @@ export const schemaMap = {
       "YTDEarnings",
     ],
   },
+  W2: {
+    flatFields: ["Employer Name"],
+    sectionKey: "W2",
+    sectionTitle: "W2 Detail",
+    sectionFields: ["year", "wages"],
+  },
 };
