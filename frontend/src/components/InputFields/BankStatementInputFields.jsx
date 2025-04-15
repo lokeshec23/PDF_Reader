@@ -3,15 +3,7 @@ import { Dropdown } from "@carbon/react";
 import { Accordion, AccordionItem, TextInput } from "carbon-components-react";
 import { useEffect, useState } from "react";
 
-const items = [
-  "Bank Statement",
-  "Paystub",
-  "W2",
-  "Schedule E",
-  "Credit report",
-];
-
-const InputFields = ({ data, setHoveredKey }) => {
+const BankStatementInputFields = ({ data, setHoveredKey }) => {
   const extractionData = data?.extraction_json || {};
   const [formData, setFormData] = useState(extractionData);
 
@@ -61,13 +53,13 @@ const InputFields = ({ data, setHoveredKey }) => {
         overflowY: "auto",
       }}
     >
-      <Dropdown
+      {/* <Dropdown
         id="inline"
         titleText="Document Type"
         initialSelectedItem={formData.doc_type || items[0]}
         label={formData.doc_type || items[0]}
         items={items}
-      />
+      /> */}
 
       {[
         "Name of Institution",
@@ -150,4 +142,4 @@ const InputFields = ({ data, setHoveredKey }) => {
   );
 };
 
-export default InputFields;
+export default BankStatementInputFields;

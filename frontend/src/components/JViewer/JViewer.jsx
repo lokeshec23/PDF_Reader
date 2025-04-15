@@ -10,12 +10,6 @@ import {
 } from "@carbon/react";
 import { UserContext } from "../../context/UserContext";
 
-const feedbackDates = [
-  "2025-04-14-13-04",
-  "2025-03-28-04-05",
-  "2025-02-19-10-11",
-];
-
 const jsonViewFunction = (data, action) => {
   return (
     <div
@@ -40,15 +34,21 @@ const jsonViewFunction = (data, action) => {
 };
 
 const JViewer = ({ data }) => {
-  const { jsonData, loadJson } = useContext(UserContext);
-  const [selectedDate, setSelectedDate] = useState("2025-04-14-13-04");
+  const {
+    jsonData,
+    loadJson,
+    selectedDocType,
+    feedbackDates,
+    setSelectedDocType,
+  } = useContext(UserContext);
+  const [selectedDate, setSelectedDate] = useState(feedbackDates[0]);
   const [tabIndex, setTabIndex] = useState(0); // Control tab index
 
   const handleTabChange = ({ selectedIndex }) => {
     setTabIndex(selectedIndex);
     if (selectedIndex === 0) {
       loadJson("default");
-      setSelectedDate("2025-04-14-13-04");
+      setSelectedDate(feedbackDates[0]);
     }
   };
 
