@@ -83,7 +83,7 @@ export const UserProvider = ({ children }) => {
         setJsonData(SampleW2);
         break;
       default:
-        setJsonData(sampleJSON);
+        setJsonData({});
     }
   };
   return (
