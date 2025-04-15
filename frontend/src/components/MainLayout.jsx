@@ -56,7 +56,10 @@ const MainLayout = () => {
   return (
     <div
       className="flex flex-col md:flex-row gap-4 p-4 bg-gray-50 overflow-hidden"
-      style={{ padding: "10px 20px", marginTop: "3%" }}
+      style={{
+        padding: "10px 20px",
+        // marginTop: "3%" "To hide the header"
+      }}
     >
       {/* Left Side - PViewer */}
       <div className="w-full md:w-1/2">
