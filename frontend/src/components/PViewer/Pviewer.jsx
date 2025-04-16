@@ -13,7 +13,7 @@ import { Tooltip } from "carbon-components-react";
 import { UserContext } from "../../context/UserContext.jsx";
 import { useParams } from "react-router-dom";
 const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
-  const { docId } = useParams(); // 👈 "3188332" will be stored here
+  const { docId } = useParams();
   const { selectedDocType } = useContext(UserContext);
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
@@ -65,17 +65,17 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
       case "Schedule E":
         setPDFLoad("");
         break;
-      case "Credit report":
-        setPDFLoad(`/${docId}/pdf/9014960_creditreport.pdf`);
+      case "Credit Report":
+        setPDFLoad(`/${docId}/pdf/ic_${docId}_creditreport.pdf`);
         break;
       case "VVOE":
         setPDFLoad("");
         break;
       case "WVOE":
-        setPDFLoad(`/${docId}/pdf/ic_9014960_wvoe.pdf`);
+        setPDFLoad(`/${docId}/pdf/ic_${docId}_wvoe.pdf`);
         break;
       default:
-        setPDFLoad(`/${docId}/ic_3188332_bankstatement1.pdf`);
+        setPDFLoad(`/${docId}/ic_${docId}_paystub.pdf`);
         break;
     }
     try {

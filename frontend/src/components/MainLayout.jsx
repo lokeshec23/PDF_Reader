@@ -1,6 +1,6 @@
 import { schemaMap } from "../config/schemaMap.js";
 import { Dropdown } from "carbon-components-react";
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { UserContext } from "../context/UserContext.jsx";
 import { RightPanelCloseFilled, RightPanelOpen } from "@carbon/icons-react";
 
@@ -9,18 +9,26 @@ import JViewer from "./JViewer/JViewer.jsx";
 import PViewer from "./PViewer/Pviewer.jsx";
 import GenericInputFields from "./GenericInputFields.jsx";
 
+import { useParams } from "react-router-dom";
 const MainLayout = () => {
+  const { docId } = useParams();
   const {
     themeStyle,
     jsonData,
     selectedDocType,
     setSelectedDocType,
     DOC_TYPES,
+    setDocId,
   } = useContext(UserContext);
 
   const [isRightPanelOpen, setIsRightPanelOpen] = useState(false);
   const [hoveredKey, setHoveredKey] = useState({ key: null, pageNum: null });
   const [pageRenderReady, setPageRenderReady] = useState(false);
+
+  useEffect(() => {
+    console.log("Doc ID from URL:", docId);
+    setDocId(docId);
+  }, [docId]);
 
   const extractionData = jsonData?.extraction_json || {};
 
