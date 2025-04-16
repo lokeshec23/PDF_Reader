@@ -14,6 +14,9 @@ import SampleW2 from "../data/3188332/W2/ic_3188332_w2.json";
 // credit report
 import SampleCRJSON from "../data/3188332/Credit_Report/ic_3188332_creditReport.json";
 
+// wvoe
+import SampleWVOE from "../data/3188332/WVOE/ic_3188332_wvoe.json";
+
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
@@ -85,6 +88,9 @@ export const UserProvider = ({ children }) => {
         break;
       case "Credit Report":
         setJsonData(SampleCRJSON);
+        break;
+      case "WVOE":
+        setJsonData(SampleWVOE);
         break;
       default:
         setJsonData({});

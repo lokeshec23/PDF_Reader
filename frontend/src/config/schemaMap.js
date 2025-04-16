@@ -47,4 +47,18 @@ export const schemaMap = {
       "mon payment",
     ],
   },
+  WVOE: {
+    flatFields: ["Rate Of Pay", "Pay Frequency", "Hours"],
+    sectionKey: "years",
+    sectionTitle: "Years",
+    sectionFields: [
+      "Year",
+      "Base Salary",
+      "Overtime",
+      "Commissions",
+      "Bonus",
+      "Others",
+      "Total",
+    ],
+  },
 };
