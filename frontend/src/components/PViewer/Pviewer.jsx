@@ -66,10 +66,10 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
         setPDFLoad("");
         break;
       case "Credit report":
-        setPDFLoad(`/${docId}/pdf/9014960_creditreport1.pdf`);
+        setPDFLoad(`/${docId}/pdf/9014960_creditreport.pdf`);
         break;
       case "VVOE":
-        setPDFLoad("/3188332/pdf/ic_9014960_vvoe.pdf");
+        setPDFLoad("");
         break;
       case "WVOE":
         setPDFLoad(`/${docId}/pdf/ic_9014960_wvoe.pdf`);

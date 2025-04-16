@@ -12,29 +12,17 @@
   },
   "extraction_json": {
     "doc_type": "Bank Statement",
-    "Name of Institution": "Police and Fire",
-    "Account Holder": "BOWWEN F DIAMOND",
-    "Account Number": "0060826051",
-    "beginning date": "08/01/24",
-    "ending date": "08/31/24",
+    "Name of Institution": "The Bernstein Companies 401(k) Savings and Profit Sharing Plan",
+    "Account Holder": "RONNIEFORD",
+    "Account Number": "",
+    "beginning date": "10/01/2024",
+    "ending date": "10/31/2024",
     "transactions": [
       {
         "Credit_Debit": "Debit",
-        "Amount": "529.29",
-        "Account": "S0004 Checking",
-        "Description": "Withdrawal Trasfer To Loan 0011"
-      },
-      {
-        "Credit_Debit": "Debit",
-        "Amount": "530.00",
-        "Account": "S0001 Savings",
-        "Description": "Withdrawal Online Banking Transfer"
-      },
-      {
-        "Credit_Debit": "Debit",
-        "Amount": "362.92",
-        "Account": "S0004 Checking",
-        "Description": "Transfer From Share L0011"
+        "Amount": "45,977.27",
+        "Account": "Retirement Savings",
+        "Description": "Retirement Savings Statement"
       }
     ]
   },
@@ -57,8 +45,8 @@
     "Account Holder": {
       "value": "BOWWEN F DIAMOND",
       "coordinates": {
-        "x0": 0.2498039215686274,
-        "y0": 0.2673123611111113,
+        "x0": 0.2698039215686274,
+        "y0": 0.1273123611111113,
         "x1": 0.9318951665688889,
         "y1": 0.7948892242424244
       },
@@ -67,8 +55,8 @@
     "Account Number": {
       "value": "0060826051",
       "coordinates": {
-        "x0": 0.7898039215686274,
-        "y0": 0.2373123611111113,
+        "x0": 0.6098039215686274,
+        "y0": 0.1873123611111113,
         "x1": 0.9318951665688889,
         "y1": 0.7948892242424244
       },
@@ -77,8 +65,8 @@
     "beginning date": {
       "value": "08/01/24",
       "coordinates": {
-        "x0": 0.8798039215686274,
-        "y0": 0.2573123611111113,
+        "x0": 0.8098039215686274,
+        "y0": 0.1873123611111113,
         "x1": 0.30711979077443796,
         "y1": 0.17958357323232318
       },
@@ -87,8 +75,8 @@
     "ending date": {
       "value": "08/31/24",
       "coordinates": {
-        "x0": 0.8798039215686274,
-        "y0": 0.2573123611111113,
+        "x0": 0.8098039215686274,
+        "y0": 0.1873123611111113,
         "x1": 0.7700845280530065,
         "y1": 0.6001922545454547
       },
@@ -104,8 +92,8 @@
         "Amount": {
           "value": "529.29",
           "coordinates": {
-            "x0": 0.708823529411764705,
-            "y0": 0.700004941792929294,
+            "x0": 0.8098039215686274,
+            "y0": 0.3073123611111113,
             "x1": 0.49299592811939874,
             "y1": 0.8515269010101009
           },
@@ -114,8 +102,8 @@
         "Account": {
           "value": "S0004 Checking",
           "coordinates": {
-            "x0": 0.208823529411764705,
-            "y0": 0.6304941792929294,
+            "x0": 0.6098039215686274,
+            "y0": 0.1073123611111113,
             "x1": 0.49299592811939874,
             "y1": 0.8515269010101009
           },
@@ -124,86 +112,12 @@
         "Description": {
           "value": "Withdrawal Trasfer To Loan 0011",
           "coordinates": {
-            "x0": 0.348823529411764705,
-            "y0": 0.70904941792929294,
+            "x0": 0.6098039215686274,
+            "y0": 0.1073123611111113,
             "x1": 0.49299592811939874,
             "y1": 0.8515269010101009
           },
           "page_num": 1
-        }
-      },
-      {
-        "Credit_Debit": {
-          "value": "Debit",
-          "coordinates": null,
-          "page_num": 1
-        },
-        "Amount": {
-          "value": "530.00",
-          "coordinates": {
-            "x0": 0.708823529411764705,
-            "y0": 0.530004941792929294,
-            "x1": 0.49299592811939874,
-            "y1": 0.8515269010101009
-          },
-          "page_num": 1
-        },
-        "Account": {
-          "value": "S0001 Savings",
-          "coordinates": {
-            "x0": 0.208823529411764705,
-            "y0": 0.4704941792929294,
-            "x1": 0.49299592811939874,
-            "y1": 0.8515269010101009
-          },
-          "page_num": 1
-        },
-        "Description": {
-          "value": "Withdrawal Online Banking Transfer",
-          "coordinates": {
-            "x0": 0.45123529411764705,
-            "y0": 0.53904941792929294,
-            "x1": 0.49299592811939874,
-            "y1": 0.8515269010101009
-          },
-          "page_num": 1
-        }
-      },
-      {
-        "Credit_Debit": {
-          "value": "Debit",
-          "coordinates": null,
-          "page_num": 2
-        },
-        "Amount": {
-          "value": "362.92",
-          "coordinates": {
-            "x0": 0.5723529411764705,
-            "y0": 0.0854941792929294,
-            "x1": 0.49299592811939874,
-            "y1": 0.8515269010101009
-          },
-          "page_num": 2
-        },
-        "Account": {
-          "value": "L0011 2021 TOYOTA TACOMA",
-          "coordinates": {
-            "x0": 0.258823529411764705,
-            "y0": 0.047104941792929294,
-            "x1": 0.49299592811939874,
-            "y1": 0.8515269010101009
-          },
-          "page_num": 2
-        },
-        "Description": {
-          "value": "Transfer From Share 0004",
-          "coordinates": {
-            "x0": 0.40123529411764705,
-            "y0": 0.083904941792929294,
-            "x1": 0.49299592811939874,
-            "y1": 0.8515269010101009
-          },
-          "page_num": 2
         }
       }
     ]

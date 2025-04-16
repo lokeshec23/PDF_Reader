@@ -36,4 +36,29 @@ export const schemaMap = {
     sectionTitle: "W2 Detail",
     sectionFields: ["year", "wages"],
   },
+  "Credit Report": {
+    flatFields: ["Vendor Name"],
+    sectionKey: "libilities",
+    sectionTitle: "Libilities",
+    sectionFields: [
+      "creditor_name",
+      "account_number",
+      "liability_type",
+      "mon payment",
+    ],
+  },
+  WVOE: {
+    flatFields: ["Rate Of Pay", "Pay Frequency", "Hours"],
+    sectionKey: "years",
+    sectionTitle: "Years",
+    sectionFields: [
+      "Year",
+      "Base Salary",
+      "Overtime",
+      "Commissions",
+      "Bonus",
+      "Others",
+      "Total",
+    ],
+  },
 };
