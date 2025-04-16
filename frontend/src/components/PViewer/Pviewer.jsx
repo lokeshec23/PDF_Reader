@@ -65,16 +65,16 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
         setPDFLoad("");
         break;
       case "Credit report":
-        setPDFLoad("/3188332/pdf/9014960_creditreport1.pdf");
+        setPDFLoad("/3188332/pdf/ic_3188332_creditreport.pdf");
         break;
       case "VVOE":
-        setPDFLoad("/3188332/pdf/ic_9014960_vvoe.pdf");
+        setPDFLoad("");
         break;
       case "WVOE":
-        setPDFLoad("/3188332/pdf/ic_9014960_wvoe.pdf");
+        setPDFLoad("/3188332/pdf/ic_3188332_wvoe.pdf");
         break;
       default:
-        setPDFLoad("/3188332/ic_3188332_bankstatement1.pdf");
+        setPDFLoad("/3188332/pdf/ic_3188332_paystub.pdf");
         break;
     }
     try {
