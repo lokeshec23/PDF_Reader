@@ -11,6 +11,9 @@ import SamplePayStub from "../data/paystub/SamplePaystub.json";
 // w2
 import SampleW2 from "../data/3188332/W2/ic_3188332_w2.json";
 
+// credit report
+import SampleCRJSON from "../data/3188332/Credit_Report/ic_3188332_creditReport.json";
+
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
@@ -21,7 +24,7 @@ export const UserProvider = ({ children }) => {
     "Paystub",
     "W2",
     "Bank Statement",
-    "Credit report",
+    "Credit Report",
     "WVOE",
     // "VVOE",
     // "Schedule E",
@@ -79,6 +82,9 @@ export const UserProvider = ({ children }) => {
         break;
       case "W2":
         setJsonData(SampleW2);
+        break;
+      case "Credit Report":
+        setJsonData(SampleCRJSON);
         break;
       default:
         setJsonData({});

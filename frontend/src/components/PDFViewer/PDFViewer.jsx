@@ -24,6 +24,7 @@ function PdfViewer({
   }
 
   const renderHighlights = () => {
+    debugger;
     const extracted =
       data?.extraction_json_with_coordinates || data?.extraction_json;
     if (!extracted) return null;

@@ -64,7 +64,7 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
       case "Schedule E":
         setPDFLoad("");
         break;
-      case "Credit report":
+      case "Credit Report":
         setPDFLoad("/3188332/pdf/ic_3188332_creditreport.pdf");
         break;
       case "VVOE":
