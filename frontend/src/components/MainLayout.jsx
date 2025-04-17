@@ -10,6 +10,7 @@ import PViewer from "./PViewer/Pviewer.jsx";
 import GenericInputFields from "./GenericInputFields.jsx";
 
 import { useParams } from "react-router-dom";
+import LoaderOrError from "./LoaderOrError.jsx";
 const MainLayout = () => {
   const { docId } = useParams();
   const {
@@ -141,7 +142,16 @@ const MainLayout = () => {
                 }
               />
             </div>
-            {displayContent(selectedDocType)}
+            <LoaderOrError
+              loading={!jsonData || !jsonData.extraction_json}
+              error={
+                !selectedDocType || !schemaMap[selectedDocType]
+                  ? "Unsupported document type"
+                  : null
+              }
+            >
+              {displayContent(selectedDocType)}
+            </LoaderOrError>
           </div>
         </div>
 

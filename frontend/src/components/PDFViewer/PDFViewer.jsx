@@ -6,6 +6,7 @@ import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
 import "./PDFViewer.css"; // Optional for custom styles
 import { schemaMap } from "../../config/schemaMap";
+import { useState } from "react";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js`;
 
@@ -19,9 +20,12 @@ function PdfViewer({
   hoveredKey,
   scale,
 }) {
-  function onDocumentLoadSuccess({ numPages }) {
+  const [isLoading, setIsLoading] = useState(true); // Track loading manually
+
+  const onDocumentLoadSuccess = ({ numPages }) => {
     setNumPages(numPages);
-  }
+    setIsLoading(false); //  After loading done
+  };
 
   const renderHighlights = () => {
     const extracted =
@@ -108,23 +112,41 @@ function PdfViewer({
     <div
       style={{
         flex: 1,
-        // overflow: "auto",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
+        position: "relative", //  important to center
+        minHeight: "80vh", // Give enough height for center alignment
       }}
     >
+      {isLoading && (
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            zIndex: 10,
+          }}
+        >
+          <Loading withOverlay={false} />
+        </div>
+      )}
+
       <Document
         file={file}
         onLoadSuccess={onDocumentLoadSuccess}
-        loading={<Loading />}
+        onLoadError={(error) => {
+          console.error("PDF Load Error", error);
+          setIsLoading(false); // Even on error, stop loading
+        }}
+        loading={null}
       >
         <div style={{ position: "relative" }}>
           <Page
             pageNumber={pageNumber}
-            // height={window.innerHeight - 100}
-            scale={scale || 1.5} // Default to 1.5 if not passed
+            scale={scale || 1.5}
             renderAnnotationLayer={false}
             renderTextLayer={true}
           />
