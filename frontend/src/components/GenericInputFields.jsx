@@ -35,7 +35,13 @@ const GenericInputFields = ({ data, schema, setHoveredKey }) => {
   const handleSectionChange = (index, field, value) => {
     const sectionData = [...(formData[schema.sectionKey] || [])];
     if (!sectionData[index]) sectionData[index] = {};
-    sectionData[index][field] = value;
+    const oldFieldValue = sectionData[index][field];
+    sectionData[index][field] =
+      typeof oldFieldValue === "object" &&
+      oldFieldValue !== null &&
+      "value" in oldFieldValue
+        ? { ...oldFieldValue, value }
+        : value;
 
     setFormData((prev) => ({
       ...prev,
@@ -45,6 +51,7 @@ const GenericInputFields = ({ data, schema, setHoveredKey }) => {
 
   const flatFields = schema.flatFields || [];
   const sectionData = formData[schema.sectionKey] || [];
+  const titleField = schema.sectionTitleField;
 
   return (
     <div
@@ -62,9 +69,7 @@ const GenericInputFields = ({ data, schema, setHoveredKey }) => {
           onMouseEnter={() => {
             let coordinatesData =
               data.extraction_json_with_coordinates || data.extraction_json;
-            const coords =
-              data.extraction_json_with_coordinates?.[field]?.coordinates ||
-              data.extraction_json?.[field]?.coordinates;
+            const coords = coordinatesData?.[field]?.coordinates;
             if (coords == null) return;
             handleMouseEnter(field, coordinatesData?.[field]?.page_num);
           }}
@@ -85,51 +90,59 @@ const GenericInputFields = ({ data, schema, setHoveredKey }) => {
       ))}
 
       <Accordion>
-        {sectionData.map((entry, index) => (
-          <AccordionItem
-            key={`${schema.sectionKey}-${index}`}
-            title={`${schema.sectionTitle} ${index + 1}`}
-          >
-            {schema.sectionFields.map((field) => (
-              <div
-                key={`${field}-${index}`}
-                id={`json-${field}-${index}`}
-                onMouseEnter={() => {
-                  let coordinatesData =
-                    data.extraction_json_with_coordinates ||
-                    data.extraction_json;
-                  const coords =
-                    coordinatesData?.[schema.sectionKey]?.[index]?.[field]
-                      ?.coordinates ||
-                    coordinatesData?.[schema.sectionKey]?.[index]?.coordinates;
-                  if (coords == null) return;
-                  handleMouseEnter(
-                    `${field}-${index}`,
-                    coordinatesData?.[schema.sectionKey]?.[index]?.[field]
-                      ?.page_num ||
-                      coordinatesData?.[schema.sectionKey]?.[index]?.page_num
-                  );
-                }}
-                onMouseLeave={handleMouseLeave}
-              >
-                <TextInput
-                  id={`${field.toLowerCase()}-${index}`}
-                  type="text"
-                  labelText={field.replace(/([A-Z])/g, " $1").trim()}
-                  // value={entry[field] || ""}
-                  value={
-                    typeof entry[field] === "object"
-                      ? entry[field]?.value || ""
-                      : entry[field] || ""
-                  }
-                  onChange={(e) =>
-                    handleSectionChange(index, field, e.target.value)
-                  }
-                />
-              </div>
-            ))}
-          </AccordionItem>
-        ))}
+        {sectionData.map((entry, index) => {
+          const dynamicTitleRaw = titleField ? entry?.[titleField] : null;
+          const dynamicTitle =
+            typeof dynamicTitleRaw === "object" && dynamicTitleRaw !== null
+              ? dynamicTitleRaw.value || `${schema.sectionTitle} ${index + 1}`
+              : dynamicTitleRaw || `${schema.sectionTitle} ${index + 1}`;
+
+          return (
+            <AccordionItem
+              key={`${schema.sectionKey}-${index}`}
+              title={dynamicTitle}
+            >
+              {schema.sectionFields.map((field) => (
+                <div
+                  key={`${field}-${index}`}
+                  id={`json-${field}-${index}`}
+                  onMouseEnter={() => {
+                    let coordinatesData =
+                      data.extraction_json_with_coordinates ||
+                      data.extraction_json;
+                    const coords =
+                      coordinatesData?.[schema.sectionKey]?.[index]?.[field]
+                        ?.coordinates ||
+                      coordinatesData?.[schema.sectionKey]?.[index]
+                        ?.coordinates;
+                    if (coords == null) return;
+                    handleMouseEnter(
+                      `${field}-${index}`,
+                      coordinatesData?.[schema.sectionKey]?.[index]?.[field]
+                        ?.page_num ||
+                        coordinatesData?.[schema.sectionKey]?.[index]?.page_num
+                    );
+                  }}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <TextInput
+                    id={`${field.toLowerCase()}-${index}`}
+                    type="text"
+                    labelText={field.replace(/([A-Z])/g, " $1").trim()}
+                    value={
+                      typeof entry[field] === "object"
+                        ? entry[field]?.value || ""
+                        : entry[field] || ""
+                    }
+                    onChange={(e) =>
+                      handleSectionChange(index, field, e.target.value)
+                    }
+                  />
+                </div>
+              ))}
+            </AccordionItem>
+          );
+        })}
       </Accordion>
     </div>
   );
