@@ -9,9 +9,10 @@ import {
   ZoomOut,
   ZoomReset,
 } from "@carbon/icons-react";
-import { Tooltip } from "carbon-components-react";
+// import { Tooltip } from "carbon-components-react";
 import { UserContext } from "../../context/UserContext.jsx";
 import { useParams } from "react-router-dom";
+import { pdfPathMap } from "../../config/pdfPathMap";
 const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
   const { docId } = useParams();
   const { selectedDocType } = useContext(UserContext);
@@ -21,7 +22,7 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
   const [rotation, setRotation] = useState(0);
   const [isPanning, setIsPanning] = useState(false);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
-  const [PDFLoad, setPDFLoad] = useState("/sample.pdf");
+  const [PDFLoad, setPDFLoad] = useState(null);
 
   const handleZoomIn = () => setZoom((z) => Math.min(z + 0.2, 3));
   const handleZoomOut = () => setZoom((z) => Math.max(z - 0.2, 0.5));
@@ -52,35 +53,18 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
   }, [selectedDocType]);
 
   const handlePDFChange = () => {
-    switch (selectedDocType) {
-      case "Bank Statement":
-        setPDFLoad(`/${docId}/pdf/ic_${docId}_bankstatement.pdf`);
-        break;
-      case "Paystub":
-        setPDFLoad(`/${docId}/pdf/ic_${docId}_paystub.pdf`);
-        break;
-      case "W2":
-        setPDFLoad(`/${docId}/pdf/ic_${docId}_w2.pdf`);
-        break;
-      case "Schedule E":
-        setPDFLoad("");
-        break;
-      case "Credit Report":
-        setPDFLoad(`/${docId}/pdf/ic_${docId}_creditreport.pdf`);
-        break;
-      case "VVOE":
-        setPDFLoad("");
-        break;
-      case "WVOE":
-        setPDFLoad(`/${docId}/pdf/ic_${docId}_wvoe.pdf`);
-        break;
-      default:
-        setPDFLoad(`/${docId}/ic_${docId}_paystub.pdf`);
-        break;
-    }
     try {
+      if (pdfPathMap[selectedDocType]) {
+        setPDFLoad(pdfPathMap[selectedDocType](docId));
+      } else {
+        console.error(
+          "Unsupported document type for PDF loading:",
+          selectedDocType
+        );
+        setPDFLoad(null);
+      }
     } catch (ex) {
-      console.log("Error in PDFChange", ex);
+      console.error("Error setting PDF path", ex);
     }
   };
 
