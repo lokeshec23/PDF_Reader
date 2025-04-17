@@ -18,7 +18,7 @@ export const schemaMap = {
 
     sectionFields: ["Credit_Debit", "Amount", "Account", "Description"],
 
-    sectionTitleField: "Credit_Debit", // NEW! You can customize here
+    sectionTitleField: "Description", // NEW! You can customize here
   },
 
   Paystub: {
