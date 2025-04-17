@@ -1,11 +1,11 @@
 import React from "react";
-import { Loading } from "carbon-components-react";
+import { Loading, InlineNotification } from "carbon-components-react";
 
 const LoaderOrError = ({ loading, error, children }) => {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-full">
-        <Loading description="Active loading indicator" withOverlay={false} />
+        <Loading description="Loading content" withOverlay={false} />
       </div>
     );
   }
@@ -13,10 +13,15 @@ const LoaderOrError = ({ loading, error, children }) => {
   if (error) {
     return (
       <div
-        className="flex items-center justify-center h-full text-red-600 font-bold"
+        className="flex items-center justify-center h-full"
         style={{ padding: "20px" }}
       >
-        {error}
+        <InlineNotification
+          kind="error"
+          title="Something went wrong"
+          lowContrast={true}
+          hideCloseButton={false}
+        />
       </div>
     );
   }
