@@ -90,12 +90,24 @@ const MainLayout = () => {
           </p>
         </div> */}
 
-        <div className="border rounded-2xl shadow-md p-4 bg-white">
-          <PViewer
-            hoveredKey={hoveredKey}
-            data={jsonData}
-            setPageRenderReady={setPageRenderReady}
-          />
+        <div
+          className="border rounded-2xl shadow-md p-4 bg-white"
+          style={{ height: "89dvh", overflowY: "hidden" }}
+        >
+          <LoaderOrError
+            loading={!jsonData || !jsonData.extraction_json}
+            error={
+              !selectedDocType || !schemaMap[selectedDocType]
+                ? "Unsupported document type"
+                : null
+            }
+          >
+            <PViewer
+              hoveredKey={hoveredKey}
+              data={jsonData}
+              setPageRenderReady={setPageRenderReady}
+            />
+          </LoaderOrError>
         </div>
       </div>
 
@@ -126,22 +138,6 @@ const MainLayout = () => {
             className="border rounded-2xl shadow-md p-4 bg-white"
             style={{ height: "85dvh", marginTop: "1%", overflowY: "auto" }}
           >
-            <div
-              style={{
-                padding: "10px 20px",
-              }}
-            >
-              <Dropdown
-                id="inline"
-                titleText="Document Type"
-                initialSelectedItem={selectedDocType}
-                label={selectedDocType}
-                items={DOC_TYPES}
-                onChange={({ selectedItem }) =>
-                  setSelectedDocType(selectedItem)
-                }
-              />
-            </div>
             <LoaderOrError
               loading={!jsonData || !jsonData.extraction_json}
               error={
@@ -150,6 +146,22 @@ const MainLayout = () => {
                   : null
               }
             >
+              <div
+                style={{
+                  padding: "10px 20px",
+                }}
+              >
+                <Dropdown
+                  id="inline"
+                  titleText="Document Type"
+                  initialSelectedItem={selectedDocType}
+                  label={selectedDocType}
+                  items={DOC_TYPES}
+                  onChange={({ selectedItem }) =>
+                    setSelectedDocType(selectedItem)
+                  }
+                />
+              </div>
               {displayContent(selectedDocType)}
             </LoaderOrError>
           </div>
@@ -161,7 +173,16 @@ const MainLayout = () => {
             className="w-1/2 border rounded-2xl shadow-md p-4 bg-white transition-all duration-300"
             style={{ height: "100%" }}
           >
-            <JViewer data={jsonData} />
+            <LoaderOrError
+              loading={!jsonData || !jsonData.extraction_json}
+              error={
+                !selectedDocType || !schemaMap[selectedDocType]
+                  ? "Unsupported document type"
+                  : null
+              }
+            >
+              <JViewer data={jsonData} />
+            </LoaderOrError>
           </div>
         )}
       </div>
