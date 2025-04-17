@@ -131,7 +131,7 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
           <ZoomIn onClick={handleZoomIn} />
           <ZoomOut onClick={handleZoomOut} />
           <WatsonHealthZoomPan onClick={togglePan} />
-          <Rotate onClick={handleRotate} />
+          {/* <Rotate onClick={handleRotate} /> */}
           {showResetButton && <ZoomReset onClick={handleReset} />}
         </div>
         <div
