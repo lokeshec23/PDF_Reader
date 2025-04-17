@@ -92,7 +92,7 @@ const MainLayout = () => {
 
         <div
           className="border rounded-2xl shadow-md p-4 bg-white"
-          style={{ height: "89dvh", overflowY: "hidden" }}
+          style={{ height: "90dvh", overflow: "auto" }}
         >
           <LoaderOrError
             loading={!jsonData || !jsonData.extraction_json}
@@ -119,25 +119,28 @@ const MainLayout = () => {
             isRightPanelOpen ? "w-1/2" : "w-full"
           }`}
         >
-          <div className="flex justify-end mb-2 pr-2">
-            {!isRightPanelOpen ? (
-              <RightPanelOpen
-                size={24}
-                onClick={toggleRightPanel}
-                className="cursor-pointer"
-              />
-            ) : (
-              <RightPanelCloseFilled
-                size={24}
-                onClick={toggleRightPanel}
-                className="cursor-pointer"
-              />
-            )}
-          </div>
           <div
             className="border rounded-2xl shadow-md p-4 bg-white"
-            style={{ height: "85dvh", marginTop: "1%", overflowY: "auto" }}
+            style={{ height: "90dvh", marginTop: "1%", overflowY: "auto" }}
           >
+            <div
+              className="flex justify-end mb-2 "
+              style={{ padding: "10px 20px" }}
+            >
+              {!isRightPanelOpen ? (
+                <RightPanelOpen
+                  size={24}
+                  onClick={toggleRightPanel}
+                  className="cursor-pointer"
+                />
+              ) : (
+                <RightPanelCloseFilled
+                  size={24}
+                  onClick={toggleRightPanel}
+                  className="cursor-pointer"
+                />
+              )}
+            </div>
             <LoaderOrError
               loading={!jsonData || !jsonData.extraction_json}
               error={

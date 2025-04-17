@@ -159,7 +159,7 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
       <div
         onMouseDown={handleMouseDown}
         style={{
-          height: "85dvh",
+          // height: "85dvh",
           overflow: "auto",
           position: "relative",
           cursor: isPanning ? "grab" : "default",
