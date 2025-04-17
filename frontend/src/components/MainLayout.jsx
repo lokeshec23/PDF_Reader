@@ -173,6 +173,11 @@ const MainLayout = () => {
           end={`pdf-${hoveredKey.key}`}
           color={themeStyle.primary}
           strokeWidth={2}
+          // // animateDrawing={true} // This makes the arrow smooth!
+          // showHead={true} //   show a nice arrowhead
+          // path="smooth" // "smooth" path instead of straight line
+          // curveness={0.8} // 0 to 1 — how much curve you want
+          // headSize={5} // size of arrow head
         />
       )}
     </div>
