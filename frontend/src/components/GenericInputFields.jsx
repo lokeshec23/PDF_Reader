@@ -3,11 +3,12 @@ import { useEffect, useState } from "react";
 
 const GenericInputFields = ({ data, schema, setHoveredKey }) => {
   const extractionData = data?.extraction_json || {};
-  const [formData, setFormData] = useState(extractionData);
-
+  const [formData, setFormData] = useState(() => extractionData);
   useEffect(() => {
-    setFormData(extractionData);
-  }, [extractionData]);
+    if (JSON.stringify(formData) !== JSON.stringify(extractionData)) {
+      setFormData(extractionData); // ✅ Only if real difference
+    }
+  }, [data?.extraction_json]);
 
   const handleMouseEnter = (key, pageNum) => {
     if (key && pageNum != null) {
