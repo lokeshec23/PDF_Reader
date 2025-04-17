@@ -141,6 +141,22 @@ const MainLayout = () => {
                 />
               )}
             </div>
+            <div
+              style={{
+                padding: "10px 20px",
+              }}
+            >
+              <Dropdown
+                id="inline"
+                titleText="Document Type"
+                initialSelectedItem={selectedDocType}
+                label={selectedDocType}
+                items={DOC_TYPES}
+                onChange={({ selectedItem }) =>
+                  setSelectedDocType(selectedItem)
+                }
+              />
+            </div>
             <LoaderOrError
               loading={!jsonData || !jsonData.extraction_json}
               error={
@@ -149,22 +165,6 @@ const MainLayout = () => {
                   : null
               }
             >
-              <div
-                style={{
-                  padding: "10px 20px",
-                }}
-              >
-                <Dropdown
-                  id="inline"
-                  titleText="Document Type"
-                  initialSelectedItem={selectedDocType}
-                  label={selectedDocType}
-                  items={DOC_TYPES}
-                  onChange={({ selectedItem }) =>
-                    setSelectedDocType(selectedItem)
-                  }
-                />
-              </div>
               {displayContent(selectedDocType)}
             </LoaderOrError>
           </div>
