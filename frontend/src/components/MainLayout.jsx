@@ -92,7 +92,7 @@ const MainLayout = () => {
 
         <div
           className="border rounded-2xl shadow-md p-4 bg-white"
-          style={{ height: "90dvh", overflow: "auto" }}
+          style={{ overflow: "hidden" }}
         >
           <LoaderOrError
             loading={!jsonData || !jsonData.extraction_json}
@@ -121,7 +121,7 @@ const MainLayout = () => {
         >
           <div
             className="border rounded-2xl shadow-md p-4 bg-white"
-            style={{ height: "90dvh", marginTop: "1%", overflowY: "auto" }}
+            style={{ height: "95dvh", marginTop: "1%", overflowY: "auto" }}
           >
             <div
               className="flex justify-end mb-2 "

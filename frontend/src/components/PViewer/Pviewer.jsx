@@ -147,6 +147,8 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
           // overflow: "auto",
           position: "relative",
           cursor: isPanning ? "grab" : "default",
+          height: "90dvh",
+          overflow: "auto",
         }}
       >
         <div
