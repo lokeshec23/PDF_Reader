@@ -51,7 +51,7 @@ export const UserProvider = ({ children }) => {
           jsonPath = `/${docId}/json/ic_${docId}_paystub.json`;
       }
 
-      console.log("📥 Fetching JSON:", jsonPath);
+      // console.log("📥 Fetching JSON:", jsonPath);
       const res = await fetch(jsonPath);
       if (!res.ok) throw new Error(`JSON not found at ${jsonPath}`);
       const json = await res.json();

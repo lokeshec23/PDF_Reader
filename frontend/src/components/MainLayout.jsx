@@ -27,17 +27,17 @@ const MainLayout = () => {
   const [pageRenderReady, setPageRenderReady] = useState(false);
 
   useEffect(() => {
-    console.log("Doc ID from URL:", docId);
+    // console.log("Doc ID from URL:", docId);
     setDocId(docId);
   }, [docId]);
 
   useEffect(() => {
-    console.log("Doc ID from URL:", docId);
+    // console.log("Doc ID from URL:", docId);
     setDocId(docId);
   }, [docId]);
 
   useEffect(() => {
-    console.log("jsonData in MainLayout:", jsonData); // 👈 Add this
+    // console.log("jsonData in MainLayout:", jsonData); // 👈 Add this
   }, [jsonData]);
 
   const extractionData = jsonData?.extraction_json || {};
