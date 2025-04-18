@@ -38,15 +38,6 @@ const MainLayout = () => {
     }
   }, [docId]);
 
-  // useEffect(() => {
-  //   // console.log("Doc ID from URL:", docId);
-  //   setDocId(docId);
-  // }, [docId]);
-
-  // useEffect(() => {
-  //   // console.log("jsonData in MainLayout:", jsonData); // 👈 Add this
-  // }, [jsonData]);
-
   const extractionData = jsonData?.extraction_json || {};
 
   const toggleRightPanel = () => {
