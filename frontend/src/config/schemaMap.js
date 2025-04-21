@@ -10,7 +10,7 @@ export const schemaMap = {
     sectionKey: "transactions",
     sectionTitle: "Transaction",
     sectionFields: ["Credit_Debit", "Amount", "Account", "Description"],
-    sectionTitleField: "Credit_Debit", // NEW! You can customize here
+    sectionTitleField: "Credit_Debit",
   },
   Paystub: {
     flatFields: [
@@ -30,26 +30,26 @@ export const schemaMap = {
       "ThisPeriod",
       "YTDEarnings",
     ],
-    sectionTitleField: "TypeName", // NEW! Dynamic title from TypeName
+    sectionTitleField: "TypeName",
   },
   W2: {
     flatFields: ["Employer Name"],
     sectionKey: "W2",
     sectionTitle: "W2 Detail",
     sectionFields: ["year", "wages"],
-    sectionTitleField: "year", // NEW!
+    sectionTitleField: "year",
   },
   "Credit Report": {
     flatFields: ["Vendor Name"],
     sectionKey: "libilities",
-    sectionTitle: "Liabilities", // corrected typo "Libilities"
+    sectionTitle: "Liabilities",
     sectionFields: [
       "creditor_name",
       "account_number",
       "liability_type",
       "mon payment",
     ],
-    sectionTitleField: "creditor_name", // NEW!
+    sectionTitleField: "creditor_name",
   },
   WVOE: {
     flatFields: ["Rate Of Pay", "Pay Frequency", "Hours"],
@@ -64,6 +64,6 @@ export const schemaMap = {
       "Others",
       "Total",
     ],
-    sectionTitleField: "Year", // NEW!
+    sectionTitleField: "Year",
   },
 };
