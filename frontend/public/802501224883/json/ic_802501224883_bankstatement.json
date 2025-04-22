@@ -14,16 +14,26 @@
     "doc_type": "Bank Statement",
     "Name of Institution": "Altura Credit Union",
     "Account Holder": "CONSUELO T CARDENAS",
-    "Account Number": "",
+    "Account Number": "6560",
     "beginning date": "01/01/25",
     "ending date": "01/31/25",
     "transactions": [
       {
         "Credit_Debit": "Debit",
-        "Amount": "45,977.27",
-        "Account": "Retirement Savings",
-        "Description": "Retirement Savings Statement"
-      }
+        "creditor": "VENMO *LAZARO",
+        "account_number": "",
+        "date": "01/02/25",
+        "Amount": "2,499.00",
+        "isMatched": false
+    },
+      {
+        "Credit_Debit": "Debit",
+        "creditor": "Urbina Property",
+        "account_number": "",
+        "date": "01/02/25",
+        "Amount": "3,350.00",
+        "isMatched": false
+    }
     ]
   },
   "extraction_json_with_coordinates": {
@@ -33,9 +43,9 @@
       "page_num": null
     },
     "Name of Institution": {
-      "value": "Police and Fire",
+      "value": "Altura Credit Union",
       "coordinates": {
-        "x0": 0.3098039215686274,
+        "x0": 0.2898039215686274,
         "y0": 0.0673123611111113,
         "x1": 0.9318951665688889,
         "y1": 0.7948892242424244
@@ -43,10 +53,10 @@
       "page_num": 1
     },
     "Account Holder": {
-      "value": "BOWWEN F DIAMOND",
+      "value": "CONSUELO T CARDENAS",
       "coordinates": {
-        "x0": 0.2698039215686274,
-        "y0": 0.1273123611111113,
+        "x0": 0.3598039215686274,
+        "y0": 0.2173123611111113,
         "x1": 0.9318951665688889,
         "y1": 0.7948892242424244
       },
@@ -55,8 +65,8 @@
     "Account Number": {
       "value": "0060826051",
       "coordinates": {
-        "x0": 0.6098039215686274,
-        "y0": 0.1873123611111113,
+        "x0": 0.6698039215686274,
+        "y0": 0.0473123611111113,
         "x1": 0.9318951665688889,
         "y1": 0.7948892242424244
       },
@@ -65,8 +75,8 @@
     "beginning date": {
       "value": "08/01/24",
       "coordinates": {
-        "x0": 0.8098039215686274,
-        "y0": 0.1873123611111113,
+        "x0": 0.7098039215686274,
+        "y0": 0.0673123611111113,
         "x1": 0.30711979077443796,
         "y1": 0.17958357323232318
       },
@@ -76,7 +86,7 @@
       "value": "08/31/24",
       "coordinates": {
         "x0": 0.8098039215686274,
-        "y0": 0.1873123611111113,
+        "y0": 0.0673123611111113,
         "x1": 0.7700845280530065,
         "y1": 0.6001922545454547
       },
@@ -86,40 +96,88 @@
       {
         "Credit_Debit": {
           "value": "Debit",
-          "coordinates": null,
-          "page_num": 1
-        },
-        "Amount": {
-          "value": "529.29",
           "coordinates": {
             "x0": 0.8098039215686274,
             "y0": 0.3073123611111113,
             "x1": 0.49299592811939874,
             "y1": 0.8515269010101009
           },
-          "page_num": 1
+          "page_num": 3
+        },
+        "creditor": {
+          "value": "VENMO *LAZARO",
+          "coordinates": {
+            "x0": 0.8098039215686274,
+            "y0": 0.3073123611111113,
+            "x1": 0.49299592811939874,
+            "y1": 0.8515269010101009
+          },
+          "page_num": 3
+        },
+        "Amount": {
+          "value": "2,499.90",
+          "coordinates": {
+            "x0": 0.8098039215686274,
+            "y0": 0.3073123611111113,
+            "x1": 0.49299592811939874,
+            "y1": 0.8515269010101009
+          },
+          "page_num": 3
         },
         "Account": {
-          "value": "S0004 Checking",
-          "coordinates": {
-            "x0": 0.6098039215686274,
-            "y0": 0.1073123611111113,
-            "x1": 0.49299592811939874,
-            "y1": 0.8515269010101009
-          },
-          "page_num": 1
+          "value": "",
+          "coordinates": null,
+          "page_num": 3
         },
         "Description": {
-          "value": "Withdrawal Trasfer To Loan 0011",
+          "value": "",
+          "coordinates": null,
+          "page_num": 3
+        }
+      },
+      {
+        "Credit_Debit": {
+          "value": "Debit",
           "coordinates": {
-            "x0": 0.6098039215686274,
-            "y0": 0.1073123611111113,
+            "x0": 0.8098039215686274,
+            "y0": 0.2573123611111113,
             "x1": 0.49299592811939874,
             "y1": 0.8515269010101009
           },
-          "page_num": 1
+          "page_num": 3
+        },
+        "creditor": {
+          "value": "Urbina Property",
+          "coordinates": {
+          "x0": 0.8098039215686274,
+            "y0": 0.2573123611111113,
+            "x1": 0.49299592811939874,
+            "y1": 0.8515269010101009
+          },
+          "page_num": 3
+        },
+        "Amount": {
+          "value": "3,350.00",
+          "coordinates": {
+           "x0": 0.8098039215686274,
+            "y0": 0.2573123611111113,
+            "x1": 0.49299592811939874,
+            "y1": 0.8515269010101009
+          },
+          "page_num": 3
+        },
+        "Account": {
+          "value": "",
+          "coordinates": null,
+          "page_num": 3
+        },
+        "Description": {
+          "value": "",
+          "coordinates": null,
+          "page_num": 3
         }
       }
     ]
   }
 }
+
