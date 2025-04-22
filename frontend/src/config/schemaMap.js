@@ -112,4 +112,16 @@ export const schemaMap = {
 
     sectionTitleField: "Year", // NEW!
   },
+
+  1040: {
+    flatFields: ["First Name", "Last Name", "SSN", "year", "Schedule C Profit or Loss"],
+
+    // sectionKey: "W2",
+
+    // sectionTitle: "W2 Detail",
+
+    // sectionFields: ["year", "wages"],
+
+    // sectionTitleField: "year", // NEW!
+  },
 };

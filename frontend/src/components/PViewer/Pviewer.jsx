@@ -73,6 +73,9 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
       case "WVOE":
         setPDFLoad("/3188332/pdf/ic_3188332_wvoe.pdf");
         break;
+      case "1040":
+        setPDFLoad("/1040/pdf/31883324_1.pdf");
+        break;
       default:
         setPDFLoad("/3188332/pdf/ic_3188332_paystub.pdf");
         break;

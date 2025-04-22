@@ -17,6 +17,9 @@ import SampleCRJSON from "../data/3188332/Credit_Report/ic_3188332_creditReport.
 // wvoe
 import SampleWVOE from "../data/3188332/WVOE/ic_3188332_wvoe.json";
 
+
+import ONEJson from "../data/1040.json";
+
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
@@ -29,6 +32,7 @@ export const UserProvider = ({ children }) => {
     "Bank Statement",
     "Credit Report",
     "WVOE",
+    "1040"
     // "VVOE",
     // "Schedule E",
   ];
@@ -91,6 +95,9 @@ export const UserProvider = ({ children }) => {
         break;
       case "WVOE":
         setJsonData(SampleWVOE);
+        break;
+      case "1040":
+        setJsonData(ONEJson);
         break;
       default:
         setJsonData({});
