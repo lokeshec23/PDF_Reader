@@ -12,69 +12,30 @@
     },
     "extraction_json": {
       "doc_type": "Credit Report",
-      "Vendor Name": "MORTGAGE ACCESS CORP",
+      "Vendor Name": "Action Center",
       "libilities": [
         {
-          "creditor_name": "TRUIST BANK",
-          "account_number": "5998",
-          "liability_type": "Mortgage",
-          "mon payment": "724"
+            "creditor_name": "MOHELA/DEPT OF ED",
+            "account_number": "0002",
+            "liability_type": "Educational",
+            "mon payment": "260",
+            "isMatched": false
         },
         {
-          "creditor_name": "TRUIST MORTGAGE",
-          "account_number": "2461",
-          "liability_type": "Mortgage",
-          "mon payment": "1439"
+            "creditor_name": "MOHELA/DEPT OF ED",
+            "account_number": "0001",
+            "liability_type": "Educational",
+            "mon payment": "103",
+            "isMatched": false
         },
         {
-          "creditor_name": "BANK OF AMERICA",
-          "account_number": "7891",
-          "liability_type": "Credit Card",
-          "mon payment": "639"
-        },
-        {
-          "creditor_name": "CAPITAL ONE",
-          "account_number": "7715",
-          "liability_type": "Credit Card",
-          "mon payment": "0"
-        },
-        {
-          "creditor_name": "CAPITAL ONE",
-          "account_number": "7276",
-          "liability_type": "Credit Card",
-          "mon payment": "67"
-        },
-        {
-          "creditor_name": "MARINERFIN",
-          "account_number": "5818",
-          "liability_type": "Installment Loan",
-          "mon payment": "0"
-        },
-        {
-          "creditor_name": "MARINERFIN",
-          "account_number": "1616",
-          "liability_type": "Installment Loan",
-          "mon payment": "0"
-        },
-        {
-          "creditor_name": "THD/CBNA",
-          "account_number": "5805",
-          "liability_type": "Credit Card",
-          "mon payment": "0"
-        },
-        {
-          "creditor_name": "SYNCB/SAMS",
-          "account_number": "3520",
-          "liability_type": "Credit Card",
-          "mon payment": "0"
-        },
-        {
-          "creditor_name": "TRUIST MORTGAGE",
-          "account_number": "6311",
-          "liability_type": "Mortgage",
-          "mon payment": "0"
+            "creditor_name": "JPMCB CARD",
+            "account_number": "9202",
+            "liability_type": "CreditCard",
+            "mon payment": "40",
+            "isMatched": false
         }
-      ]
+    ]
     },
     "extraction_json_with_coordinates": {
       "doc_type": {
@@ -83,10 +44,10 @@
         "page_num": null
       },
       "Vendor Name": {
-        "value": "MORTGAGE ACCESS CORP",
+        "value": "Action Center",
         "coordinates": {
-          "x0": 0.4598039215686274,
-          "y0": 0.1673123611111113,
+          "x0": 0.9098039215686274,
+          "y0": 0.0773123611111113,
           "x1": 0.9318951665688889,
           "y1": 0.7948892242424244
         },
@@ -95,422 +56,128 @@
       "libilities": [
         {
           "creditor_name": {
-            "value": "TRUIST BANK",
+            "value": "MOHELA/DEPT OF ED",
             "coordinates": {
               "x0": 0.9398039215686274,
-              "y0": 0.1073123611111113,
+              "y0": 0.1573123611111113,
               "x1": 0.9318951665688889,
               "y1": 0.7948892242424244
             },
-            "page_num": 5
+            "page_num": 9
           },
           "account_number": {
-            "value": "5998",
+            "value": "0002",
             "coordinates": {
               "x0": 0.9398039215686274,
-              "y0": 0.1073123611111113,
+              "y0": 0.1573123611111113,
               "x1": 0.9318951665688889,
               "y1": 0.7948892242424244
             },
-            "page_num": 5
+            "page_num": 9
           },
           "liability_type": {
-            "value": "Mortgage",
+            "value": "Educational",
             "coordinates": {
               "x0": 0.9398039215686274,
-              "y0": 0.1073123611111113,
+              "y0": 0.1573123611111113,
               "x1": 0.9318951665688889,
               "y1": 0.7948892242424244
             },
-            "page_num": 5
+            "page_num": 9
           },
           "mon payment": {
-            "value": "724",
+            "value": "260",
             "coordinates": {
-              "x0": 0.9398039215686274,
-              "y0": 0.1073123611111113,
+             "x0": 0.9398039215686274,
+              "y0": 0.1573123611111113,
               "x1": 0.9318951665688889,
               "y1": 0.7948892242424244
             },
-            "page_num": 5
+            "page_num": 9
           }
         },
         {
           "creditor_name": {
-            "value": "TRUIST MORTGAGE",
+            "value": "MOHELA/DEPT OF ED",
+            "coordinates": {
+              "x0": 0.9398039215686274,
+              "y0": 0.1773123611111113,
+              "x1": 0.9318951665688889,
+              "y1": 0.7948892242424244
+            },
+            "page_num": 9
+          },
+          "account_number": {
+            "value": "0001",
             "coordinates": {
               "x0": 0.9398039215686274,
               "y0": 0.3073123611111113,
               "x1": 0.9318951665688889,
               "y1": 0.7948892242424244
             },
-            "page_num": 5
+            "page_num": 9
           },
-          "account_number": {
-            "value": "2461",
+          "liability_type": {
+            "value": "Educational",
             "coordinates": {
               "x0": 0.9398039215686274,
               "y0": 0.3073123611111113,
               "x1": 0.9318951665688889,
               "y1": 0.7948892242424244
             },
-            "page_num": 5
+            "page_num": 9
           },
-          "liability_type": {
-            "value": "Mortgage",
+          "mon payment": {
+            "value": "103",
             "coordinates": {
-              "x0": 0.9398039215686274,
+             "x0": 0.9398039215686274,
               "y0": 0.3073123611111113,
               "x1": 0.9318951665688889,
               "y1": 0.7948892242424244
             },
-            "page_num": 5
-          },
-          "mon payment": {
-            "value": "1439",
-            "coordinates": {
-              "x0": 0.9398039215686274,
-              "y0": 0.3073123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 5
+            "page_num": 9
           }
         },
         {
           "creditor_name": {
-            "value": "BANK OF AMERICA",
+            "value": "JPMCB CARD",
             "coordinates": {
               "x0": 0.9398039215686274,
-              "y0": 0.4573123611111113,
+              "y0": 0.2073123611111113,
               "x1": 0.9318951665688889,
               "y1": 0.7948892242424244
             },
-            "page_num": 5
+            "page_num": 9
           },
           "account_number": {
-            "value": "7891",
+            "value": "9202",
             "coordinates": {
-              "x0": 0.9398039215686274,
-              "y0": 0.4573123611111113,
+             "x0": 0.9398039215686274,
+              "y0": 0.2073123611111113,
               "x1": 0.9318951665688889,
               "y1": 0.7948892242424244
             },
-            "page_num": 5
+            "page_num": 9
           },
           "liability_type": {
-            "value": "Credit Card",
+            "value": "CreditCard",
             "coordinates": {
               "x0": 0.9398039215686274,
-              "y0": 0.4573123611111113,
+              "y0": 0.2073123611111113,
               "x1": 0.9318951665688889,
               "y1": 0.7948892242424244
             },
-            "page_num": 5
+            "page_num": 9
           },
           "mon payment": {
-            "value": "639",
+            "value": "40",
             "coordinates": {
-              "x0": 0.9398039215686274,
-              "y0": 0.4573123611111113,
+             "x0": 0.9398039215686274,
+              "y0": 0.2073123611111113,
               "x1": 0.9318951665688889,
               "y1": 0.7948892242424244
             },
-            "page_num": 5
-          }
-        },
-        {
-          "creditor_name": {
-            "value": "CAPITAL ONE",
-            "coordinates": {
-              "x0": 0.99398039215686274,
-              "y0": 0.5573123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 6
-          },
-          "account_number": {
-            "value": "7715",
-            "coordinates": {
-              "x0": 0.99398039215686274,
-              "y0": 0.5573123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 6
-          },
-          "liability_type": {
-            "value": "Credit Card",
-            "coordinates": {
-              "x0": 0.99398039215686274,
-              "y0": 0.5573123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 6
-          },
-          "mon payment": {
-            "value": "0",
-            "coordinates": {
-              "x0": 0.99398039215686274,
-              "y0": 0.5573123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 6
-          }
-        },
-        {
-          "creditor_name": {
-            "value": "CAPITAL ONE",
-            "coordinates": {
-              "x0": 0.95298039215686274,
-              "y0": 0.1073123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 6
-          },
-          "account_number": {
-            "value": "7276",
-            "coordinates": {
-              "x0": 0.95298039215686274,
-              "y0": 0.1073123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 6
-          },
-          "liability_type": {
-            "value": "Credit Card",
-            "coordinates": {
-              "x0": 0.95298039215686274,
-              "y0": 0.1073123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 6
-          },
-          "mon payment": {
-            "value": "67",
-            "coordinates": {
-              "x0": 0.95298039215686274,
-              "y0": 0.1073123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 6
-          }
-        },
-        {
-          "creditor_name": {
-            "value": "MARINERFIN",
-            "coordinates": {
-              "x0": 0.95298039215686274,
-              "y0": 0.7073123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 6
-          },
-          "account_number": {
-            "value": "5818",
-            "coordinates": {
-              "x0": 0.95298039215686274,
-              "y0": 0.7073123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 6
-          },
-          "liability_type": {
-            "value": "Installment Loan",
-            "coordinates": {
-              "x0": 0.95298039215686274,
-              "y0": 0.7073123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 6
-          },
-          "mon payment": {
-            "value": "0",
-            "coordinates": {
-              "x0": 0.95298039215686274,
-              "y0": 0.7073123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 6
-          }
-        },
-        {
-          "creditor_name": {
-            "value": "MARINERFIN",
-            "coordinates": {
-              "x0": 0.9398039215686274,
-              "y0": 0.1073123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 7
-          },
-          "account_number": {
-            "value": "1616",
-            "coordinates": {
-              "x0": 0.9398039215686274,
-              "y0": 0.1073123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 7
-          },
-          "liability_type": {
-            "value": "Installment Loan",
-            "coordinates": {
-              "x0": 0.9398039215686274,
-              "y0": 0.1073123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 7
-          },
-          "mon payment": {
-            "value": "0",
-            "coordinates": {
-              "x0": 0.9398039215686274,
-              "y0": 0.1073123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 7
-          }
-        },
-        {
-          "creditor_name": {
-            "value": "THD/CBNA",
-            "coordinates": {
-              "x0": 0.95598039215686274,
-              "y0": 0.7573123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 7
-          },
-          "account_number": {
-            "value": "5805",
-            "coordinates": {
-              "x0": 0.95598039215686274,
-              "y0": 0.7573123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 7
-          },
-          "liability_type": {
-            "value": "Credit Card",
-            "coordinates": {
-              "x0": 0.95598039215686274,
-              "y0": 0.7573123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 7
-          },
-          "mon payment": {
-            "value": "0",
-            "coordinates": {
-              "x0": 0.95598039215686274,
-              "y0": 0.7573123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 7
-          }
-        },
-        {
-          "creditor_name": {
-            "value": "SYNCB/SAMS",
-            "coordinates": {
-              "x0": 0.96198039215686274,
-              "y0": 0.5873123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 7
-          },
-          "account_number": {
-            "value": "3520",
-            "coordinates": {
-              "x0": 0.96198039215686274,
-              "y0": 0.5873123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 7
-          },
-          "liability_type": {
-            "value": "Credit Card",
-            "coordinates": {
-              "x0": 0.96198039215686274,
-              "y0": 0.5873123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 7
-          },
-          "mon payment": {
-            "value": "0",
-            "coordinates": {
-              "x0": 0.96198039215686274,
-              "y0": 0.5873123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 7
-          }
-        },
-        {
-          "creditor_name": {
-            "value": "TRUIST MORTGAGE",
-            "coordinates": {
-              "x0": 0.9398039215686274,
-              "y0": 0.1073123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 8
-          },
-          "account_number": {
-            "value": "6311",
-            "coordinates": {
-              "x0": 0.9398039215686274,
-              "y0": 0.1073123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 8
-          },
-          "liability_type": {
-            "value": "Mortgage",
-            "coordinates": {
-              "x0": 0.9398039215686274,
-              "y0": 0.1073123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 8
-          },
-          "mon payment": {
-            "value": "0",
-            "coordinates": {
-              "x0": 0.9398039215686274,
-              "y0": 0.1073123611111113,
-              "x1": 0.9318951665688889,
-              "y1": 0.7948892242424244
-            },
-            "page_num": 8
+            "page_num": 9
           }
         }
       ]
