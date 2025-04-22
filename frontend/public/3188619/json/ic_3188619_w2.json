@@ -1,0 +1,51 @@
+{
+    "status": "Completed",
+    "doc_type": "W2",
+    "doc_type_confidence_score": 0.999928594,
+    "doc_type_review_needed": false,
+    "review_needed_data": {
+      "confidence_top": 0.988739312
+    },
+    "human_review_needed": {
+      "is_human_review_needed_pre_matching": true,
+      "is_human_review_needed": true
+    },
+    "extraction_json": {
+      "doc_type": "W2",
+      "Employer Name": {
+        "value": "STATE OF CALIFORNIA",
+        "coordinates": {
+          "x0": 0.2598039215686274,
+          "y0": 0.1173123611111113,
+          "x1": 0.9318951665688889,
+          "y1": 0.7948892242424244
+        },
+        "page_num": 1
+      },
+      "W2": [
+        {
+          "year": {
+            "value": "2023",
+            "coordinates": {
+              "x0": 0.6098039215686274,
+              "y0": 0.4373123611111113,
+              "x1": 0.9318951665688889,
+              "y1": 0.7948892242424244
+            },
+            "page_num": 1
+          },
+          "wages": {
+            "value": "88,761.59",
+            "coordinates": {
+              "x0": 0.7298039215686274,
+              "y0": 0.0773123611111113,
+              "x1": 0.9318951665688889,
+              "y1": 0.7948892242424244
+            },
+            "page_num": 1
+          }
+        }
+      ]
+    }
+  }
+  

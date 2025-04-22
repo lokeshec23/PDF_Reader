@@ -1,0 +1,186 @@
+{
+    "status": "Completed",
+    "doc_type": "Credit Report",
+    "doc_type_confidence_score": 0.999928594,
+    "doc_type_review_needed": false,
+    "review_needed_data": {
+      "confidence_top": 0.988739312
+    },
+    "human_review_needed": {
+      "is_human_review_needed_pre_matching": true,
+      "is_human_review_needed": true
+    },
+    "extraction_json": {
+      "doc_type": "Credit Report",
+      "Vendor Name": "Action Center",
+      "libilities": [
+        {
+            "creditor_name": "MOHELA/DEPT OF ED",
+            "account_number": "0002",
+            "liability_type": "Educational",
+            "mon payment": "260",
+            "isMatched": false
+        },
+        {
+            "creditor_name": "MOHELA/DEPT OF ED",
+            "account_number": "0001",
+            "liability_type": "Educational",
+            "mon payment": "103",
+            "isMatched": false
+        },
+        {
+            "creditor_name": "JPMCB CARD",
+            "account_number": "9202",
+            "liability_type": "CreditCard",
+            "mon payment": "40",
+            "isMatched": false
+        }
+    ]
+    },
+    "extraction_json_with_coordinates": {
+      "doc_type": {
+        "value": "Credit Report",
+        "coordinates": null,
+        "page_num": null
+      },
+      "Vendor Name": {
+        "value": "Action Center",
+        "coordinates": {
+          "x0": 0.9098039215686274,
+          "y0": 0.0773123611111113,
+          "x1": 0.9318951665688889,
+          "y1": 0.7948892242424244
+        },
+        "page_num": 1
+      },
+      "libilities": [
+        {
+          "creditor_name": {
+            "value": "MOHELA/DEPT OF ED",
+            "coordinates": {
+              "x0": 0.9398039215686274,
+              "y0": 0.1573123611111113,
+              "x1": 0.9318951665688889,
+              "y1": 0.7948892242424244
+            },
+            "page_num": 9
+          },
+          "account_number": {
+            "value": "0002",
+            "coordinates": {
+              "x0": 0.9398039215686274,
+              "y0": 0.1573123611111113,
+              "x1": 0.9318951665688889,
+              "y1": 0.7948892242424244
+            },
+            "page_num": 9
+          },
+          "liability_type": {
+            "value": "Educational",
+            "coordinates": {
+              "x0": 0.9398039215686274,
+              "y0": 0.1573123611111113,
+              "x1": 0.9318951665688889,
+              "y1": 0.7948892242424244
+            },
+            "page_num": 9
+          },
+          "mon payment": {
+            "value": "260",
+            "coordinates": {
+             "x0": 0.9398039215686274,
+              "y0": 0.1573123611111113,
+              "x1": 0.9318951665688889,
+              "y1": 0.7948892242424244
+            },
+            "page_num": 9
+          }
+        },
+        {
+          "creditor_name": {
+            "value": "MOHELA/DEPT OF ED",
+            "coordinates": {
+              "x0": 0.9398039215686274,
+              "y0": 0.1773123611111113,
+              "x1": 0.9318951665688889,
+              "y1": 0.7948892242424244
+            },
+            "page_num": 9
+          },
+          "account_number": {
+            "value": "0001",
+            "coordinates": {
+              "x0": 0.9398039215686274,
+              "y0": 0.3073123611111113,
+              "x1": 0.9318951665688889,
+              "y1": 0.7948892242424244
+            },
+            "page_num": 9
+          },
+          "liability_type": {
+            "value": "Educational",
+            "coordinates": {
+              "x0": 0.9398039215686274,
+              "y0": 0.3073123611111113,
+              "x1": 0.9318951665688889,
+              "y1": 0.7948892242424244
+            },
+            "page_num": 9
+          },
+          "mon payment": {
+            "value": "103",
+            "coordinates": {
+             "x0": 0.9398039215686274,
+              "y0": 0.3073123611111113,
+              "x1": 0.9318951665688889,
+              "y1": 0.7948892242424244
+            },
+            "page_num": 9
+          }
+        },
+        {
+          "creditor_name": {
+            "value": "JPMCB CARD",
+            "coordinates": {
+              "x0": 0.9398039215686274,
+              "y0": 0.2073123611111113,
+              "x1": 0.9318951665688889,
+              "y1": 0.7948892242424244
+            },
+            "page_num": 9
+          },
+          "account_number": {
+            "value": "9202",
+            "coordinates": {
+             "x0": 0.9398039215686274,
+              "y0": 0.2073123611111113,
+              "x1": 0.9318951665688889,
+              "y1": 0.7948892242424244
+            },
+            "page_num": 9
+          },
+          "liability_type": {
+            "value": "CreditCard",
+            "coordinates": {
+              "x0": 0.9398039215686274,
+              "y0": 0.2073123611111113,
+              "x1": 0.9318951665688889,
+              "y1": 0.7948892242424244
+            },
+            "page_num": 9
+          },
+          "mon payment": {
+            "value": "40",
+            "coordinates": {
+             "x0": 0.9398039215686274,
+              "y0": 0.2073123611111113,
+              "x1": 0.9318951665688889,
+              "y1": 0.7948892242424244
+            },
+            "page_num": 9
+          }
+        }
+      ]
+    }
+  }
+  
