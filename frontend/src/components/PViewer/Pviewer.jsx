@@ -9,10 +9,10 @@ import {
   ZoomOut,
   ZoomReset,
 } from "@carbon/icons-react";
-// import { Tooltip } from "carbon-components-react";
 import { UserContext } from "../../context/UserContext.jsx";
 import { useParams } from "react-router-dom";
 import { pdfPathMap } from "../../config/pdfPathMap";
+
 const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
   const { docId } = useParams();
   const { selectedDocType } = useContext(UserContext);
@@ -37,11 +37,6 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
     ) {
       setPageNumber(hoveredKey.pageNum);
     }
-
-    // Cleanup: reset to page 1 when hover ends
-    // return () => {
-    //   setPageNumber(1);
-    // };
   }, [hoveredKey?.pageNum]);
 
   useEffect(() => {
@@ -99,6 +94,13 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
   const showResetButton =
     zoom !== 1 || rotation !== 0 || offset.x !== 0 || offset.y !== 0;
 
+  // ⭐ This part is NEW ⭐
+  useEffect(() => {
+    if (docId?.startsWith("122")) {
+      setZoom((z) => Math.max(z - 0.1, 0.1)); // Zoom out once
+    }
+  }, [docId]);
+
   return (
     <React.Fragment>
       <div
@@ -111,8 +113,6 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
         }}
       >
         <div style={{ display: "flex", gap: "1rem" }}>
-          {/* <Tooltip autoAlign label={'Zoom In'} closeOnActivation={false}> */}
-          {/* </Tooltip> */}
           <ZoomIn onClick={handleZoomIn} />
           <ZoomOut onClick={handleZoomOut} />
           <WatsonHealthZoomPan onClick={togglePan} />
@@ -121,8 +121,6 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
         </div>
         <div
           style={{
-            // display: "flex",
-            // justifyContent: "center",
             gap: "1rem",
             display: "flex",
             marginTop: "10px",
@@ -143,8 +141,6 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
       <div
         onMouseDown={handleMouseDown}
         style={{
-          // height: "85dvh",
-          // overflow: "auto",
           position: "relative",
           cursor: isPanning ? "grab" : "default",
           height: "90dvh",
