@@ -20,7 +20,7 @@ const MainLayout = () => {
     jsonData,
     selectedDocType,
     setSelectedDocType,
-    DOC_TYPES,
+    docTypeList,
     setDocId,
   } = useContext(UserContext);
 
@@ -170,7 +170,7 @@ const MainLayout = () => {
                     titleText="Document Type"
                     initialSelectedItem={selectedDocType}
                     label={selectedDocType}
-                    items={DOC_TYPES}
+                    items={docTypeList}
                     onChange={({ selectedItem }) =>
                       setSelectedDocType(selectedItem)
                     }

@@ -1,21 +1,15 @@
 import { createContext, useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 export const UserContext = createContext();
 
-export const UserProvider = ({ children }) => {
+export function UserProvider({ children }) {
+  const { docId: docIdFromParams } = useParams(); // Rename here
   const [themeStyle, setThemeStyle] = useState({ primary: "#4589ff" });
-
-  const [docId, setDocId] = useState(null); // from URL param
+  const [docId, setDocId] = useState(docIdFromParams || null);
   const [jsonData, setJsonData] = useState({});
-  const [selectedDocType, setSelectedDocType] = useState("Paystub");
-
-  const DOC_TYPES = [
-    "Paystub",
-    "W2",
-    "Bank Statement",
-    "Credit Report",
-    "WVOE",
-  ];
+  const [selectedDocType, setSelectedDocType] = useState("");
+  const [docTypeList, setDocTypeList] = useState([]); // New for dynamic types
 
   const feedbackDates = {
     "Bank Statement": [
@@ -26,11 +20,33 @@ export const UserProvider = ({ children }) => {
     Paystub: ["2025-04-14-13-04"],
   };
 
-  const handleJSONChange = async () => {
+  const docTypeMap = {
+    "3188332_demo": ["Bank Statement"], 
+    "456": ["Paystub"],                        
+  };
+  
+  useEffect(function () {
+    if (!docId) return;
+  
+    var docType = docTypeMap[docId];
+  
+    if (docType) {
+      setDocTypeList(docType);
+      setSelectedDocType(docType[0]);
+    } else {
+      setDocTypeList(["Paystub", "W2", "Bank Statement", "Credit Report", "WVOE"]);
+      setSelectedDocType("Paystub");
+    }
+  }, [docId]);
+  
+  
+
+  async function handleJSONChange() {
     if (!docId) return;
 
     try {
-      let jsonPath = "";
+      var jsonPath = "";
+
       switch (selectedDocType) {
         case "Bank Statement":
           jsonPath = `/${docId}/json/ic_${docId}_bankstatement.json`;
@@ -51,7 +67,6 @@ export const UserProvider = ({ children }) => {
           jsonPath = `/${docId}/json/ic_${docId}_paystub.json`;
       }
 
-      // console.log("📥 Fetching JSON:", jsonPath);
       const res = await fetch(jsonPath);
       if (!res.ok) throw new Error(`JSON not found at ${jsonPath}`);
       const json = await res.json();
@@ -60,10 +75,12 @@ export const UserProvider = ({ children }) => {
       console.error("❌ Error loading JSON:", err);
       setJsonData({});
     }
-  };
+  }
 
-  useEffect(() => {
-    if (docId) handleJSONChange();
+  useEffect(function () {
+    if (docId) {
+      handleJSONChange();
+    }
   }, [docId, selectedDocType]);
 
   return (
@@ -76,11 +93,11 @@ export const UserProvider = ({ children }) => {
         setJsonData,
         selectedDocType,
         setSelectedDocType,
-        DOC_TYPES,
+        docTypeList, // updated here
         feedbackDates: feedbackDates[selectedDocType] || [],
       }}
     >
       {children}
     </UserContext.Provider>
   );
-};
+}
