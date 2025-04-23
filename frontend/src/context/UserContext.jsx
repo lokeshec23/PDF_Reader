@@ -22,10 +22,11 @@ export function UserProvider({ children }) {
 
   const docTypeMap = {
     "3188332_demo": ["Bank Statement"], 
-    "456": ["Paystub"],                        
+    "1040": ["1040"],                        
   };
   
   useEffect(function () {
+    
     if (!docId) return;
   
     var docType = docTypeMap[docId];
@@ -62,6 +63,9 @@ export function UserProvider({ children }) {
           break;
         case "WVOE":
           jsonPath = `/${docId}/json/ic_${docId}_wvoe.json`;
+          break;
+        case "1040":
+          jsonPath = `/${docId}/json/ic_${docId}.json`;
           break;
         default:
           jsonPath = `/${docId}/json/ic_${docId}_paystub.json`;
