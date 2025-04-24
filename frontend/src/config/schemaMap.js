@@ -10,7 +10,7 @@ export const schemaMap = {
     sectionKey: "transactions",
     sectionTitle: "Transaction",
     sectionFields: ["Credit_Debit", "creditor","Amount", "Account", "Description"],
-    sectionTitleField: "Credit_Debit",
+    sectionTitleField: "Description",
   },
   Paystub: {
     flatFields: [

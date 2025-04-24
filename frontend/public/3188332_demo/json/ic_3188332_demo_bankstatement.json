@@ -19,67 +19,67 @@
       "ending date": "11/01/2024",
       "transactions": [
         {
-            "Credit_Debit": "debit",
+            "Credit_Debit": "credit",
             "Amount": "1,135.10",
             "Account": "Checking",
             "Description": "Bank of America - 002020026266 - FORD, RONNIE"
         },
         {
-            "Credit_Debit": "debit",
+            "Credit_Debit": "credit",
             "Account": "Checking",
             "Amount": "248.45",
             "Description": "Bank of America - 002020026266 - CAROL FORD"
         },
         {
-            "Credit_Debit": "debit",
+            "Credit_Debit": "credit",
             "Account": "Savings",
             "Amount": "25.00",
             "Description": "Bank of America - 226002977669 - FORD, RONNIE"
         },
         {
-            "Credit_Debit": "debit",
+            "Credit_Debit": "credit",
             "Amount": "1,995.00",
             "Account": "Checking",
             "Description": "Bank of America - 002020026266 - CAROL R FORD"
         },
         {
-            "Credit_Debit": "debit",
+            "Credit_Debit": "credit",
             "Amount": "1,135.10",
             "Account": "Checking",
             "Description": "Bank of America - 002020026266 - FORD, RONNIE"
         },
         {
-            "Credit_Debit": "debit",
+            "Credit_Debit": "credit",
             "Amount": "25.00",
             "Account": "Savings",
             "Description": "Bank of America - 226002977669 - FORD, RONNIE"
         },
         {
-            "Credit_Debit": "debit",
+            "Credit_Debit": "credit",
             "Amount": "1,135.06",
             "Account": "Checking",
             "Description": "Bank of America - 002020026266 - FORD, RONNIE"
         },
         {
-            "Credit_Debit": "debit",
+            "Credit_Debit": "credit",
             "Amount": "25.00",
             "Account": "Savings",
             "Description": "Bank of America - 226002977669 - FORD, RONNIE"
         },
         {
-            "Credit_Debit": "debit",
+            "Credit_Debit": "credit",
             "Amount": "1,995.00",
             "Account": "Checking",
             "Description": "Bank of America - 002020026266 - CAROL R FORD"
         },
         {
-            "Credit_Debit": "debit",
+            "Credit_Debit": "credit",
             "Amount": "248.45",
             "Account": "Checking",
             "Description": "Bank of America - 002020026266 - CAROL FORD"
         },
         {
-            "Credit_Debit": "debit",
+            "Credit_Debit": "credit",
             "Amount": "1,135.10",
             "Account": "Checking",
             "Description": "Bank of America - 002020026266- FORD, RONNIE"
