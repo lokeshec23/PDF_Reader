@@ -13,6 +13,8 @@ import { UserContext } from "../../context/UserContext.jsx";
 import { useParams } from "react-router-dom";
 import { pdfPathMap } from "../../config/pdfPathMap";
 
+import { BlobServiceClient } from "@azure/storage-blob";
+
 const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
   const { docId } = useParams();
   const { selectedDocType } = useContext(UserContext);
@@ -49,15 +51,72 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
 
   const handlePDFChange = () => {
     try {
-      if (pdfPathMap[selectedDocType]) {
-        setPDFLoad(pdfPathMap[selectedDocType](docId));
-      } else {
-        console.error(
-          "Unsupported document type for PDF loading:",
-          selectedDocType
+      // if (pdfPathMap[selectedDocType]) {
+      //   setPDFLoad(pdfPathMap[selectedDocType](docId));
+      // } else {
+      //   console.error(
+      //     "Unsupported document type for PDF loading:",
+      //     selectedDocType
+      //   );
+      //   setPDFLoad(null);
+      // }
+      const account_name = "caincomecalcstr001";
+      const account_key =
+        "yRIfHBrTymbvEkU3VyYRfsW/QlGh+eJyH9R70le8vnVP4BXLUa1pFCzwZRHxO+MjDSL6zoGZR0c++ASt3VY/VQ==";
+      const container_name = "ic-loandna";
+      const pdfFileName = "1040.pdf";
+
+      const fetchPdf = async () => {
+        // const blobSasUrl = "https://caincomecalcstr001.blob.core.windows.net/ic-loandna/1040.pdf?yRIfHBrTymbvEkU3VyYRfsW/QlGh+eJyH9R70le8vnVP4BXLUa1pFCzwZRHxO+MjDSL6zoGZR0c++ASt3VY/VQ==";
+        // const blobServiceClient = new BlobServiceClient(blobSasUrl);
+        // const containerClient = blobServiceClient.getContainerClient(container_name);
+        // const blobClient = containerClient.getBlobClient("1040.pdf");
+        // const downloadBlockBlobResponse = await blobClient.download();
+        const account_name = "caincomecalcstr001";
+        const account_key =
+          "yRIfHBrTymbvEkU3VyYRfsW/QlGh+eJyH9R70le8vnVP4BXLUa1pFCzwZRHxO+MjDSL6zoGZR0c++ASt3VY/VQ==";
+        const container_name = "ic-loandna";
+
+        // # This is usually like https://<account_name>.blob.core.windows.net
+        const endpoint = `https://${account_name}.blob.core.windows.net`;
+
+        // console.log("pdfFileName:", pdfFileName);
+        // console.log("pdfFileName:", import.meta.env.VITE_AZURE_STORAGE_CONNECTION_STRING);
+        // console.log("pdfFileName:", import.meta.env.VITE_CONTAINER_NAME);
+
+        // const blobServiceClient = BlobServiceClient.fromConnectionString(
+        //   "DefaultEndpointsProtocol=https;AccountName=caincomecalcstr001;AccountKey=yRIfHBrTymbvEkU3VyYRfsW/QlGh+eJyH9R70le8vnVP4BXLUa1pFCzwZRHxO+MjDSL6zoGZR0c++ASt3VY/VQ==;EndpointSuffix=core.windows.net"
+        // );
+        // const containerClient = blobServiceClient.getContainerClient(
+        //  "ic-loandna"
+        // );
+
+        // // for await (const blob of containerClient.listBlobsFlat()) {
+        // //   console.log("Available blob:", blob.name);
+        // //   const blobUrl = `${endpoint}/${container_name}/${blob.name}?${account_key}`;
+        // //   console.log("Blob URL:", blobUrl);
+        // // }
+        // //AccountName=caincomecalcstr001;AccountKey=yRIfHBrTymbvEkU3VyYRfsW/QlGh+eJyH9R70le8vnVP4BXLUa1pFCzwZRHxO+MjDSL6zoGZR0c++ASt3VY/VQ==;EndpointSuffix=core.windows.net
+        // const blockBlobClient = containerClient.getBlockBlobClient(pdfFileName);
+
+        // const exists = await blockBlobClient.exists();
+        // if (!exists) {
+        //   console.error(`❌ File not found in blob storage: "${pdfFileName}"`);
+        //   return;
+        // }
+
+        // console.log("✅ File exists in blob storage.");
+
+        // const downloadResponse = await blockBlobClient.download();
+        // const blob = await downloadResponse.blobBody;
+        const response = await fetch(
+          "https://caincomecalcstr001.blob.core.windows.net/ic-loandna/1040.pdf?yRIfHBrTymbvEkU3VyYRfsW/QlGh+eJyH9R70le8vnVP4BXLUa1pFCzwZRHxO+MjDSL6zoGZR0c++ASt3VY/VQ=="
         );
-        setPDFLoad(null);
-      }
+        const buffer = await response.arrayBuffer();
+        // const arrayBuffer = await blob.arrayBuffer();
+        setPDFLoad(buffer);
+      };
+      fetchPdf();
     } catch (ex) {
       console.error("Error setting PDF path", ex);
     }
