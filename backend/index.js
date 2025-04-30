@@ -15,9 +15,9 @@ const accessBlob = async (pdfFileName = "") => {
       process.env.CONTAINER_NAME
     );
 
-    // for await (const blob of containerClient.listBlobsFlat()) {
-    //     console.log('Available blob:', blob.name);
-    // }
+    for await (const blob of containerClient.listBlobsFlat()) {
+        console.log('Available blob:', blob.name);
+    }
 
     const blockBlobClient = containerClient.getBlockBlobClient(pdfFileName);
     const exists = await blockBlobClient.exists();

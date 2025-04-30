@@ -28,7 +28,7 @@ const MainLayout = () => {
   const [hoveredKey, setHoveredKey] = useState({ key: null, pageNum: null });
   const [pageRenderReady, setPageRenderReady] = useState(false);
   const [docIdError, setDocIdError] = useState(null);
-
+   const [jsonLoading, setJsonLoading] = useState({json: true})
   useEffect(() => {
     setDocId(docId);
     if (!allowedDocIds.includes(docId)) {
@@ -36,13 +36,30 @@ const MainLayout = () => {
     } else {
       setDocIdError(null);
     }
+
   }, [docId]);
+
+  useEffect(()=>{
+    handleLoadingJson()
+  },[jsonData])
 
   const extractionData = jsonData?.extraction_json || {};
 
   const toggleRightPanel = () => {
     setIsRightPanelOpen((prev) => !prev);
   };
+
+  const handleLoadingJson = () => {
+    debugger
+    console.log("lk", jsonData)
+    try{
+        if(Object.keys(jsonData).length) {
+          setJsonLoading((prev)=>({...prev, json: false}))
+        }
+    }catch(ex){
+      console.log("Error in handleLoading fun", ex)
+    }
+  }
 
   const displayContent = (type) => {
     const schema = schemaMap[type];
@@ -196,16 +213,12 @@ const MainLayout = () => {
                 className="w-1/2 border rounded-2xl shadow-md p-4 bg-white transition-all duration-300"
                 style={{ height: "100%" }}
               >
-                {/* <LoaderOrError
-                  loading={!jsonData || !jsonData.extraction_json}
-                  error={
-                    !selectedDocType || !schemaMap[selectedDocType]
-                      ? "Unsupported document type"
-                      : null
-                  }
-                > */}
+                <LoaderOrError
+                  loading={jsonLoading.json}
+                  error={false}
+                >
                   <JViewer data={jsonData} />
-                {/* </LoaderOrError> */}
+                </LoaderOrError>
               </div>
             )}
           </div>

@@ -2,6 +2,7 @@ import React from "react";
 import { Loading, InlineNotification } from "carbon-components-react";
 
 const LoaderOrError = ({ loading, error, children }) => {
+ 
   if (loading) {
     return (
       <div className="flex items-center justify-center h-full">
