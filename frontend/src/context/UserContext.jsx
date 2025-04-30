@@ -38,45 +38,62 @@ export function UserProvider({ children }) {
     //   setDocTypeList(["Paystub", "W2", "Bank Statement", "Credit Report", "WVOE"]);
     //   setSelectedDocType("Paystub");
     // }
-    setDocTypeList([`${docId}`]);
-    setSelectedDocType(`${docId}`);
+    const SelectedName = docId.split("_")[0] || "";
+    setDocTypeList([`${SelectedName}`]);
+    setSelectedDocType(`${SelectedName}`);
   }, [docId]);
   
   
 
   async function handleJSONChange() {
     if (!docId) return;
-
+    debugger
     try {
-      var jsonPath = "";
+      // var jsonPath = "";
 
-      switch (selectedDocType) {
-        case "Bank Statement":
-          jsonPath = `/${docId}/json/ic_${docId}_bankstatement.json`;
-          break;
-        case "Paystub":
-          jsonPath = `/${docId}/json/ic_${docId}_paystub.json`;
-          break;
-        case "W2":
-          jsonPath = `/${docId}/json/ic_${docId}_w2.json`;
-          break;
-        case "Credit Report":
-          jsonPath = `/${docId}/json/ic_${docId}_creditreport.json`;
-          break;
-        case "WVOE":
-          jsonPath = `/${docId}/json/ic_${docId}_wvoe.json`;
-          break;
-        case "1040":
-          jsonPath = `/${docId}/json/ic_${docId}.json`;
-          break;
-        default:
-          jsonPath = `/${docId}/json/ic_${docId}_paystub.json`;
+      // switch (selectedDocType) {
+      //   case "Bank Statement":
+      //     jsonPath = `/${docId}/json/ic_${docId}_bankstatement.json`;
+      //     break;
+      //   case "Paystub":
+      //     jsonPath = `/${docId}/json/ic_${docId}_paystub.json`;
+      //     break;
+      //   case "W2":
+      //     jsonPath = `/${docId}/json/ic_${docId}_w2.json`;
+      //     break;
+      //   case "Credit Report":
+      //     jsonPath = `/${docId}/json/ic_${docId}_creditreport.json`;
+      //     break;
+      //   case "WVOE":
+      //     jsonPath = `/${docId}/json/ic_${docId}_wvoe.json`;
+      //     break;
+      //   case "1040":
+      //     jsonPath = `/${docId}/json/ic_${docId}.json`;
+      //     break;
+      //   default:
+      //     jsonPath = `/${docId}/json/ic_${docId}_paystub.json`;
+      // }
+
+      // const res = await fetch(jsonPath);
+      // if (!res.ok) throw new Error(`JSON not found at ${jsonPath}`);
+      // const json = await res.json();
+      // fetch(`${import.meta.env.VITE_API_URL}/getpdf?pdfFileName=${docId}.json`)
+      // .then((response) => response.json())
+      // .then((pdfBlob) => {
+      //     console.log(pdfBlob)
+      //     setPDFLoad(`data:application/pdf;base64,${pdfBlob.fileBuffer}`)
+      // })
+      // .catch((error) => console.error('Error fetching the PDF:', error));
+      // setJsonData(json);
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/getJson?pdfFileName=${docId.split("_")[0]}.json`);
+
+      if (!res.ok) {
+        const errorText = await res.text();
+        throw new Error(errorText || 'Failed to fetch JSON');
       }
 
-      const res = await fetch(jsonPath);
-      if (!res.ok) throw new Error(`JSON not found at ${jsonPath}`);
-      const json = await res.json();
-      setJsonData(json);
+      const data = await res.json();
+      setJsonData(data);
     } catch (err) {
       console.error("❌ Error loading JSON:", err);
       setJsonData({});

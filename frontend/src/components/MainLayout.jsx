@@ -196,16 +196,16 @@ const MainLayout = () => {
                 className="w-1/2 border rounded-2xl shadow-md p-4 bg-white transition-all duration-300"
                 style={{ height: "100%" }}
               >
-                <LoaderOrError
+                {/* <LoaderOrError
                   loading={!jsonData || !jsonData.extraction_json}
                   error={
                     !selectedDocType || !schemaMap[selectedDocType]
                       ? "Unsupported document type"
                       : null
                   }
-                >
+                > */}
                   <JViewer data={jsonData} />
-                </LoaderOrError>
+                {/* </LoaderOrError> */}
               </div>
             )}
           </div>
