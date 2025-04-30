@@ -49,17 +49,14 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
 
   const handlePDFChange = () => {
     try {
-      fetch(`http://localhost:3000/getpdf?pdfFileName=${docId}.pdf`)
+      fetch(`${import.meta.env.VITE_API_URL}/getpdf?pdfFileName=${docId}.pdf`)
         .then((response) => response.json())
         .then((pdfBlob) => {
-            // const pdfUrl = URL.createObjectURL(pdfBlob);
             console.log(pdfBlob)
             setPDFLoad(`data:application/pdf;base64,${pdfBlob.fileBuffer}`)
-            // window.open(pdfUrl, '_blank');  // Open the PDF in a new tab
         })
         .catch((error) => console.error('Error fetching the PDF:', error));
       if (pdfPathMap[selectedDocType]) {
-        // setPDFLoad(pdfPathMap[selectedDocType](docId));
         // setPDFLoad(pdfPathMap[selectedDocType](docId));
       } else {
         console.error(

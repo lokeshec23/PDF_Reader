@@ -29,15 +29,17 @@ export function UserProvider({ children }) {
     
     if (!docId) return;
   
-    var docType = docTypeMap[docId];
+    // var docType = docTypeMap[docId];
   
-    if (docType) {
-      setDocTypeList(docType);
-      setSelectedDocType(docType[0]);
-    } else {
-      setDocTypeList(["Paystub", "W2", "Bank Statement", "Credit Report", "WVOE"]);
-      setSelectedDocType("Paystub");
-    }
+    // if (docType) {
+    //   setDocTypeList(docType);
+    //   setSelectedDocType(docType[0]);
+    // } else {
+    //   setDocTypeList(["Paystub", "W2", "Bank Statement", "Credit Report", "WVOE"]);
+    //   setSelectedDocType("Paystub");
+    // }
+    setDocTypeList([`${docId}`]);
+    setSelectedDocType(`${docId}`);
   }, [docId]);
   
   

@@ -68,7 +68,7 @@ const MainLayout = () => {
 
   return (
     <>
-      {docIdError ? (
+      {/* {docIdError ? (
         <div
           style={{
             position: "fixed",
@@ -88,6 +88,7 @@ const MainLayout = () => {
           />
         </div>
       ) : (
+      )} */}
         <div
           className="flex flex-col md:flex-row gap-4 p-4 bg-gray-50 overflow-hidden"
           style={{
@@ -113,20 +114,20 @@ const MainLayout = () => {
               className="border rounded-2xl shadow-md p-4 bg-white"
               style={{ overflow: "hidden", height: "95dvh", marginTop: "1%" }}
             >
-              <LoaderOrError
+              {/* <LoaderOrError
                 loading={!jsonData || !jsonData.extraction_json}
                 error={
                   !selectedDocType || !schemaMap[selectedDocType]
                     ? "Unsupported document type"
                     : null
                 }
-              >
+              > */}
                 <PViewer
                   hoveredKey={hoveredKey}
                   data={jsonData}
                   setPageRenderReady={setPageRenderReady}
                 />
-              </LoaderOrError>
+              {/* </LoaderOrError> */}
             </div>
           </div>
 
@@ -224,7 +225,6 @@ const MainLayout = () => {
             />
           )}
         </div>
-      )}
     </>
   );
 };

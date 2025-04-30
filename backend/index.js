@@ -10,6 +10,10 @@ const accessBlob = async (pdfFileName = '') => {
         console.log('pdfFileName:', pdfFileName);
         const blobServiceClient = BlobServiceClient.fromConnectionString(process.env.AZURE_STORAGE_CONNECTION_STRING);
         const containerClient = blobServiceClient.getContainerClient(process.env.CONTAINER_NAME);
+
+        for await (const blob of containerClient.listBlobsFlat()) {
+            console.log('Available blob:', blob.name);
+        }
         
         const blockBlobClient = containerClient.getBlockBlobClient(pdfFileName);
         const exists = await blockBlobClient.exists();
