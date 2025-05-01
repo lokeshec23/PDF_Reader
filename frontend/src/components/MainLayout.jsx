@@ -187,8 +187,10 @@ const MainLayout = () => {
                     initialSelectedItem={selectedDocType}
                     label={selectedDocType}
                     items={docTypeList}
-                    onChange={({ selectedItem }) =>
+                    onChange={({ selectedItem }) => {
+                      debugger
                       setSelectedDocType(selectedItem)
+                    }
                     }
                   />
                 </div>

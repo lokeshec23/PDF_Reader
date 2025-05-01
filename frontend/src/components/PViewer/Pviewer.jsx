@@ -15,7 +15,7 @@ import { pdfPathMap } from "../../config/pdfPathMap";
 
 const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
   const { docId } = useParams();
-  const { selectedDocType } = useContext(UserContext);
+  const { selectedDocType, docTypeList, fullList } = useContext(UserContext);
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [zoom, setZoom] = useState(1);
@@ -48,8 +48,10 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
   }, [selectedDocType, docId]);
 
   const handlePDFChange = () => {
+    debugger
     try {
-      fetch(`${import.meta.env.VITE_API_URL}/getpdf?pdfFileName=${docId}.pdf`)
+      let fileName = fullList.filter(item => item.doc_type == selectedDocType)[0]['file_name'] || ""
+      fetch(`${import.meta.env.VITE_API_URL}/getpdf?pdfFileName=${fileName}.pdf`)
         .then((response) => response.json())
         .then((pdfBlob) => {
             console.log(pdfBlob)
