@@ -45,24 +45,54 @@ export function UserProvider({ children }) {
   
   
 
-  async function handleJSONChange() {
+   const  handleJSONChange = async () => {
     if (!docId) return;
-    debugger
-    try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/getJson?pdfFileName=${docId}.json`);
-
-      if (!res.ok) {
-        const errorText = await res.text();
-        throw new Error(errorText || 'Failed to fetch JSON');
+  
+    const MAX_ATTEMPTS = 10;
+  
+    const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  
+    for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+      try {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/getJson?pdfFileName=${docId}.json`);
+  
+        if (!res.ok) {
+          const errorText = await res.text();
+          throw new Error(errorText || 'Failed to fetch JSON');
+        }
+  
+        const data = await res.json();
+  
+        const isEmptyJson = Object.keys(data || {}).length === 0;
+  
+        if (!isEmptyJson) {
+          console.log("JS", data)
+          setJsonData(data); // ✅ Success
+          return;
+        }
+  
+        console.warn(`⚠️ Attempt ${attempt}: Empty JSON received. Retrying...`);
+  
+        // Delay before the next attempt
+        const waitTime = attempt === MAX_ATTEMPTS ? 2000 : 4000; // 2s after last, else 4s
+        await delay(waitTime);
+      } catch (err) {
+        console.error(`❌ Error on attempt ${attempt}:`, err.message);
+  
+        if (attempt === MAX_ATTEMPTS) {
+          setJsonData({});
+        } else {
+          const waitTime = attempt === MAX_ATTEMPTS ? 2000 : 4000;
+          await delay(waitTime);
+        }
       }
-
-      const data = await res.json();
-      setJsonData(data);
-    } catch (err) {
-      console.error("❌ Error loading JSON:", err);
-      setJsonData({});
     }
+  
+    // If all attempts fail (including empty JSONs), fallback
+    console.error('🛑 All attempts exhausted. Setting empty object.');
+    setJsonData({});
   }
+  
 
   useEffect(function () {
     if (docId) {

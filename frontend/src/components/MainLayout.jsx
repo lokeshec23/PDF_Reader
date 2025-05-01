@@ -50,8 +50,6 @@ const MainLayout = () => {
   };
 
   const handleLoadingJson = () => {
-    debugger
-    console.log("lk", jsonData)
     try{
         if(Object.keys(jsonData).length) {
           setJsonLoading((prev)=>({...prev, json: false}))
@@ -194,16 +192,16 @@ const MainLayout = () => {
                     }
                   />
                 </div>
-                <LoaderOrError
+                {/* <LoaderOrError
                   loading={!jsonData || !jsonData.extraction_json}
                   error={
                     !selectedDocType || !schemaMap[selectedDocType]
                       ? "Unsupported document type"
                       : null
                   }
-                >
+                > */}
                   {displayContent(selectedDocType)}
-                </LoaderOrError>
+                {/* </LoaderOrError> */}
               </div>
             </div>
 
@@ -213,12 +211,13 @@ const MainLayout = () => {
                 className="w-1/2 border rounded-2xl shadow-md p-4 bg-white transition-all duration-300"
                 style={{ height: "100%" }}
               >
-                <LoaderOrError
-                  loading={jsonLoading.json}
-                  error={false}
-                >
+                {/* <LoaderOrError
+                  loading={jsonLoading.loading}
+                  error={jsonLoading.error}
+                  isFrom = 'JSON'
+                > */}
                   <JViewer data={jsonData} />
-                </LoaderOrError>
+                {/* </LoaderOrError> */}
               </div>
             )}
           </div>
