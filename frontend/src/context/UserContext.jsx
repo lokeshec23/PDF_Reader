@@ -1,11 +1,14 @@
 import { use } from "react";
 import { createContext, useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 export const UserContext = createContext();
 
 export function UserProvider({ children }) {
-  const { docId: docIdFromParams } = useParams(); // Rename here
+  // const { docId: docIdFromParams } = useParams(); // Rename here
+   const location = useLocation();
+      const queryParams = new URLSearchParams(location.search);
+      const docIdFromParams = queryParams.get("scandocid");
   const [themeStyle, setThemeStyle] = useState({ primary: "#4589ff" });
   const [docId, setDocId] = useState(docIdFromParams || null);
   const [jsonData, setJsonData] = useState({});
@@ -50,7 +53,7 @@ export function UserProvider({ children }) {
   const getDocumentDetails = async () => {
     try {
       const res = await fetch(
-        `${import.meta.env.VITE_DOC_URL}1`
+        `${import.meta.env.VITE_DOC_URL}${docIdFromParams}`
       );
 
       if (!res.ok) {
@@ -73,7 +76,6 @@ export function UserProvider({ children }) {
   };
 
   const handleJSONChange = async () => {
-    debugger
     let fileName =
       fullList?.filter((item) => item.doc_type == selectedDocType)[0][
         "file_name"

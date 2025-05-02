@@ -10,11 +10,14 @@ import {
   ZoomReset,
 } from "@carbon/icons-react";
 import { UserContext } from "../../context/UserContext.jsx";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { pdfPathMap } from "../../config/pdfPathMap";
 
 const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
-  const { docId } = useParams();
+  // const { docId } = useParams();
+  const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const docId = queryParams.get("scandocid");
   const { selectedDocType, docTypeList, fullList } = useContext(UserContext);
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
@@ -49,7 +52,6 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
 
   const handlePDFChange = () => {
     try {
-      debugger;
       let fileName =
         fullList?.filter((item) => item.doc_type == selectedDocType)[0][
           "file_name"

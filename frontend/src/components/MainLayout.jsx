@@ -9,12 +9,15 @@ import JViewer from "./JViewer/JViewer.jsx";
 import PViewer from "./PViewer/Pviewer.jsx";
 import GenericInputFields from "./GenericInputFields.jsx";
 
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import LoaderOrError from "./LoaderOrError.jsx";
 import { allowedDocIds } from "../config/allowedDocIds.js";
 
 const MainLayout = () => {
-  const { docId } = useParams();
+  // const { docId } = useParams();
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const docId = queryParams.get("scandocid");
   const {
     themeStyle,
     jsonData,
