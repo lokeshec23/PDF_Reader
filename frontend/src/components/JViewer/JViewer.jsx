@@ -49,7 +49,6 @@ const JViewer = ({ data }) => {
   const [isEmptyJson, setIsEmptyJson] = useState(false);
 
   useEffect(() => {
-    debugger
     if (Object.keys(jsonData).length == 0) {
       setIsEmptyJson(true);
     }
@@ -65,7 +64,7 @@ const JViewer = ({ data }) => {
 
   return (
     <>
-      {isEmptyJson ? (
+      {/* {isEmptyJson ? (
         <div
           className="flex items-center justify-center h-full"
           style={{ padding: "20px" }}
@@ -79,7 +78,9 @@ const JViewer = ({ data }) => {
           />
         </div>
       ) : (
-        <div style={{ margin: "1rem" }}>
+        
+      )} */}
+      <div style={{ margin: "1rem" }}>
           <Tabs selectedIndex={tabIndex} onChange={handleTabChange}>
             <TabList>
               <Tab>Json View</Tab>
@@ -105,7 +106,6 @@ const JViewer = ({ data }) => {
             </TabPanels>
           </Tabs>
         </div>
-      )}
     </>
   );
 };

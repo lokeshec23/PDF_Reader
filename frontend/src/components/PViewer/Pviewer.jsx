@@ -45,28 +45,29 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
 
   useEffect(() => {
     handlePDFChange();
-  }, [selectedDocType, docId]);
+  }, [selectedDocType]);
 
   const handlePDFChange = () => {
-    debugger
     try {
-      let fileName = fullList?.filter(item => item.doc_type == selectedDocType)[0]['file_name'] || ""
-      fetch(`${import.meta.env.VITE_API_URL}/getpdf?pdfFileName=${fileName}.pdf`)
+      debugger;
+      let fileName =
+        fullList?.filter((item) => item.doc_type == selectedDocType)[0][
+          "file_name"
+        ] || "";
+      if (!fileName) return;
+      fetch(
+        `${import.meta.env.VITE_API_URL}/getpdf?pdfFileName=${fileName}.pdf`
+      )
         .then((response) => response.json())
         .then((pdfBlob) => {
-            console.log(pdfBlob)
-            setPDFLoad(`data:application/pdf;base64,${pdfBlob.fileBuffer}`)
+          console.log(pdfBlob);
+          setPDFLoad(`data:application/pdf;base64,${pdfBlob.fileBuffer}`);
         })
-        .catch((error) => console.error('Error fetching the PDF:', error));
-      if (pdfPathMap[selectedDocType]) {
-        // setPDFLoad(pdfPathMap[selectedDocType](docId));
-      } else {
-        console.error(
-          "Unsupported document type for PDF loading:",
-          selectedDocType
-        );
-        setPDFLoad(null);
-      }
+        .catch((error) => {
+          setPDFLoad(null);
+          console.error("Error fetching the PDF:", error);
+          return
+        });
     } catch (ex) {
       console.error("Error setting PDF path", ex);
     }

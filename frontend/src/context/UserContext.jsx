@@ -11,7 +11,7 @@ export function UserProvider({ children }) {
   const [jsonData, setJsonData] = useState({});
   const [selectedDocType, setSelectedDocType] = useState("");
   const [docTypeList, setDocTypeList] = useState([]); // New for dynamic types
-  const [fullList, setFullList] = useState(null)
+  const [fullList, setFullList] = useState(null);
   const feedbackDates = {
     "Bank Statement": [
       "2025-04-14-13-04",
@@ -26,36 +26,61 @@ export function UserProvider({ children }) {
     1040: ["1040"],
   };
 
-  useEffect(
-    function () {
+  useEffect(() => {
+    const handleFile = async () => {
       if (!docId) return;
 
-      const docType = [
-        { doc_type: "VOE", file_name: "VOE_125"},
-        { doc_type: "Paystub", file_name: "Paystub_79" },
-        { doc_type: "W2", file_name: "W2_98" },
-      ];
-      setFullList(docType)
+      const docType = await getDocumentDetails();
+
+      // const docType = [
+      //   { doc_type: "VOE", file_name: "VOE_125" },
+      //   { doc_type: "Paystub", file_name: "Paystub_79" },
+      //   { doc_type: "W2", file_name: "W2_98" },
+      // ];
+      setFullList(docType);
       // var docType = docTypeMap[docId];
       if (docType) {
-        setDocTypeList(docType.map(item => item.doc_type));
-        setSelectedDocType(docType.map(item => item.doc_type)[0]);
-      } 
-      // else {
-      //   setDocTypeList(["Paystub", "W2", "Bank Statement", "Credit Report", "WVOE"]);
-      //   setSelectedDocType("Paystub");
-      // }
-      // const SelectedName = docId.split("_")[0] || "";
-      // setDocTypeList([`${SelectedName}`]);
-      // setSelectedDocType(`${SelectedName}`);
-    },
-    [docId]
-  );
+        setDocTypeList(docType.map((item) => item.doc_type));
+        setSelectedDocType(docType.map((item) => item.doc_type)[0]);
+      }
+    };
+    handleFile();
+  }, [docId]);
+
+  const getDocumentDetails = async () => {
+    try {
+      const res = await fetch(
+        `${import.meta.env.VITE_DOC_URL}1`
+      );
+
+      if (!res.ok) {
+        const errorText = await res.text();
+        throw new Error(errorText || "Failed to fetch JSON");
+      }
+
+      const data = await res.json();
+      const parsedArray = JSON.parse(data);
+      
+      const newDocTypeArray = parsedArray.map(({ doc_type, file_name }) => ({
+        doc_type,
+        file_name
+      }));
+      console.log("Data:", newDocTypeArray);
+      return newDocTypeArray;
+    } catch (error) {
+      console.error("Error in handleResponse:", error);
+    }
+  };
 
   const handleJSONChange = async () => {
-     let fileName = fullList?.filter(item => item.doc_type == selectedDocType)[0]['file_name'] || ""
+    debugger
+    let fileName =
+      fullList?.filter((item) => item.doc_type == selectedDocType)[0][
+        "file_name"
+      ] || "";
     if (!docId) return;
-
+    if(!fileName) return
+    setJsonData({});
     const MAX_ATTEMPTS = 10;
 
     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -76,7 +101,7 @@ export function UserProvider({ children }) {
         const isEmptyJson = Object.keys(data || {}).length === 0;
 
         if (!isEmptyJson) {
-          console.log("JS", data);
+          // console.log("JS", data);
           setJsonData(data); // ✅ Success
           return;
         }
@@ -105,11 +130,9 @@ export function UserProvider({ children }) {
 
   useEffect(
     function () {
-      if (docId) {
-        handleJSONChange();
-      }
+      handleJSONChange();
     },
-    [docId, selectedDocType]
+    [ selectedDocType]
   );
 
   return (
@@ -124,7 +147,7 @@ export function UserProvider({ children }) {
         setSelectedDocType,
         docTypeList, // updated here
         feedbackDates: feedbackDates[selectedDocType] || [],
-        fullList
+        fullList,
       }}
     >
       {children}
