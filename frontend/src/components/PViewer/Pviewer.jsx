@@ -50,7 +50,7 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
   const handlePDFChange = () => {
     debugger
     try {
-      let fileName = fullList.filter(item => item.doc_type == selectedDocType)[0]['file_name'] || ""
+      let fileName = fullList?.filter(item => item.doc_type == selectedDocType)[0]['file_name'] || ""
       fetch(`${import.meta.env.VITE_API_URL}/getpdf?pdfFileName=${fileName}.pdf`)
         .then((response) => response.json())
         .then((pdfBlob) => {

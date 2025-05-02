@@ -53,7 +53,7 @@ export function UserProvider({ children }) {
   );
 
   const handleJSONChange = async () => {
-     let fileName = fullList.filter(item => item.doc_type == selectedDocType)[0]['file_name'] || ""
+     let fileName = fullList?.filter(item => item.doc_type == selectedDocType)[0]['file_name'] || ""
     if (!docId) return;
 
     const MAX_ATTEMPTS = 10;
