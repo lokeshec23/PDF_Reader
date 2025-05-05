@@ -17,7 +17,7 @@ const App = () => {
     <div className="flex flex-col h-screen">
       {/* <Header /> */}
       <Routes>
-        <Route path="/" element={<MainLayout />} />
+        <Route path="/documentreview" element={<MainLayout />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

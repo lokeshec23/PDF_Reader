@@ -5,8 +5,8 @@ const DocumentReviewWelcome = () => {
       {/* <p className="text-xl text-gray-700 mb-2">
         Let's start reviewing your documents with ease and precision.
       </p>
-      <p className="text-gray-500 mb-6">
-        Upload or select a document to begin your review journey.
+      <p className="text-gray-500">
+        This space is designed to help you organize, analyze, and review important files efficiently.
       </p>
       <button className="px-6 py-3 bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700 transition duration-200">
         Get Started
