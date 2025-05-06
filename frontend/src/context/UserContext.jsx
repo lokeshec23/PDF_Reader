@@ -34,8 +34,9 @@ export function UserProvider({ children }) {
     const handleFile = async () => {
       if (!docId) return;
       if(docId == "0") {
-        setDocTypeList([`${FILE_NAME}`]);
-        setSelectedDocType(`${FILE_NAME}`);
+        const setName = FILE_NAME.split("_")[0];
+        setDocTypeList([`${setName}`]);
+        setSelectedDocType(`${setName}`);
         return;
       }
       const docType = await getDocumentDetails();
