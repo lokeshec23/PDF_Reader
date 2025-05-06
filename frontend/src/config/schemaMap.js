@@ -66,6 +66,21 @@ export const schemaMap = {
     ],
     sectionTitleField: "Year",
   },
+  VOE: {
+    flatFields: ["Rate Of Pay", "Pay Frequency", "Hours"],
+    sectionKey: "years",
+    sectionTitle: "Years",
+    sectionFields: [
+      "Year",
+      "Base Salary",
+      "Overtime",
+      "Commissions",
+      "Bonus",
+      "Others",
+      "Total",
+    ],
+    sectionTitleField: "Year",
+  },
   1040: {
     flatFields: ["First Name", "Last Name", "SSN", "year", "Schedule C Profit or Loss"],
 
