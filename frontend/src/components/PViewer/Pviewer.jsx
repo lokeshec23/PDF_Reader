@@ -53,6 +53,10 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
 
   const handlePDFChange = () => {
     try {
+      if(docId == "0") {
+        setPDFLoad(`/${FILE_NAME}.pdf`);
+        return;
+      }
       let fileName = docId == "0" ? FILE_NAME : 
         fullList?.filter((item) => item.doc_type == selectedDocType)[0][
           "file_name"

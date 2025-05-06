@@ -82,6 +82,13 @@ export function UserProvider({ children }) {
   };
 
   const handleJSONChange = async () => {
+    if(docId == 0){
+      const res = await fetch(`/${FILE_NAME}.json`);
+      if (!res.ok) throw new Error(`JSON not found at ${jsonPath}`);
+      const json = await res.json();
+      setJsonData(json);
+      return
+    }
     let fileName = docId == "0" ? FILE_NAME : 
       fullList?.filter((item) => item.doc_type == selectedDocType)[0][
         "file_name"
@@ -110,8 +117,13 @@ export function UserProvider({ children }) {
 
         if (!isEmptyJson) {
           console.log("JS DATA", data);
-          const labels = data?.Summary?.Summary?.[0]?.Labels || [];
-          const transformedJson = paystubTransform(labels);
+          
+          let transformedJson = data; // Default to original data
+          if(selectedDocType == "Paystub") {
+            const labels = data?.Summary?.Summary?.[0]?.Labels || [];
+            transformedJson = paystubTransform(labels);
+          }
+
           console.log("JS DATA adter", transformedJson);
           setJsonData(transformedJson); // ✅ Success
           return;
