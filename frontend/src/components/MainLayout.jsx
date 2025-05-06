@@ -69,6 +69,7 @@ const MainLayout = () => {
   }
 
   const displayContent = (type) => {
+    debugger
     const schema = schemaMap[type];
     if (!schema)
       return (

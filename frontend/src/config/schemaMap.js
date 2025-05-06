@@ -88,15 +88,15 @@ export const schemaMap = {
 
     sectionTitleField: "Tax Year", // NEW!
   },
- "1040-C": {
-    flatFields: ["First Name", "Last Name", "SSN", "year", "Schedule C Profit or Loss"],
+ "1040-C_2023-2024": {
+   // flatFields: ["First Name", "Last Name", "SSN", "year", "Schedule C Profit or Loss"],
 
-    // sectionKey: "W2",
+   sectionKey: "Year",
 
-    // sectionTitle: "W2 Detail",
+   sectionTitle: "Tax Year",
 
-    // sectionFields: ["year", "wages"],
+   sectionFields: ["Start_date", "End_date", "W_2_Income", "B_Interest_Income","B_Dividend_Income","C_ Net_ Profit_or_loss", "C_Other_Non_Recurring_Income_or_Loss", "C_Depletion", "C_Depreciation", "C_Meals_AND_Entertainment", "C_Business_Use_of_Home"],
 
-    // sectionTitleField: "year", // NEW!
+   sectionTitleField: "Tax Year", // NEW!
   },
 };
