@@ -1,14 +1,14 @@
 import { use } from "react";
 import { createContext, useState, useEffect } from "react";
 import { useLocation, useParams } from "react-router-dom";
-
+import { paystubTransform } from "../utils/transformFunctions";
 export const UserContext = createContext();
 
 export function UserProvider({ children }) {
   // const { docId: docIdFromParams } = useParams(); // Rename here
-   const location = useLocation();
-      const queryParams = new URLSearchParams(location.search);
-      const docIdFromParams = queryParams.get("scandocid");
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const docIdFromParams = queryParams.get("scandocid");
   const [themeStyle, setThemeStyle] = useState({ primary: "#4589ff" });
   const [docId, setDocId] = useState(docIdFromParams || null);
   const [jsonData, setJsonData] = useState({});
@@ -63,10 +63,10 @@ export function UserProvider({ children }) {
 
       const data = await res.json();
       const parsedArray = JSON.parse(data);
-      
+
       const newDocTypeArray = parsedArray.map(({ doc_type, file_name }) => ({
         doc_type,
-        file_name
+        file_name,
       }));
       console.log("Data:", newDocTypeArray);
       return newDocTypeArray;
@@ -81,7 +81,7 @@ export function UserProvider({ children }) {
         "file_name"
       ] || "";
     if (!docId) return;
-    if(!fileName) return
+    if (!fileName) return;
     setJsonData({});
     const MAX_ATTEMPTS = 10;
 
@@ -103,8 +103,11 @@ export function UserProvider({ children }) {
         const isEmptyJson = Object.keys(data || {}).length === 0;
 
         if (!isEmptyJson) {
-          // console.log("JS", data);
-          setJsonData(data); // ✅ Success
+          console.log("JS DATA", data);
+          const labels = data?.Summary?.Summary?.[0]?.Labels || [];
+          const transformedJson = paystubTransform(labels);
+          console.log("JS DATA adter", transformedJson);
+          setJsonData(transformedJson); // ✅ Success
           return;
         }
 
@@ -134,7 +137,7 @@ export function UserProvider({ children }) {
     function () {
       handleJSONChange();
     },
-    [ selectedDocType]
+    [selectedDocType]
   );
 
   return (

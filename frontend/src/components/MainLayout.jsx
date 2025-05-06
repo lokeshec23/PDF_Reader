@@ -31,7 +31,7 @@ const MainLayout = () => {
   const [hoveredKey, setHoveredKey] = useState({ key: null, pageNum: null });
   const [pageRenderReady, setPageRenderReady] = useState(false);
   const [docIdError, setDocIdError] = useState(null);
-   const [jsonLoading, setJsonLoading] = useState({json: true})
+  const [jsonLoading, setJsonLoading] = useState({json: true})
   useEffect(() => {
     setDocId(docId);
     if (!allowedDocIds.includes(docId)) {
