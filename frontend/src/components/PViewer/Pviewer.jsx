@@ -16,8 +16,9 @@ import { pdfPathMap } from "../../config/pdfPathMap";
 const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
   // const { docId } = useParams();
   const location = useLocation();
-    const queryParams = new URLSearchParams(location.search);
-    const docId = queryParams.get("scandocid");
+  const queryParams = new URLSearchParams(location.search);
+  const docId = queryParams.get("scandocid");
+  const FILE_NAME = queryParams.get("filename");
   const { selectedDocType, docTypeList, fullList } = useContext(UserContext);
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
@@ -52,7 +53,7 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
 
   const handlePDFChange = () => {
     try {
-      let fileName =
+      let fileName = docId == "0" ? FILE_NAME : 
         fullList?.filter((item) => item.doc_type == selectedDocType)[0][
           "file_name"
         ] || "";

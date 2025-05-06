@@ -18,6 +18,7 @@ const MainLayout = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const docId = queryParams.get("scandocid");
+  const FILE_NAME = queryParams.get("filename");
   const {
     themeStyle,
     jsonData,
@@ -33,6 +34,11 @@ const MainLayout = () => {
   const [docIdError, setDocIdError] = useState(null);
   const [jsonLoading, setJsonLoading] = useState({json: true})
   useEffect(() => {
+    if(docId == 0){
+      debugger
+      console.log("filenme", FILE_NAME)
+      return
+    }
     setDocId(docId);
     if (!allowedDocIds.includes(docId)) {
       setDocIdError("Please check your Loan ID.");

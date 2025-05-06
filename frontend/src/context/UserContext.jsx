@@ -9,6 +9,7 @@ export function UserProvider({ children }) {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const docIdFromParams = queryParams.get("scandocid");
+  const FILE_NAME = queryParams.get("filename");
   const [themeStyle, setThemeStyle] = useState({ primary: "#4589ff" });
   const [docId, setDocId] = useState(docIdFromParams || null);
   const [jsonData, setJsonData] = useState({});
@@ -32,7 +33,11 @@ export function UserProvider({ children }) {
   useEffect(() => {
     const handleFile = async () => {
       if (!docId) return;
-
+      if(docId == "0") {
+        setDocTypeList([`${FILE_NAME}`]);
+        setSelectedDocType(`${FILE_NAME}`);
+        return;
+      }
       const docType = await getDocumentDetails();
 
       // const docType = [
@@ -76,7 +81,7 @@ export function UserProvider({ children }) {
   };
 
   const handleJSONChange = async () => {
-    let fileName =
+    let fileName = docId == "0" ? FILE_NAME : 
       fullList?.filter((item) => item.doc_type == selectedDocType)[0][
         "file_name"
       ] || "";
