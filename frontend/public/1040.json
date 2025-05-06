@@ -15,20 +15,20 @@
       "First Name": "JOHN",
     "Last Name": "PAUL",
       "SSN": "222-11-3333",
-      "year": "2023",
+      "year": "2022",
       "Schedule C Profit or Loss": "16710",
       "beginning date": "2023-01-01",
       "ending date": "2023-12-31"
     },
-    "extraction_json_with_coordinates": {
+    "extraction_json_with_coordinates_": {
       "doc_type": {
         "value": "Bank Statement",
-        "coordinates": null,
+        "coordinates_": null,
         "page_num": null
       },
       "First Name": {
         "value": "JOHN",
-        "coordinates": {
+        "coordinates_": {
           "x0": 0.3098039215686274,
           "y0": 0.1073123611111113,
           "x1": 0.9318951665688889,
@@ -38,7 +38,7 @@
       },
       "Last Name": {
         "value": "PAUL",
-        "coordinates": {
+        "coordinates_": {
          "x0": 0.5098039215686274,
           "y0": 0.1073123611111113,
           "x1": 0.9318951665688889,
@@ -48,7 +48,7 @@
       },
       "SSN": {
         "value": "222-11-3333",
-        "coordinates": {
+        "coordinates_": {
             "x0": 0.8098039215686274,
             "y0": 0.1073123611111113,
           "x1": 0.9318951665688889,
@@ -58,7 +58,7 @@
       },
       "year": {
         "value": "2023",
-        "coordinates": {
+        "coordinates_": {
             "x0": 0.5098039215686274,
             "y0": 0.0673123611111113,
           "x1": 0.30711979077443796,
@@ -68,7 +68,7 @@
       },
       "Schedule C Profit or Loss": {
         "value": "16710",
-        "coordinates": {
+        "coordinates_": {
             "x0": 0.9098039215686274,
             "y0": 0.7273123611111113,
           "x1": 0.30711979077443796,

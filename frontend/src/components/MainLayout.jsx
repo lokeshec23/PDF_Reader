@@ -35,7 +35,6 @@ const MainLayout = () => {
   const [jsonLoading, setJsonLoading] = useState({json: true})
   useEffect(() => {
     if(docId == 0){
-      debugger
       console.log("filenme", FILE_NAME)
       return
     }
@@ -69,7 +68,6 @@ const MainLayout = () => {
   }
 
   const displayContent = (type) => {
-    debugger
     const schema = schemaMap[type];
     if (!schema)
       return (
