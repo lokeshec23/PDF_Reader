@@ -1,0 +1,73 @@
+{
+	"LoanWageEaner": {
+		"Loan": {
+			"Borrowers": {
+				"Borrower": [
+					{
+						"Borrowerinfo": {
+							
+							"s1040s": {
+								"TaxForms": {
+									"TaxForm": [
+										{
+											"number": "1",
+											"Tax_Year": "2022",
+											"Start_date": "2022-01-01",
+											"End_date": "2022-12-31",
+											"W_2_Income": "0.00",
+											"B_Interest_Income": "0.00",
+											"B_Dividend_Income": "0.00",
+											"C_Net_Profit_or_Loss": "16710",
+											"C_Other_Non_Recurring_Income_or_Loss": "0.00",
+											"C_Depletion": "0.00",
+											"C_Depreciation": "335",
+											"C_Meals_AND_Entertainment": "1343",
+											"C_Business_Use_of_Home": "1334",
+											"C_Business_Miles_VA_does_not_allow_add_back": "0.00",
+											"C_Total_Mileage_Depreciation": "0",
+											"C_Amortization": "0.00",
+											"C_Casualty_Loss": "337.00",
+											"C_X_Depreciation_Rate": "0",
+											"D_Recurring_Capital_Gains": "0.00",
+											"E_Royalties_Received": "0.00",
+											"E_Total_Expenses": "0",
+											"E_Depletion": "0.00",
+											"F_Net_Profit_or_Loss": "0.00",
+											"F_Non_Recurring_Income_or_Loss": "0.00",
+											"F_Depreciation": "0.00",
+											"F_Amortization": "0.00",
+											"F_Casualty_Loss": "0.00",
+											"F_Depletion": "0.00",
+											"F_Business_Use_of_Home": "0.00",
+											"three_a": "0.00",
+											"three_b": "0.00",
+											"four_a": "0.00",
+											"four_b": "0.00",
+											"five_a": "0.00",
+											"five_b": "0.00",
+											"six_a": "0.00",
+											"six_b": "0.00",
+											"UserId": "0"
+										}
+									]
+								}
+							},
+							"number": "1",
+							"name": "Raja"
+						}
+					}
+				]
+			},
+			"LoanNo": "1234AS56",
+			"AlternateLoanNo": "1234AS56",
+			"Borrowercount": "1",
+			"Borrower1": "Raja",
+			"Borrower2": "Rahman",
+			"Borrower3": "",
+			"Borrower4": "",
+			"Status": "1",
+			"AssignedUser": "23",
+			"CreatedBy": "loanDNA"
+		}
+	}
+}
