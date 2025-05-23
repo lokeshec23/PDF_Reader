@@ -45,7 +45,6 @@ const MainLayout = () => {
   };
 
   const displayContent = (type) => {
-    
     const schema = schemaMap[type];
     if (!schema)
       return (

@@ -1,214 +1,50 @@
 {
-	"LoanWageEaner": {
-		"Loan": {
-			"Borrowers": {
-				"Borrower": [
-					{
-						"Borrowerinfo": {
-							"Selfemployeds": {
-		"Businesss": {
-				"Business": [
-						{
-								"SEscheduleCs": {
-										"SEscheduleC": [
-												{
-                                                        "number": "1",
-                                                        "Tax_Year": "2022",
-                                                        "Start_date": "2022-01-01",
-                                                        "End_date": "2022-12-31",
-                                                        "SE_C_Net_Profit_or_Loss": "66300.00",
-                                                        "IS_EXCLUDE_SE_C_Net_Profit_or_Loss": "False",
-                                                        "Reason_SE_C_Net_Profit_or_Loss": "0.00",
-                                                        "SE_C_Other_Non_Recurring_Income_or_Loss": "86000.00",
-                                                        "IS_EXCLUDE_SE_C_Other_Non_Recurring_Income_or_Loss": "False",
-                                                        "Reason_SE_C_Other_Non_Recurring_Income_or_Loss": "",
-                                                        "SE_C_Depletion": "0.00",
-                                                        "IS_EXCLUDE_SE_C_Depletion": "False",
-                                                        "Reason_SE_C_Depletion": "",
-                                                        "SE_C_Depreciation": "1200.00",
-                                                        "IS_EXCLUDE_SE_C_Depreciation": "False",
-                                                        "Reason_SE_C_Depreciation": "",
-                                                        "SE_C_Meals_AND_Entertainment": "600",
-                                                        "IS_EXCLUDE_SE_C_Meals_AND_Entertainment": "False",
-                                                        "Reason_SE_C_Meals_AND_Entertainment": "",
-                                                        "SE_C_Business_Use_of_Home": "0.00",
-                                                        "IS_EXCLUDE_SE_C_Business_Use_of_Home": "False",
-                                                        "Reason_SE_C_Business_Use_of_Home": "",
-                                                        "SE_C_Business_Miles_VA_does_not_allow_add_back": "0.00",
-                                                        "IS_EXCLUDE_SE_C_Business_Miles_VA_does_not_allow_add_back": "False",
-                                                        "Reason_SE_C_Business_Miles_VA_does_not_allow_add_back": "",
-                                                        "SE_C_Total_Mileage_Depreciation": "0.00",
-                                                        "IS_EXCLUDE_SE_C_Total_Mileage_Depreciation": "False",
-                                                        "Reason_SE_C_Total_Mileage_Depreciation": "",
-                                                        "SE_C_Amortization": "0.00",
-                                                        "IS_EXCLUDE_SE_C_Amortization": "False",
-                                                        "Reason_SE_C_Amortization": "",
-                                                        "SE_C_Casualty_Loss": "0.00",
-                                                        "IS_EXCLUDE_SE_C_Casualty_Loss": "False",
-                                                        "Reason_SE_C_Casualty_Loss": "",
-                                                        "SE_C_X_Depreciation_Rate": "0",
-                                                        "IS_EXCLUDE_SE_C_X_Depreciation_Rate": "False",
-                                                        "Reason_SE_C_X_Depreciation_Rate": "",
-                                                        "IS_EXCLUDE": "",
-                                                        "Reason": "",
-                                                        "ModifiedBy": ""
-                                                    },
-                                                    {
-                                                        "number": "2",
-                                                        "Tax_Year": "2023",
-                                                        "Start_date": "2023-01-01",
-                                                        "End_date": "2023-12-31",
-                                                        "SE_C_Net_Profit_or_Loss": "50300.00",
-                                                        "IS_EXCLUDE_SE_C_Net_Profit_or_Loss": "False",
-                                                        "Reason_SE_C_Net_Profit_or_Loss": "",
-                                                        "SE_C_Other_Non_Recurring_Income_or_Loss": "62500.00",
-                                                        "IS_EXCLUDE_SE_C_Other_Non_Recurring_Income_or_Loss": "False",
-                                                        "Reason_SE_C_Other_Non_Recurring_Income_or_Loss": "",
-                                                        "SE_C_Depletion": "0.00",
-                                                        "IS_EXCLUDE_SE_C_Depletion": "False",
-                                                        "Reason_SE_C_Depletion": "",
-                                                        "SE_C_Depreciation": "2300",
-                                                        "IS_EXCLUDE_SE_C_Depreciation": "False",
-                                                        "Reason_SE_C_Depreciation": "",
-                                                        "SE_C_Meals_AND_Entertainment": "0.00",
-                                                        "IS_EXCLUDE_SE_C_Meals_AND_Entertainment": "False",
-                                                        "Reason_SE_C_Meals_AND_Entertainment": "",
-                                                        "SE_C_Business_Use_of_Home": "500",
-                                                        "IS_EXCLUDE_SE_C_Business_Use_of_Home": "False",
-                                                        "Reason_SE_C_Business_Use_of_Home": "",
-                                                        "SE_C_Business_Miles_VA_does_not_allow_add_back": "0.00",
-                                                        "IS_EXCLUDE_SE_C_Business_Miles_VA_does_not_allow_add_back": "False",
-                                                        "Reason_SE_C_Business_Miles_VA_does_not_allow_add_back": "",
-                                                        "SE_C_Total_Mileage_Depreciation": "0.00",
-                                                        "IS_EXCLUDE_SE_C_Total_Mileage_Depreciation": "False",
-                                                        "Reason_SE_C_Total_Mileage_Depreciation": "",
-                                                        "SE_C_Amortization": "0.00",
-                                                        "IS_EXCLUDE_SE_C_Amortization": "False",
-                                                        "Reason_SE_C_Amortization": "",
-                                                        "SE_C_Casualty_Loss": "0.00",
-                                                        "IS_EXCLUDE_SE_C_Casualty_Loss": "False",
-                                                        "Reason_SE_C_Casualty_Loss": "",
-                                                        "SE_C_X_Depreciation_Rate": "0",
-                                                        "IS_EXCLUDE_SE_C_X_Depreciation_Rate": "False",
-                                                        "Reason_SE_C_X_Depreciation_Rate": "",
-                                                        "IS_EXCLUDE": "",
-                                                        "Reason": "",
-                                                        "ModifiedBy": ""
-                                                    }
-										]
-								},
-								"number": "1",
-								"business_name": "New Business",
-								"employedfrom": "2022-01-01",
-								"Is_Active_employment_flag": "0",
-								"SelfEmploymentVerifiedThruDate": "",
-								"EmployedTo": "2023-12-31"
-						}
-				]
-		}
-},
-							"s1040s": {
-								"TaxForms": {
-									"TaxForm": [
-										{
-											"number": "1",
-											"Tax_Year": "2022",
-											"Start_date": "2022-01-01",
-											"End_date": "2022-12-31",
-											"W_2_Income": "85000",
-											"B_Interest_Income": "0.00",
-											"B_Dividend_Income": "1000",
-											"C_Net_Profit_or_Loss": "66300",
-											"C_Other_Non_Recurring_Income_or_Loss": "0.00",
-											"C_Depletion": "0.00",
-											"C_Depreciation": "1200",
-											"C_Meals_AND_Entertainment": "0.00",
-											"C_Business_Use_of_Home": "0.00",
-											"C_Business_Miles_VA_does_not_allow_add_back": "0.00",
-											"C_Total_Mileage_Depreciation": "0",
-											"C_Amortization": "0.00",
-											"C_Casualty_Loss": "337.00",
-											"C_X_Depreciation_Rate": "0",
-											"D_Recurring_Capital_Gains": "0.00",
-											"E_Royalties_Received": "0.00",
-											"E_Total_Expenses": "19700",
-											"E_Depletion": "0.00",
-											"F_Net_Profit_or_Loss": "0.00",
-											"F_Non_Recurring_Income_or_Loss": "0.00",
-											"F_Depreciation": "0.00",
-											"F_Amortization": "0.00",
-											"F_Casualty_Loss": "0.00",
-											"F_Depletion": "0.00",
-											"F_Business_Use_of_Home": "0.00",
-											"three_a": "0.00",
-											"three_b": "0.00",
-											"four_a": "0.00",
-											"four_b": "0.00",
-											"five_a": "0.00",
-											"five_b": "0.00",
-											"six_a": "0.00",
-											"six_b": "0.00",
-											"UserId": "0"
-										},
-										{
-											"number": "2",
-											"Tax_Year": "2023",
-											"Start_date": "2023-01-01",
-											"End_date": "2023-12-31",
-											"W_2_Income": "62000",
-											"B_Interest_Income": "0.00",
-											"B_Dividend_Income": "500",
-											"C_Net_Profit_or_Loss": "50300.00",
-											"C_Other_Non_Recurring_Income_or_Loss": "0.00",
-											"C_Depletion": "0.00",
-											"C_Depreciation": "2300.00",
-											"C_Meals_AND_Entertainment": "0.00",
-											"C_Business_Use_of_Home": "0.00",
-											"C_Business_Miles_VA_does_not_allow_add_back": "0.00",
-											"C_Total_Mileage_Depreciation": "0",
-											"C_Amortization": "0.00",
-											"C_Casualty_Loss": "2003.00",
-											"C_X_Depreciation_Rate": "0",
-											"D_Recurring_Capital_Gains": "0.00",
-											"E_Royalties_Received": "0.00",
-											"E_Total_Expenses": "12200",
-											"E_Depletion": "0.00",
-											"F_Net_Profit_or_Loss": "0.00",
-											"F_Non_Recurring_Income_or_Loss": "0.00",
-											"F_Depreciation": "0.00",
-											"F_Amortization": "0.00",
-											"F_Casualty_Loss": "0.00",
-											"F_Depletion": "0.00",
-											"F_Business_Use_of_Home": "500.00",
-											"three_a": "0.00",
-											"three_b": "0.00",
-											"four_a": "0.00",
-											"four_b": "0.00",
-											"five_a": "0.00",
-											"five_b": "0.00",
-											"six_a": "0.00",
-											"six_b": "0.00",
-											"UserId": "0"
-										}
-									]
-								}
-							},
-							"number": "1",
-							"name": "Raja"
-						}
-					}
-				]
-			},
-			"LoanNo": "1234AS56",
-			"AlternateLoanNo": "1234AS56",
-			"Borrowercount": "1",
-			"Borrower1": "Raja",
-			"Borrower2": "Rahman",
-			"Borrower3": "",
-			"Borrower4": "",
-			"Status": "1",
-			"AssignedUser": "23",
-			"CreatedBy": "loanDNA"
-		}
-	}
+  "status": "Completed",
+  "doc_type": "2544",
+  "doc_type_confidence_score": 0.999928594,
+  "doc_type_review_needed": false,
+  "review_needed_data": {
+    "confidence_top": 0.988739312
+  },
+  "human_review_needed": {
+    "is_human_review_needed_pre_matching": true,
+    "is_human_review_needed": true
+  },
+  "extraction_json": {
+    "doc_type": "2544",
+    "Employer Name": {
+      "value": "Radnor Veterinary",
+      "coordinates": {
+        "x0": 0.2598039215686274,
+        "y0": 0.1173123611111113,
+        "x1": 0.9318951665688889,
+        "y1": 0.7948892242424244
+      },
+      "page_num": 1
+    },
+    "W2": [
+      {
+        "year": {
+          "value": "2022",
+          "coordinates": {
+            "x0": 0.3098039215686274,
+            "y0": 0.0573123611111113,
+            "x1": 0.9318951665688889,
+            "y1": 0.7948892242424244
+          },
+          "page_num": 1
+        },
+        "wages": {
+          "value": "49963.75",
+          "coordinates": {
+            "x0": 0.4698039215686274,
+            "y0": 0.5073123611111113,
+            "x1": 0.9318951665688889,
+            "y1": 0.7948892242424244
+          },
+          "page_num": 1
+        }
+      }
+    ]
+  }
 }
