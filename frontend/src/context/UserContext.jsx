@@ -1,14 +1,20 @@
 import { createContext, useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 export const UserContext = createContext();
 
 export function UserProvider({ children }) {
-  const { docId: docIdFromParams } = useParams(); // Rename here
+  // const { docId: docIdFromParams } = useParams(); // Rename here
+
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const docIdFromParams = queryParams.get("loanid");
   const [themeStyle, setThemeStyle] = useState({ primary: "#4589ff" });
   const [docId, setDocId] = useState(docIdFromParams || null);
   const [jsonData, setJsonData] = useState({});
-  const [selectedDocType, setSelectedDocType] = useState("");
+  const [selectedDocType, setSelectedDocType] = useState(
+    docIdFromParams == "2544" ? "2544" : docIdFromParams == "2675" ? "2675" : ""
+  );
   const [docTypeList, setDocTypeList] = useState([]); // New for dynamic types
 
   const feedbackDates = {
@@ -21,26 +27,34 @@ export function UserProvider({ children }) {
   };
 
   const docTypeMap = {
-    "3188332_demo": ["Bank Statement"], 
-    "1040": ["1040"],                        
+    "3188332_demo": ["Bank Statement"],
+    1040: ["1040"],
+    2544: ["2544"],
+    2675: ["2675"],
   };
-  
-  useEffect(function () {
-    
-    if (!docId) return;
-  
-    var docType = docTypeMap[docId];
-  
-    if (docType) {
-      setDocTypeList(docType);
-      setSelectedDocType(docType[0]);
-    } else {
-      setDocTypeList(["Paystub", "W2", "Bank Statement", "Credit Report", "WVOE"]);
-      setSelectedDocType("Paystub");
-    }
-  }, [docId]);
-  
-  
+
+  useEffect(
+    function () {
+      if (!docId) return;
+
+      var docType = docTypeMap[docId];
+
+      if (docType) {
+        setDocTypeList(docType);
+        setSelectedDocType(docType[0]);
+      } else {
+        setDocTypeList([
+          "Paystub",
+          "W2",
+          "Bank Statement",
+          "Credit Report",
+          "WVOE",
+        ]);
+        setSelectedDocType("Paystub");
+      }
+    },
+    [docId, docIdFromParams]
+  );
 
   async function handleJSONChange() {
     if (!docId) return;
@@ -67,6 +81,12 @@ export function UserProvider({ children }) {
         case "1040":
           jsonPath = `/${docId}/json/ic_${docId}.json`;
           break;
+        case "2544":
+          jsonPath = `/${docId}/json/ic_${docId}.json`;
+          break;
+        case "2675":
+          jsonPath = `/${docId}/json/ic_${docId}.json`;
+          break;
         default:
           jsonPath = `/${docId}/json/ic_${docId}_paystub.json`;
       }
@@ -81,11 +101,14 @@ export function UserProvider({ children }) {
     }
   }
 
-  useEffect(function () {
-    if (docId) {
-      handleJSONChange();
-    }
-  }, [docId, selectedDocType]);
+  useEffect(
+    function () {
+      if (docId) {
+        handleJSONChange();
+      }
+    },
+    [docId, selectedDocType]
+  );
 
   return (
     <UserContext.Provider

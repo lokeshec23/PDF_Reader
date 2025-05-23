@@ -12,11 +12,12 @@ const App = () => {
     <div className="flex flex-col h-screen">
       {/* <Header /> */}
       <Routes>
-        <Route path="/:docId" element={<MainLayout />} />
+        <Route path="/" element={<MainLayout />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
+  
 };
 
 export default App;

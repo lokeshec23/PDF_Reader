@@ -10,11 +10,14 @@ import {
   ZoomReset,
 } from "@carbon/icons-react";
 import { UserContext } from "../../context/UserContext.jsx";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { pdfPathMap } from "../../config/pdfPathMap";
 
 const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
-  const { docId } = useParams();
+  // const { docId } = useParams();
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const docId = queryParams.get("loanid");
   const { selectedDocType } = useContext(UserContext);
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
@@ -44,6 +47,7 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
   }, [pageNumber]);
 
   useEffect(() => {
+    debugger;
     handlePDFChange();
   }, [selectedDocType]);
 
@@ -94,10 +98,9 @@ const PViewer = ({ hoveredKey, data, setPageRenderReady }) => {
   const showResetButton =
     zoom !== 1 || rotation !== 0 || offset.x !== 0 || offset.y !== 0;
 
-  // ⭐ This part is NEW ⭐
   useEffect(() => {
     if (docId?.startsWith("122")) {
-      setZoom((z) => Math.max(z - 0.1, 0.1)); // Zoom out once
+      setZoom((z) => Math.max(z - 0.1, 0.1));
     }
   }, [docId]);
 

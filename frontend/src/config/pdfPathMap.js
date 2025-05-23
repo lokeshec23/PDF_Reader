@@ -6,7 +6,9 @@ export const pdfPathMap = {
   W2: (docId) => `/${docId}/pdf/ic_${docId}_w2.pdf`,
   "Credit Report": (docId) => `/${docId}/pdf/ic_${docId}_creditreport.pdf`,
   WVOE: (docId) => `/${docId}/pdf/ic_${docId}_wvoe.pdf`,
-  "1040": (docId) => `/${docId}/pdf/ic_${docId}.pdf`,
+  1040: (docId) => `/${docId}/pdf/ic_${docId}.pdf`,
+  2544: (docId) => `/${docId}/pdf/ic_${docId}.pdf`,
+  2675: (docId) => `/${docId}/pdf/ic_${docId}.pdf`,
   "Schedule E": (docId) => "",
   VVOE: (docId) => "",
 };

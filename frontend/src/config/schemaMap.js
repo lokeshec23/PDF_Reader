@@ -9,7 +9,13 @@ export const schemaMap = {
     ],
     sectionKey: "transactions",
     sectionTitle: "Transaction",
-    sectionFields: ["Credit_Debit", "creditor","Amount", "Account", "Description"],
+    sectionFields: [
+      "Credit_Debit",
+      "creditor",
+      "Amount",
+      "Account",
+      "Description",
+    ],
     sectionTitleField: "Description",
   },
   Paystub: {
@@ -67,7 +73,47 @@ export const schemaMap = {
     sectionTitleField: "Year",
   },
   1040: {
-    flatFields: ["First Name", "Last Name", "SSN", "year", "Schedule C Profit or Loss"],
+    flatFields: [
+      "First Name",
+      "Last Name",
+      "SSN",
+      "year",
+      "Schedule C Profit or Loss",
+    ],
+
+    // sectionKey: "W2",
+
+    // sectionTitle: "W2 Detail",
+
+    // sectionFields: ["year", "wages"],
+
+    // sectionTitleField: "year", // NEW!
+  },
+  2544: {
+    flatFields: [
+      "First Name",
+      "Last Name",
+      "SSN",
+      "year",
+      "Schedule C Profit or Loss",
+    ],
+
+    // sectionKey: "W2",
+
+    // sectionTitle: "W2 Detail",
+
+    // sectionFields: ["year", "wages"],
+
+    // sectionTitleField: "year", // NEW!
+  },
+  2675: {
+    flatFields: [
+      "First Name",
+      "Last Name",
+      "SSN",
+      "year",
+      "Schedule C Profit or Loss",
+    ],
 
     // sectionKey: "W2",
 
