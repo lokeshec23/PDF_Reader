@@ -105,12 +105,12 @@ export const schemaMap = {
     sectionFields: [
       "year",
       "W-2 Income",
-      "Divided Income",
+      "Dividend Income",
       "Net Profit or Loss",
-      "Depresssion",
-      "Casuality Loss",
+      "Depletion",
+      "Casualty Loss",
       "Total Expenses",
-      "Business of home",
+      "Business Use of Home",
     ],
 
     sectionTitleField: "year", // NEW!
