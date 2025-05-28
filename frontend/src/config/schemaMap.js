@@ -116,20 +116,21 @@ export const schemaMap = {
     sectionTitleField: "year", // NEW!
   },
   2675: {
-    flatFields: [
-      "First Name",
-      "Last Name",
-      "SSN",
+    sectionKey: "W2",
+
+    sectionTitle: "W2 Detail",
+
+    sectionFields: [
       "year",
-      "Schedule C Profit or Loss",
+      "W-2 Income",
+      "Dividend Income",
+      "Net Profit or Loss",
+      "Depletion",
+      "Casualty Loss",
+      "Total Expenses",
+      "Business Use of Home",
     ],
 
-    // sectionKey: "W2",
-
-    // sectionTitle: "W2 Detail",
-
-    // sectionFields: ["year", "wages"],
-
-    // sectionTitleField: "year", // NEW!
+    sectionTitleField: "year", // NEW!
   },
 };

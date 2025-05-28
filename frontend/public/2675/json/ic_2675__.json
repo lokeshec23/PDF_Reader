@@ -1,0 +1,215 @@
+{
+	"LoanWageEaner": {
+		"Loan": {
+			"Borrowers": {
+				"Borrower": [
+					{
+						"Borrowerinfo": {
+
+							"Selfemployeds": {
+								"Businesss": {
+									"Business": [
+										{
+											"SEscheduleCs": {
+												"SEscheduleC": [
+													{
+														"number": "1",
+														"Tax_Year": "2023",
+														"Start_date": "2023-01-01",
+														"End_date": "2023-12-31",
+														"SE_C_Net_Profit_or_Loss": "7450.00",
+														"IS_EXCLUDE_SE_C_Net_Profit_or_Loss": "False",
+														"Reason_SE_C_Net_Profit_or_Loss": "5764.00",
+														"SE_C_Other_Non_Recurring_Income_or_Loss": "0.00",
+														"IS_EXCLUDE_SE_C_Other_Non_Recurring_Income_or_Loss": "False",
+														"Reason_SE_C_Other_Non_Recurring_Income_or_Loss": "",
+														"SE_C_Depletion": "0.00",
+														"IS_EXCLUDE_SE_C_Depletion": "False",
+														"Reason_SE_C_Depletion": "",
+														"SE_C_Depreciation": "1500.00",
+														"IS_EXCLUDE_SE_C_Depreciation": "False",
+														"Reason_SE_C_Depreciation": "",
+														"SE_C_Meals_AND_Entertainment": "800",
+														"IS_EXCLUDE_SE_C_Meals_AND_Entertainment": "False",
+														"Reason_SE_C_Meals_AND_Entertainment": "",
+														"SE_C_Business_Use_of_Home": "5000.00",
+														"IS_EXCLUDE_SE_C_Business_Use_of_Home": "False",
+														"Reason_SE_C_Business_Use_of_Home": "",
+														"SE_C_Business_Miles_VA_does_not_allow_add_back": "0.00",
+														"IS_EXCLUDE_SE_C_Business_Miles_VA_does_not_allow_add_back": "False",
+														"Reason_SE_C_Business_Miles_VA_does_not_allow_add_back": "",
+														"SE_C_Total_Mileage_Depreciation": "0.00",
+														"IS_EXCLUDE_SE_C_Total_Mileage_Depreciation": "False",
+														"Reason_SE_C_Total_Mileage_Depreciation": "",
+														"SE_C_Amortization": "0.00",
+														"IS_EXCLUDE_SE_C_Amortization": "False",
+														"Reason_SE_C_Amortization": "",
+														"SE_C_Casualty_Loss": "0.00",
+														"IS_EXCLUDE_SE_C_Casualty_Loss": "False",
+														"Reason_SE_C_Casualty_Loss": "",
+														"SE_C_X_Depreciation_Rate": "0",
+														"IS_EXCLUDE_SE_C_X_Depreciation_Rate": "False",
+														"Reason_SE_C_X_Depreciation_Rate": "",
+														"IS_EXCLUDE": "",
+														"Reason": "",
+														"ModifiedBy": ""
+													},
+													{
+														"number": "2",
+														"Tax_Year": "2024",
+														"Start_date": "2024-01-01",
+														"End_date": "2024-12-31",
+														"SE_C_Net_Profit_or_Loss": "15500.00",
+														"IS_EXCLUDE_SE_C_Net_Profit_or_Loss": "False",
+														"Reason_SE_C_Net_Profit_or_Loss": "",
+														"SE_C_Other_Non_Recurring_Income_or_Loss": "5000.00",
+														"IS_EXCLUDE_SE_C_Other_Non_Recurring_Income_or_Loss": "False",
+														"Reason_SE_C_Other_Non_Recurring_Income_or_Loss": "",
+														"SE_C_Depletion": "10000.00",
+														"IS_EXCLUDE_SE_C_Depletion": "False",
+														"Reason_SE_C_Depletion": "",
+														"SE_C_Depreciation": "500",
+														"IS_EXCLUDE_SE_C_Depreciation": "False",
+														"Reason_SE_C_Depreciation": "",
+														"SE_C_Meals_AND_Entertainment": "5000.00",
+														"IS_EXCLUDE_SE_C_Meals_AND_Entertainment": "False",
+														"Reason_SE_C_Meals_AND_Entertainment": "",
+														"SE_C_Business_Use_of_Home": "500",
+														"IS_EXCLUDE_SE_C_Business_Use_of_Home": "False",
+														"Reason_SE_C_Business_Use_of_Home": "",
+														"SE_C_Business_Miles_VA_does_not_allow_add_back": "0.00",
+														"IS_EXCLUDE_SE_C_Business_Miles_VA_does_not_allow_add_back": "False",
+														"Reason_SE_C_Business_Miles_VA_does_not_allow_add_back": "",
+														"SE_C_Total_Mileage_Depreciation": "0.00",
+														"IS_EXCLUDE_SE_C_Total_Mileage_Depreciation": "False",
+														"Reason_SE_C_Total_Mileage_Depreciation": "",
+														"SE_C_Amortization": "0.00",
+														"IS_EXCLUDE_SE_C_Amortization": "False",
+														"Reason_SE_C_Amortization": "",
+														"SE_C_Casualty_Loss": "0.00",
+														"IS_EXCLUDE_SE_C_Casualty_Loss": "False",
+														"Reason_SE_C_Casualty_Loss": "",
+														"SE_C_X_Depreciation_Rate": "0",
+														"IS_EXCLUDE_SE_C_X_Depreciation_Rate": "False",
+														"Reason_SE_C_X_Depreciation_Rate": "",
+														"IS_EXCLUDE": "",
+														"Reason": "",
+														"ModifiedBy": ""
+													}
+												]
+											},
+											"number": "1",
+											"business_name": "New Business",
+											"employedfrom": "2023-01-01",
+											"Is_Active_employment_flag": "0",
+											"SelfEmploymentVerifiedThruDate": "",
+											"EmployedTo": "2024-12-31"
+										}
+									]
+								}
+							},
+											"s1040s": {
+												"TaxForms": {
+													"TaxForm": [
+														{
+															"number": "1",
+															"Tax_Year": "2023",
+															"Start_date": "2023-01-01",
+															"End_date": "2023-12-31",
+															"W_2_Income": "4564",
+															"B_Interest_Income": "0.00",
+															"B_Dividend_Income": "1200",
+															"C_Net_Profit_or_Loss": "7450",
+															"C_Other_Non_Recurring_Income_or_Loss": "1200",
+															"C_Depletion": "0.00",
+															"C_Depreciation": "1500",
+															"C_Meals_AND_Entertainment": "800",
+															"C_Business_Use_of_Home": "0.00",
+															"C_Business_Miles_VA_does_not_allow_add_back": "0.00",
+															"C_Total_Mileage_Depreciation": "0",
+															"C_Amortization": "0.00",
+															"C_Casualty_Loss": "0.00",
+															"C_X_Depreciation_Rate": "0",
+															"D_Recurring_Capital_Gains": "0.00",
+															"E_Royalties_Received": "0.00",
+															"E_Total_Expenses": "0",
+															"E_Depletion": "0.00",
+															"F_Net_Profit_or_Loss": "0.00",
+															"F_Non_Recurring_Income_or_Loss": "0.00",
+															"F_Depreciation": "0.00",
+															"F_Amortization": "0.00",
+															"F_Casualty_Loss": "0.00",
+															"F_Depletion": "0.00",
+															"F_Business_Use_of_Home": "0.00",
+															"three_a": "0.00",
+															"three_b": "0.00",
+															"four_a": "0.00",
+															"four_b": "0.00",
+															"five_a": "0.00",
+															"five_b": "0.00",
+															"six_a": "0.00",
+															"six_b": "0.00",
+															"UserId": "0"
+														},
+														{
+															"number": "1",
+															"Tax_Year": "2024",
+															"Start_date": "2024-01-01",
+															"End_date": "2024-12-31",
+															"W_2_Income": "5000",
+															"B_Interest_Income": "0.00",
+															"B_Dividend_Income": "5000",
+															"C_Net_Profit_or_Loss": "15500",
+															"C_Other_Non_Recurring_Income_or_Loss": "5000",
+															"C_Depletion": "10000",
+															"C_Depreciation": "500",
+															"C_Meals_AND_Entertainment": "5000",
+															"C_Business_Use_of_Home": "0.00",
+															"C_Business_Miles_VA_does_not_allow_add_back": "0.00",
+															"C_Total_Mileage_Depreciation": "0",
+															"C_Amortization": "0.00",
+															"C_Casualty_Loss": "0.00",
+															"C_X_Depreciation_Rate": "0",
+															"D_Recurring_Capital_Gains": "0.00",
+															"E_Royalties_Received": "0.00",
+															"E_Total_Expenses": "0",
+															"E_Depletion": "0.00",
+															"F_Net_Profit_or_Loss": "0.00",
+															"F_Non_Recurring_Income_or_Loss": "0.00",
+															"F_Depreciation": "0.00",
+															"F_Amortization": "0.00",
+															"F_Casualty_Loss": "0.00",
+															"F_Depletion": "0.00",
+															"F_Business_Use_of_Home": "0.00",
+															"three_a": "0.00",
+															"three_b": "0.00",
+															"four_a": "0.00",
+															"four_b": "0.00",
+															"five_a": "0.00",
+															"five_b": "0.00",
+															"six_a": "0.00",
+															"six_b": "0.00",
+															"UserId": "0"
+														}
+													]
+												}
+											},
+											"number": "1",
+											"name": "Raja"
+										}
+								}
+				]
+			},
+			"LoanNo": "1234AS56",
+			"AlternateLoanNo": "1234AS56",
+			"Borrowercount": "1",
+			"Borrower1": "Raja",
+			"Borrower2": "",
+			"Borrower3": "",
+			"Borrower4": "",
+			"Status": "1",
+			"AssignedUser": "23",
+			"CreatedBy": "loanDNA"
+		}
+	}
+}
